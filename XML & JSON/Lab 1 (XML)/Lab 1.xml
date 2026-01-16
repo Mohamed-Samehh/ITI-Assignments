@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <!-- Library Information -->
+    <location>Cairo Central Library</location>
+    <description>A modern library with a great collection of books</description>
+    <librarian name="Mohamed Sameh" email="mohamed.sameh@library.com"/>
+    
+    <books>
+        <!-- First Book -->
+        <book isbn="123-456">
+            <title>Learning Python</title>
+            <author>Mohamed Sameh</author>
+            
+            <preface>
+                <![CDATA[
+                This book will teach you Python programming step by step.
+                It's perfect for beginners & includes lots of examples.
+                ]]>
+            </preface>
+            
+            <part id="1">
+                <title>Python Basics</title>
+                
+                <chapter num="1">
+                    <title>Introduction to Python</title>
+                    <summary>What is Python and why should you learn it?</summary>
+                    
+                    <section id="1.1">
+                        <paragraph>Python is a simple and powerful programming language.</paragraph>
+                        <paragraph>It is used for web development, data science, and more.</paragraph>
+                    </section>
+                    
+                    <section id="1.2">
+                        <paragraph>Python is easy to read and write.</paragraph>
+                    </section>
+                </chapter>
+                
+                <chapter num="2">
+                    <title>Your First Program</title>
+                    <summary>Writing and running your first Python code.</summary>
+                    
+                    <section id="2.1">
+                        <paragraph>Open your text editor and type: print Hello World.</paragraph>
+                        <paragraph>Save the file and run it to see your first output.</paragraph>
+                    </section>
+                </chapter>
+            </part>
+            
+            <part id="2">
+                <title>Working with Data</title>
+                
+                <chapter num="3">
+                    <title>Variables</title>
+                    <summary>How to store information in your programs.</summary>
+                    
+                    <section id="3.1">
+                        <paragraph>Variables are like boxes that hold data.</paragraph>
+                        <paragraph>You can store numbers, text, and other values in them.</paragraph>
+                    </section>
+                </chapter>
+            </part>
+        </book>
+        
+        <!-- Second Book -->
+        <book isbn="789-012">
+            <title>The Adventure Begins</title>
+            <author>Mohamed Sameh</author>
+            
+            <preface>
+                <![CDATA[
+                An exciting story about friendship and courage.
+                Perfect for readers who love adventure & fantasy!
+                ]]>
+            </preface>
+            
+            <part id="1">
+                <title>The Journey Starts</title>
+                
+                <chapter num="1">
+                    <title>A New Day</title>
+                    <summary>Ahmed discovers something amazing in his backyard.</summary>
+                    
+                    <section id="1.1">
+                        <paragraph>Ahmed woke up early on a sunny morning.</paragraph>
+                        <paragraph>He found a mysterious map under an old tree.</paragraph>
+                    </section>
+                    
+                    <section id="1.2">
+                        <paragraph>The map showed a path to a hidden treasure.</paragraph>
+                    </section>
+                </chapter>
+            </part>
+        </book>
+    </books>
+</library>

@@ -1,0 +1,76 @@
+{
+  "library": {
+    "location": "Cairo",
+    "description": "a public library for people to read books",
+    "librarian": "Ahmed Hassan",
+    "books": [
+      {
+        "title": "Introduction to Java",
+        "isbn": "978",
+        "author": "Daniel",
+        "preface": "this book explains java",
+        "parts": [
+          {
+            "title": "Fundamentals",
+            "chapters": [
+              {
+                "title": "Introduction to Computers and Java",
+                "summary": "talks about computers and java basics",
+                "sections": [
+                  "What is a computer",
+                  "Programming languages",
+                  "Java intro"
+                ]
+              },
+              {
+                "title": "Elementary Programming",
+                "summary": "basic programming stuff",
+                "sections": [
+                  "Simple programs",
+                  "Variables",
+                  "Operators"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Object-Oriented Programming",
+            "chapters": [
+              {
+                "title": "Objects and Classes",
+                "summary": "explains oop concepts",
+                "sections": [
+                  "Classes",
+                  "Objects",
+                  "Constructors"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Clean Code",
+        "isbn": "088",
+        "author": "Martin",
+        "preface": "this book is about writing better code",
+        "parts": [
+          {
+            "title": "Writing Clean Code",
+            "chapters": [
+              {
+                "title": "Meaningful Names",
+                "summary": "how to name things in code",
+                "sections": [
+                  "Good names",
+                  "Bad names",
+                  "Clear names"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
