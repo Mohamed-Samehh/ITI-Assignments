@@ -1,6 +1,3 @@
-// portfolio-data.ts
-// Simple export of portfolio data as plain objects/arrays (no models, no service)
-
 export const PROJECTS = [
   {
     title: 'Financial Advisor',
