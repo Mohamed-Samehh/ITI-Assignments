@@ -17,16 +17,14 @@ export class PortfolioService {
       {
         title: 'Financial Advisor',
         description: 'AI-Powered Financial Advisor',
-        technologies: ['Angular', 'Bootstrap', 'Flutter'],
-        image: 'fab fa-angular', // Angular icon
+        technologies: ['Angular', 'Bootstrap', 'Laravel', 'Flask', 'MySQL', 'AI/ML'],
         githubLink: 'https://github.com/Mohamed-Samehh/Financial-Advisor',
         liveLink: '',
       },
       {
         title: 'Spec Recommender',
         description: 'BUE Specialization Recommender',
-        technologies: ['React', 'Vite', 'Node.js', 'Express'],
-        image: 'fab fa-react', // React icon
+        technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
         githubLink: 'https://github.com/Mohamed-Samehh/BUE-Spec-Path',
         liveLink: '',
       },
@@ -34,7 +32,6 @@ export class PortfolioService {
         title: 'PeerLink-Mobile',
         description: 'Social Media Mobile Application',
         technologies: ['Flutter', 'Laravel', 'MySQL'],
-        image: 'fab fa-flutter', // Flutter icon
         githubLink: 'https://github.com/Mohamed-Samehh/PeerLink-Mobile',
         liveLink: '',
       },
@@ -42,7 +39,6 @@ export class PortfolioService {
         title: 'Blog',
         description: 'Backend for Blog Website',
         technologies: ['Laravel', 'MySQL'],
-        image: 'fas fa-blog', // Blog icon
         githubLink: 'https://github.com/Mohamed-Samehh/Blog',
         liveLink: 'https://mohamed-samehh.github.io/Recipe-Finder/',
       },
@@ -50,7 +46,6 @@ export class PortfolioService {
         title: 'Recipe Finder',
         description: 'Cooking Recipes Website',
         technologies: ['Angular', 'Bootstrap'],
-        image: 'fas fa-utensils', // Recipe icon
         githubLink: 'https://github.com/Mohamed-Samehh/Recipe-Finder',
         liveLink: '',
       },
