@@ -1,0 +1,32 @@
+<section id="certifications" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="d-inline-block text-primary fw-semibold text-uppercase small mb-3">Credentials</span>
+            <h2 class="display-5 fw-bold text-dark">Certifications</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div *ngFor="let cert of certifications" class="col-md-8 col-lg-6">
+                <div class="card shadow border-0 rounded-4 h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <img [src]="cert.badgeUrl" [alt]="cert.title" width="90" height="90">
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">{{ cert.title }}</h5>
+                        <p class="text-secondary mb-3">{{ cert.issueDate }}</p>
+                        <div class="d-flex justify-content-center mb-3">
+                            <span
+                                class="badge bg-primary bg-opacity-10 text-primary small fw-semibold px-3 py-2 rounded-pill">
+                                {{ cert.issuer }}
+                            </span>
+                        </div>
+                        <a [href]="cert.certificateUrl" target="_blank"
+                            class="btn btn-outline-secondary btn-sm px-4 py-2 rounded-2">
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

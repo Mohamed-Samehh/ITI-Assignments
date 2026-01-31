@@ -1,0 +1,41 @@
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <span class="d-inline-block text-primary fw-semibold text-uppercase small mb-3">About me</span>
+                <h2 class="display-5 fw-bold text-dark mb-4 lh-sm">Who am I?</h2>
+                <p class="fs-5 text-secondary mb-4 lh-lg">
+                    As a software engineer in the tech industry, I have established
+                    knowledge and capabilities in software development as a full-stack
+                    developer. I have further developed my technical competence
+                    through academic education and hands-on projects in various
+                    environments.
+                </p>
+                <p class="fs-5 text-secondary lh-lg">
+                    I consider myself flexible and client-oriented, with an analytical
+                    and creative approach to problem-solving. I am ready to add value
+                    to both independent endeavors and teams within dynamic company
+                    environments.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center h-100">
+                    <div class="card shadow border-0 rounded-4 w-100">
+                        <div class="card-body p-4">
+                            <div *ngFor="let edu of education"
+                                class="d-flex align-items-center gap-3 p-3 rounded-3 mb-2">
+                                <img [src]="edu.logo" [alt]="edu.institution" class="rounded"
+                                    [width]="getLogoWidth(edu.institution)" [height]="getLogoHeight(edu.institution)">
+                                <div>
+                                    <span class="d-block fw-semibold fs-6 text-dark">{{ edu.institution }}</span>
+                                    <span class="d-block text-secondary">{{ edu.degree }}</span>
+                                    <span class="d-block small text-secondary">{{ edu.duration }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

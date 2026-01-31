@@ -1,0 +1,36 @@
+<section id="experience" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="d-inline-block text-primary fw-semibold text-uppercase small mb-3">Career path</span>
+            <h2 class="display-5 fw-bold text-dark">Professional Experience</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="d-flex flex-column gap-4">
+                    <div *ngFor="let exp of experiences" class="d-flex">
+                        <div class="card shadow border-0 rounded-4 flex-grow-1">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-start gap-3 mb-3">
+                                    <img [src]="exp.logo" [alt]="exp.company" class="rounded-2" width="48" height="48">
+                                    <div class="flex-grow-1">
+                                        <div
+                                            class="d-flex flex-column flex-md-row justify-content-between align-items-start">
+                                            <h5 class="fw-bold text-dark mb-1">{{ exp.position }}</h5>
+                                            <span
+                                                class="badge bg-primary bg-opacity-10 text-primary small fw-semibold px-3 py-2 rounded-pill">
+                                                {{ exp.duration }}
+                                            </span>
+                                        </div>
+                                        <p class="text-secondary mb-0">{{ exp.location }}</p>
+                                    </div>
+                                </div>
+                                <p class="text-secondary mb-0">{{ exp.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
