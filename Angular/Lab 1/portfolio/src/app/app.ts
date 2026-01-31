@@ -25,5 +25,5 @@ import { ContactComponent } from './components/contact/contact';
   styleUrl: './app.css',
 })
 export class AppComponent {
-  title = 'portfolio-angular';
+  title = 'portfolio';
 }
