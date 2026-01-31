@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioService } from '../../services/portfolio.service';
-import { Skill } from '../../models/portfolio.models';
+import { SKILLS } from '../../portfolio-data';
 
 @Component({
   selector: 'app-skills',
@@ -11,11 +10,9 @@ import { Skill } from '../../models/portfolio.models';
   styleUrls: ['./skills.css'],
 })
 export class SkillsComponent implements OnInit {
-  skills: Skill[] = [];
+  skills = SKILLS;
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.skills = this.portfolioService.getSkills();
-  }
+  ngOnInit(): void {}
 }

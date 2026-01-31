@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioService } from '../../services/portfolio.service';
-import { Certification } from '../../models/portfolio.models';
+import { CERTIFICATIONS } from '../../portfolio-data';
 
 @Component({
   selector: 'app-certifications',
@@ -11,11 +10,9 @@ import { Certification } from '../../models/portfolio.models';
   styleUrls: ['./certifications.css'],
 })
 export class CertificationsComponent implements OnInit {
-  certifications: Certification[] = [];
+  certifications = CERTIFICATIONS;
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.certifications = this.portfolioService.getCertifications();
-  }
+  ngOnInit(): void {}
 }

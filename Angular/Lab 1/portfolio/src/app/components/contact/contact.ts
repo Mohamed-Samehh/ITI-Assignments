@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioService } from '../../services/portfolio.service';
-import { ContactInfo } from '../../models/portfolio.models';
+import { CONTACT_INFO } from '../../portfolio-data';
 
 @Component({
   selector: 'app-contact',
@@ -11,11 +10,9 @@ import { ContactInfo } from '../../models/portfolio.models';
   styleUrls: ['./contact.css'],
 })
 export class ContactComponent implements OnInit {
-  contactInfo!: ContactInfo;
+  contactInfo = CONTACT_INFO;
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.contactInfo = this.portfolioService.getContactInfo();
-  }
+  ngOnInit(): void {}
 }

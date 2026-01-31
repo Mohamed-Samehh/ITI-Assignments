@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioService } from '../../services/portfolio.service';
-import { Education } from '../../models/portfolio.models';
+import { EDUCATION } from '../../portfolio-data';
 
 @Component({
   selector: 'app-about',
@@ -11,13 +10,11 @@ import { Education } from '../../models/portfolio.models';
   styleUrls: ['./about.css'],
 })
 export class AboutComponent implements OnInit {
-  education: Education[] = [];
+  education = EDUCATION;
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.education = this.portfolioService.getEducation();
-  }
+  ngOnInit(): void {}
 
   getLogoWidth(institution: string): number {
     return institution.includes('London South Bank') ? 48 : 40;
