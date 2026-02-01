@@ -1,0 +1,30 @@
+<div class="users-container">
+    <div class="header">
+        <h1>Users</h1>
+
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="searchEmail" placeholder="email" class="search-input"
+                (keydown.enter)="onSearch()" />
+            <button (click)="onSearch()" class="search-button">Search</button>
+        </div>
+    </div>
+
+    <div class="users-grid">
+        <div *ngFor="let user of users" class="user-card">
+            <div class="profile-picture">
+                <div class="avatar-placeholder"></div>
+            </div>
+
+            <div class="role-chip" [style.background-color]="getRoleColor(user.role)">
+                {{ user.role }}
+            </div>
+
+            <div class="user-info">
+                <div class="info-item"><strong>Username:</strong> {{ user.username }}</div>
+                <div class="info-item"><strong>Email:</strong> {{ user.email }}</div>
+                <div class="info-item"><strong>Phone:</strong> {{ user.phone }}</div>
+                <div class="info-item"><strong>Birthdate:</strong> {{ user.birthdate }}</div>
+            </div>
+        </div>
+    </div>
+</div>
