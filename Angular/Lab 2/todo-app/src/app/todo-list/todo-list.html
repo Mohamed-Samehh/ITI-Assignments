@@ -1,0 +1,10 @@
+<div class="list-container">
+    <p *ngIf="todos.length === 0" class="empty-message">No tasks yet!</p>
+
+    <ul class="todo-list">
+        <li *ngFor="let todo of todos; let i = index" class="todo-item">
+            <span class="todo-text">{{ i + 1 }}. {{ todo.text }}</span>
+            <button (click)="delete(i)" class="delete-button">×</button>
+        </li>
+    </ul>
+</div>

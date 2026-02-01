@@ -1,0 +1,5 @@
+<div class="input-container">
+    <input type="text" [(ngModel)]="task" placeholder="What do you need to do?" (keyup.enter)="add()"
+        class="task-input" />
+    <button (click)="add()" class="add-button">Add Task</button>
+</div>
