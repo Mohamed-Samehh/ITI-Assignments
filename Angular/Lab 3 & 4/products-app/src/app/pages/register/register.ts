@@ -8,7 +8,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +20,10 @@ import { RouterModule } from '@angular/router';
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+  ) {
     this.registerForm = this.fb.group(
       {
         name: ['', Validators.required],
@@ -77,7 +80,7 @@ export class RegisterComponent {
   onSubmit(): void {
     if (this.registerForm.valid) {
       console.log('Register:', this.registerForm.value);
-      // Add registration logic here
+      this.router.navigate(['/']);
     }
   }
 

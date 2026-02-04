@@ -46,6 +46,12 @@ input:focus {
   border-color: #007bff;
 }
 
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
 .submit-btn {
   width: 100%;
   padding: 0.75rem;
@@ -59,8 +65,13 @@ input:focus {
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .auth-link {
