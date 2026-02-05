@@ -1,0 +1,42 @@
+<div class="product-details-container" *ngIf="product">
+    <div class="product-images">
+        <img [src]="product.image" [alt]="product.name" class="main-image">
+        <div class="thumbnail-images">
+            <img *ngFor="let img of product.images" [src]="img" [alt]="product.name" class="thumbnail">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <p class="description">{{ product.description }}</p>
+        <div class="price">${{ product.price }} or 99.99/month</div>
+        <p class="payment-info">Suggested payments with 6 months special financing</p>
+
+        <div class="stock-status" [class.in-stock]="product.stock > 0" [class.out-of-stock]="product.stock === 0">
+            {{ product.stock > 0 ? 'In stock' : 'Out of stock' }}
+        </div>
+
+        <div class="rating">
+            <span *ngFor="let filled of getStarArray()" [class.filled]="filled">★</span>
+        </div>
+
+        <div class="product-meta">
+            <p><strong>More Information</strong></p>
+            <p>Category: {{ product.category }}</p>
+            <p>Brand: {{ product.brand }}</p>
+        </div>
+
+        <div class="quantity-selector">
+            <button (click)="decreaseQuantity()">-</button>
+            <span>{{ quantity }}</span>
+            <button (click)="increaseQuantity()">+</button>
+            <span class="stock-info">Only {{ product.stock }} Item{{ product.stock !== 1 ? 's' : '' }} Left! Don't miss
+                it</span>
+        </div>
+
+        <div class="action-buttons">
+            <button class="buy-now" [disabled]="product.stock === 0">Buy Now</button>
+            <button class="add-to-cart" [disabled]="product.stock === 0">Add to Cart</button>
+        </div>
+    </div>
+</div>

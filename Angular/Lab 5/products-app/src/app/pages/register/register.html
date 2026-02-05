@@ -1,0 +1,60 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Register</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" formControlName="name">
+                <div class="error" *ngIf="f['name'].invalid && f['name'].touched">
+                    Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email">
+                <div class="error" *ngIf="f['email'].invalid && f['email'].touched">
+                    <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+                    <span *ngIf="f['email'].errors?.['email']">Please enter a valid email</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" id="username" formControlName="username">
+                <div class="error" *ngIf="f['username'].invalid && f['username'].touched">
+                    <span *ngIf="f['username'].errors?.['required']">Username is required</span>
+                    <span *ngIf="f['username'].errors?.['noSpaces']">Username cannot contain spaces</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password">
+                <div class="error" *ngIf="f['password'].invalid && f['password'].touched">
+                    <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+                    <div *ngIf="f['password'].errors?.['minLength']">Password must be at least 8 characters</div>
+                    <div *ngIf="f['password'].errors?.['lowercase']">Password must contain at least one lowercase letter
+                    </div>
+                    <div *ngIf="f['password'].errors?.['uppercase']">Password must contain at least one uppercase letter
+                    </div>
+                    <div *ngIf="f['password'].errors?.['digit']">Password must contain at least one digit</div>
+                    <div *ngIf="f['password'].errors?.['specialChar']">Password must contain at least one special
+                        character</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword">
+                <div class="error" *ngIf="f['confirmPassword'].touched && registerForm.errors?.['passwordMismatch']">
+                    Passwords do not match
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" [disabled]="registerForm.invalid">Register</button>
+        </form>
+
+        <p class="auth-link">Already have account! <a routerLink="/login">login</a></p>
+    </div>
+</div>
