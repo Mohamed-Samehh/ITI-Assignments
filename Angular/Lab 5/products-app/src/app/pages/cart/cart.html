@@ -1,0 +1,27 @@
+<div class="cart-container">
+    <h1>Shopping Cart</h1>
+
+    <div class="cart-summary" *ngIf="(count$ | async) as count">
+        Items: {{ count }}
+    </div>
+
+    <ng-container *ngIf="(items$ | async) as items">
+        <div class="empty-cart" *ngIf="items.length === 0">Empty cart</div>
+
+        <div class="cart-list" *ngIf="items.length > 0">
+            <div class="cart-item" *ngFor="let item of items">
+                <img [src]="item.product.image" [alt]="item.product.name" class="item-image">
+                <div class="item-info">
+                    <h3>{{ item.product.name }}</h3>
+                    <p class="price">${{ item.product.price }}</p>
+                </div>
+                <div class="item-quantity">
+                    <button (click)="decrease(item.product.id)">-</button>
+                    <span>{{ item.quantity }}</span>
+                    <button (click)="increase(item.product.id)">+</button>
+                </div>
+                <button class="remove" (click)="remove(item.product.id)">Remove</button>
+            </div>
+        </div>
+    </ng-container>
+</div>

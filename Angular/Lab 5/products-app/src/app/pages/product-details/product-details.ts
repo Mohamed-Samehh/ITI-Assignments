@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 import { ProductsService } from '../../services/products';
 import { Product } from '../../models/product.interface';
+import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-product-details',
@@ -12,22 +14,32 @@ import { Product } from '../../models/product.interface';
   styleUrl: './product-details.css',
 })
 export class ProductDetailsComponent implements OnInit {
-  product: Product | undefined;
+  product: Product | null = null;
   quantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productsService: ProductsService,
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.productsService.getProductById(id);
-
-    if (!this.product) {
-      this.router.navigate(['/404']);
-    }
+    this.productsService
+      .getProductById(id)
+      .pipe(
+        catchError(() => {
+          this.router.navigate(['/404']);
+          return of(null);
+        }),
+      )
+      .subscribe((product) => {
+        if (!product) {
+          return;
+        }
+        this.product = product;
+      });
   }
 
   getStarArray(): boolean[] {
@@ -46,5 +58,13 @@ export class ProductDetailsComponent implements OnInit {
     if (this.quantity > 1) {
       this.quantity--;
     }
+  }
+
+  addToCart(): void {
+    if (!this.product) {
+      return;
+    }
+    this.cartService.addItem(this.product, this.quantity);
+    this.router.navigate(['/cart']);
   }
 }
