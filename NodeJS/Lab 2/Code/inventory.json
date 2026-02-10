@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "quantity": 23,
+    "category": "General",
+    "status": "available"
+  },
+  {
+    "name": "Mouse",
+    "quantity": 15,
+    "category": "Accessories",
+    "status": "available",
+    "id": 2
+  }
+]
