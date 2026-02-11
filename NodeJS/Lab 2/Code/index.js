@@ -20,14 +20,14 @@ const server = http.createServer((req, res) => {
     <h1>Our Inventory</h1>
     <ul class="inventory-list">
       ${inventory
-        .map(
-          (item) => `
+          .map(
+            (item) => `
         <li class="inventory-item">
           <span>${item.name} - ${item.quantity} units - ${item.category} - ${item.status}</span>
         </li>
       `,
-        )
-        .join("")}
+          )
+          .join("")}
     </ul>
   </div>
 </body>
@@ -103,7 +103,8 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`;
       res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(html);
+      res.write(html);
+      res.end();
       return;
     }
 
@@ -165,7 +166,8 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`;
   res.writeHead(404, { "Content-Type": "text/html" });
-  res.end(html404);
+  res.write(html404);
+  res.end();
 });
 
 server.listen(3000, () => {

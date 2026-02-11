@@ -1,0 +1,3 @@
+2- ESM (ECMAScript Modules) is the modern JavaScript module system using import/export. It is preferred over CommonJS (CJS) because it is standard, supports static analysis, works natively in browsers, and enables better optimization. Node.js chose ESM for future compatibility and better tooling.
+
+3- Circular dependency happens when two or more modules depend on each other directly or indirectly. This can cause errors or unexpected behavior because modules may not be fully loaded when required.
