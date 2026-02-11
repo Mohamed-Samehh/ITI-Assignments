@@ -1,27 +1,20 @@
 import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
 
-export default [
-  js.configs.recommended,
+export default defineConfig([
   {
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      globals: {
-        console: "readonly",
-        process: "readonly",
-        Buffer: "readonly",
-        __dirname: "readonly",
-        require: "readonly",
-        module: "readonly",
-        exports: "readonly",
-      },
-    },
+    files: ["**/*.{js,mjs,cjs}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+    languageOptions: { globals: globals.node },
     rules: {
-      indent: ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      quotes: ["error", "double"],
-      semi: ["error", "always"],
-      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "no-console": "off",
+      "prefer-const": "error",
+      "eqeqeq": ["error", "always"],
+      "no-var": "error",
+      "indent": ["error", 2],
+      "semi": ["error", "always"],
     },
   },
-];
+]);
