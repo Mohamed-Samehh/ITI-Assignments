@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+.env
+.DS_Store
+npm-debug.log
+yarn-error.log
+
+# OS
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Build
+/dist
+/build
+
+# Misc
+.idea/
+.vscode/
+
+# Local files
+inventory.json

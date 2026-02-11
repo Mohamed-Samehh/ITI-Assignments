@@ -44,7 +44,10 @@
     "undefsafe": "^2.0.5"
   },
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js",
+    "lint": "eslint *.js",
+    "lint:fix": "eslint *.js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

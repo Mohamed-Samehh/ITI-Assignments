@@ -33,7 +33,8 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`;
       res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(html);
+      res.write(html);
+      res.end();
       return;
     }
 
@@ -67,7 +68,8 @@ const server = http.createServer((req, res) => {
 </body>
 </html>`;
       res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(html);
+      res.write(html);
+      res.end();
       return;
     }
 
@@ -91,10 +93,10 @@ const server = http.createServer((req, res) => {
   <div class="container">
     <h1>Serbal</h1>
     <div class="image-container">
-      <img src="/serbal.jpg" alt="Serbal">
+      <img src="/serbal.jpeg" alt="Serbal">
     </div>
     <div class="description">
-      <p>Serbal is a nice place with trees.</p>
+      <p>Serbal is a nice place with rocks.</p>
       <p>People like to visit and relax.</p>
     </div>
   </div>
@@ -105,8 +107,8 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    if (url === "/serbal.jpg") {
-      const imgPath = path.join(__dirname, "serbal.jpg");
+    if (url === "/serbal.jpeg") {
+      const imgPath = path.join(__dirname, "serbal.jpeg");
       const imgStream = fs.createReadStream(imgPath);
       res.writeHead(200, { "Content-Type": "image/jpeg" });
       imgStream.pipe(res);
