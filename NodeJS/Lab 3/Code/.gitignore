@@ -20,6 +20,3 @@ logs/
 # Misc
 .idea/
 .vscode/
-
-# Local files
-inventory.json

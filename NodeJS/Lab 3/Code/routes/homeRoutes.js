@@ -1,9 +1,7 @@
-const express = require("express");
 const { read } = require("../data/inventoryStore");
 
-const router = express.Router();
-
-router.get("/", (req, res) => {
+module.exports = (app) => {
+  app.get("/", (req, res) => {
     const products = read();
     const html = `<!DOCTYPE html>
 <html>
@@ -24,6 +22,5 @@ router.get("/", (req, res) => {
 </body>
 </html>`;
     res.send(html);
-});
-
-module.exports = router;
+  });
+};

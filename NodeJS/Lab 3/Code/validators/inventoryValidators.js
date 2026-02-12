@@ -1,4 +1,4 @@
-const { body } = require("express-validator");
+const { body, query } = require("express-validator");
 
 function postValidator() {
     return [
@@ -30,8 +30,22 @@ function stockValidator() {
     ];
 }
 
+function filterValidator() {
+    return [
+        query("quantity")
+            .optional({ checkFalsy: true })
+            .isNumeric()
+            .withMessage("Quantity must be a number"),
+        query("price")
+            .optional({ checkFalsy: true })
+            .isNumeric()
+            .withMessage("Price must be a number"),
+    ];
+}
+
 module.exports = {
     postValidator,
     patchValidator,
     stockValidator,
+    filterValidator,
 };

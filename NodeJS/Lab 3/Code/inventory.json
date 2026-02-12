@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "PS4",
+    "quantity": 10,
+    "price": 99.99
+  },
+  {
+    "id": 2,
+    "name": "PS5",
+    "quantity": 10,
+    "price": 99.99
+  },
+  {
+    "id": 3,
+    "name": "PS6",
+    "quantity": 10,
+    "price": 99.99
+  },
+  {
+    "id": 4,
+    "name": "PS7",
+    "quantity": 10,
+    "price": 99.99
+  }
+]
