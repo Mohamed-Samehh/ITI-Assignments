@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Inventory
+  body
+    h2 Inventory List
+    table(border="1" cellpadding="5")
+      tr
+        th ID
+        th Name
+        th Quantity
+        th Price
+      each p in products
+        tr
+          td= p.id
+          td= p.name
+          td= p.quantity
+          td= p.price
