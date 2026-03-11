@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="header">
+        <i class="fa fa-comments" style="color:#10a37f;font-size:22px;"></i>
+        Chat
+    </div>
+
+    <div id="api-key-bar">
+        <label for="api-key-input">OpenAI API Key:</label>
+        <input id="api-key-input" type="password" placeholder="sk-..." />
+        <span style="color:#555; font-size:12px;">Stored in memory only</span>
+    </div>
+
+    <div id="messages">
+        <div class="empty-state">
+            <h2><i class="fa fa-comments"></i></h2>
+            <p>Send a message to get started.<br />You can also attach an image.</p>
+        </div>
+    </div>
+
+    <div id="input-area">
+        <div id="input-box">
+            <div id="image-preview-wrap">
+                <img id="image-preview" src="" alt="preview" />
+                <button id="remove-image" title="Remove image"><i class="fa fa-times"></i></button>
+            </div>
+            <div id="mode-toggle">
+                <button class="mode-btn active" id="mode-text" title="Text mode">
+                    <i class="fa fa-comment"></i> Text
+                </button>
+                <button class="mode-btn" id="mode-image" title="Image generation mode">
+                    <i class="fa fa-image"></i> Image
+                </button>
+            </div>
+            <div id="row">
+                <!-- Attach image -->
+                <button class="icon-btn" id="attach-btn" title="Attach image">
+                    <i class="fa fa-image"></i>
+                </button>
+                <input type="file" id="file-input" accept="image/*" />
+                <textarea id="textarea" rows="1" placeholder="Message…"></textarea>
+                <button id="send-btn" title="Send">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
