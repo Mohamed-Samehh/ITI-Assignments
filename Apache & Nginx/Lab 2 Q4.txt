@@ -1,0 +1,6 @@
+Q4 - Apache vs Nginx:
+Apache uses one thread per connection while Nginx is event-driven and handles many connections at once.
+Nginx is faster under high traffic while Apache is more flexible.
+Apache supports .htaccess (per-directory config) while Nginx does not.
+Nginx is better for static files & reverse proxying while Apache for dynamic content.
+Nginx uses less memory than Apache under load.
