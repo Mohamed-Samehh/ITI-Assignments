@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizer — Sorting Algorithm Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome CDN for fa fa icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ── Header ── -->
+        <header class="header">
+            <div class="container header__inner">
+                <div class="logo">
+                    <svg class="logo__icon" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="16" width="5" height="8" rx="1.5" fill="currentColor" opacity="0.5" />
+                        <rect x="7" y="10" width="5" height="14" rx="1.5" fill="currentColor" opacity="0.7" />
+                        <rect x="14" y="5" width="5" height="19" rx="1.5" fill="currentColor" opacity="0.85" />
+                        <rect x="21" y="0" width="5" height="24" rx="1.5" fill="currentColor" />
+                    </svg>
+                    <span class="logo__text">Visualizer</span>
+                </div>
+                <div class="header__actions">
+                    <!-- Sound Toggle -->
+                    <button class="theme-toggle" id="soundToggle" aria-label="Toggle sound">
+                        <svg id="soundOnIcon" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                        </svg>
+                        <svg id="soundOffIcon" class="theme-icon hidden" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <line x1="23" y1="9" x2="17" y2="15" />
+                            <line x1="17" y1="9" x2="23" y2="15" />
+                        </svg>
+                    </button>
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg id="sunIcon" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                        <svg id="moonIcon" class="theme-icon hidden" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── Main ── -->
+        <main class="main">
+            <div class="container">
+
+                <!-- Hero -->
+                <section class="hero">
+                    <h1 class="hero__title">Sorting Algorithms <span class="text-accent">Visualized</span></h1>
+                    <p class="hero__subtitle">Watch how computers organize data — compare, swap, and sort in real time
+                    </p>
+                </section>
+
+                <!-- ── Visualization Card ── -->
+                <section class="viz">
+                    <div class="card viz__card">
+
+                        <!-- Stats Bar -->
+                        <div class="stats-bar">
+                            <div class="stat">
+                                <span class="stat__label">Algorithm</span>
+                                <span class="stat__value" id="statAlgo">—</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Comparisons</span>
+                                <span class="stat__value mono" id="statComparisons">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Swaps / Writes</span>
+                                <span class="stat__value mono" id="statSwaps">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Elapsed</span>
+                                <span class="stat__value mono" id="statTime">0.00s</span>
+                            </div>
+                            <div class="stat stat--status">
+                                <span class="stat__label">Status</span>
+                                <span class="stat__value status-value" id="statStatus">Ready</span>
+                            </div>
+                        </div>
+
+                        <!-- Bars -->
+                        <div class="bars-wrapper">
+                            <div class="bars-container" id="barsContainer" role="img"
+                                aria-label="Sorting visualization"></div>
+                        </div>
+
+                        <!-- Legend -->
+                        <div class="legend">
+                            <div class="legend__item">
+                                <span class="legend__dot legend__dot--default"></span>
+                                <span>Unsorted</span>
+                            </div>
+                            <div class="legend__item">
+                                <span class="legend__dot legend__dot--comparing"></span>
+                                <span>Comparing</span>
+                            </div>
+                            <div class="legend__item">
+                                <span class="legend__dot legend__dot--swapping"></span>
+                                <span>Swapping</span>
+                            </div>
+                            <div class="legend__item">
+                                <span class="legend__dot legend__dot--pivot"></span>
+                                <span>Current Min / Pivot</span>
+                            </div>
+                            <div class="legend__item">
+                                <span class="legend__dot legend__dot--sorted"></span>
+                                <span>Sorted</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ── Controls Card ── -->
+                <section class="controls">
+                    <div class="card controls__card">
+
+                        <!-- Algorithm Buttons -->
+                        <div class="ctrl-group">
+                            <p class="ctrl-group__label">Algorithm</p>
+                            <div class="algo-grid">
+                                <button class="algo-btn active" data-algo="bubble">Bubble Sort</button>
+                                <button class="algo-btn" data-algo="selection">Selection Sort</button>
+                                <button class="algo-btn" data-algo="insertion">Insertion Sort</button>
+                                <button class="algo-btn" data-algo="merge">Merge Sort</button>
+                                <button class="algo-btn" data-algo="quick">Quick Sort</button>
+                                <button class="algo-btn" data-algo="heap">Heap Sort</button>
+                                <button class="algo-btn" data-algo="shell">Shell Sort</button>
+                                <button class="algo-btn" data-algo="counting">Counting Sort</button>
+                                <button class="algo-btn" data-algo="radix">Radix Sort</button>
+                                <button class="algo-btn" data-algo="cocktail">Cocktail Sort</button>
+                                <button class="algo-btn" data-algo="comb">Comb Sort</button>
+                                <button class="algo-btn" data-algo="gnome">Gnome Sort</button>
+                                <button class="algo-btn" data-algo="cycle">Cycle Sort</button>
+                                <button class="algo-btn" data-algo="oddeven">Odd-Even Sort</button>
+                            </div>
+                        </div>
+
+                        <!-- Sliders Row -->
+                        <div class="ctrl-row">
+                            <div class="ctrl-group">
+                                <label class="ctrl-group__label" for="sizeSlider">
+                                    Array Size — <span class="ctrl-value" id="sizeVal">50</span>
+                                </label>
+                                <input type="range" id="sizeSlider" class="slider" min="10" max="150" value="50" />
+                            </div>
+                            <div class="ctrl-group">
+                                <label class="ctrl-group__label" for="speedSlider">
+                                    Speed — <span class="ctrl-value" id="speedVal">5</span> / 10
+                                </label>
+                                <input type="range" id="speedSlider" class="slider" min="1" max="10" value="5" />
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-row">
+                            <button class="btn btn--secondary" id="generateBtn">Generate New Array</button>
+                            <div class="action-row__right">
+                                <button class="btn btn--primary" id="startBtn"><i class="fa fa-play"></i>&nbsp;
+                                    Start</button>
+                                <button class="btn btn--outline" id="pauseBtn" disabled><i
+                                        class="fa fa-pause"></i>&nbsp; Pause</button>
+                                <button class="btn btn--ghost" id="resetBtn"><i class="fa fa-undo"></i>&nbsp;
+                                    Reset</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ── Algorithm Info Cards ── -->
+                <section class="info-section">
+                    <h2 class="section-title">Algorithm Complexity</h2>
+                    <div class="info-grid">
+
+                        <div class="card info-card" data-for="bubble">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Bubble Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Repeatedly compares adjacent elements and swaps them if out of
+                                order. Simple but inefficient for large datasets.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="selection">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Selection Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Finds the minimum in the unsorted region and places it at the
+                                front. Always O(n²) comparisons regardless of input.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="insertion">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Insertion Sort</h3>
+                                <span class="badge badge--yellow">Medium</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Builds the sorted array one element at a time by inserting each
+                                into its correct position. Very efficient on nearly-sorted data.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="merge">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Merge Sort</h3>
+                                <span class="badge badge--green">Fast</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n log n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n log n)</span>
+                                </div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n log n)</span>
+                                </div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(n)</span></div>
+                            </div>
+                            <p class="info-card__desc">Divides the array in half, recursively sorts both halves, then
+                                merges them. Consistently efficient but requires extra memory.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="quick">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Quick Sort</h3>
+                                <span class="badge badge--green">Fast</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n log n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n log n)</span>
+                                </div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(log n)</span></div>
+                            </div>
+                            <p class="info-card__desc">Picks a pivot, partitions elements around it, then recursively
+                                sorts each side. Fastest in practice despite an O(n²) worst case.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="heap">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Heap Sort</h3>
+                                <span class="badge badge--green">Fast</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n log n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n log n)</span>
+                                </div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n log n)</span>
+                                </div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Builds a max-heap then repeatedly extracts the maximum.
+                                Guaranteed O(n log n) with no extra memory — the best of both worlds.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="shell">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Shell Sort</h3>
+                                <span class="badge badge--yellow">Medium</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n log n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n¹·²⁵)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">An improved Insertion Sort that sorts elements at decreasing
+                                gaps, reducing the gap to 1. Much faster on medium-sized arrays.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="counting">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Counting Sort</h3>
+                                <span class="badge badge--green">Linear</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n + k)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n + k)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n + k)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(k)</span></div>
+                            </div>
+                            <p class="info-card__desc">A non-comparison sort that counts element frequencies to directly
+                                place each element. Blazing fast when value range k is small.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="radix">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Radix Sort</h3>
+                                <span class="badge badge--green">Linear</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(nk)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(nk)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(nk)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(n + k)</span></div>
+                            </div>
+                            <p class="info-card__desc">Sorts integers digit by digit from least to most significant
+                                using Counting Sort as a subroutine. Non-comparison &amp; effectively linear.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="cocktail">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Cocktail Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Bidirectional Bubble Sort that alternates forward and backward
+                                passes, shrinking the active window from both ends simultaneously.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="comb">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Comb Sort</h3>
+                                <span class="badge badge--yellow">Medium</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n log n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n² / 2ᵖ)</span>
+                                </div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Improves Bubble Sort by comparing elements at a shrinking gap
+                                (factor 1.3). Eliminates small-value stragglers near the end efficiently.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="gnome">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Gnome Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Like a garden gnome sorting flower pots — steps forward until it
+                                finds an out-of-order pair, swaps it back, then continues. Charming but slow.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="cycle">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Cycle Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Theoretically optimal for minimising memory writes — each value
+                                is written at most once. Ideal for write-expensive storage such as flash memory.</p>
+                        </div>
+
+                        <div class="card info-card" data-for="oddeven">
+                            <div class="info-card__header">
+                                <h3 class="info-card__title">Odd-Even Sort</h3>
+                                <span class="badge badge--red">Slow</span>
+                            </div>
+                            <div class="complexity-table">
+                                <div class="complexity-row"><span>Best</span> <span class="mono">O(n)</span></div>
+                                <div class="complexity-row"><span>Average</span><span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Worst</span> <span class="mono">O(n²)</span></div>
+                                <div class="complexity-row"><span>Space</span> <span class="mono">O(1)</span></div>
+                            </div>
+                            <p class="info-card__desc">Alternates between odd-index and even-index adjacent comparisons.
+                                Inspired by parallel sorting networks where each phase runs simultaneously.</p>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
