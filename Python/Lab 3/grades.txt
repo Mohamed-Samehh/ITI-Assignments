@@ -1,0 +1,6 @@
+1,Python,85
+1,Math,90
+2,Python,78
+2,Math,88
+3,Python,92
+3,Math,75
