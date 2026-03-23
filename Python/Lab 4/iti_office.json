@@ -1,0 +1,16 @@
+{
+    "office": "ITI Smart Village",
+    "employees": [
+        {
+            "id": 1,
+            "name": "Samy",
+            "email": "samy@iti.eg",
+            "salary": 5300,
+            "distanceToWork": 20,
+            "mood": "happy",
+            "healthRate": 100,
+            "money": 480,
+            "car": "Fiat 128"
+        }
+    ]
+}
