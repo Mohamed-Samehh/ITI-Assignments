@@ -1,0 +1,33 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Add a Student</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Student</button>
+</form>
+
+<h2>All Students</h2>
+{% if students %}
+<table>
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td><img src="{{ student.image.url }}" alt="{{ student.name }}"></td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.email }}</td>
+        <td><a class="delete-btn" href="{% url 'delete_student' student.pk %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No students yet. Add one above!</p>
+{% endif %}
+{% endblock %}
