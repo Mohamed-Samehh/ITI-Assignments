@@ -4,21 +4,7 @@
 <p style="margin-bottom: 20px; color: #555;">Have a question or feedback? We'd love to hear from you.</p>
 <form method="POST">
     {% csrf_token %}
-    <p>
-        <label>Email:</label>
-        <input type="email" name="email">
-    </p>
-    <p>
-        <label>Message:</label>
-        <textarea name="message" rows="5"></textarea>
-    </p>
-    <p>
-        <label>Date:</label>
-        <input type="date" name="date_added">
-    </p>
+    {{ form.as_p }}
     <button type="submit" class="btn">Send Message</button>
 </form>
-{% if error %}
-<p style="color: #b91c1c;">{{ error }}</p>
-{% endif %}
 {% endblock %}

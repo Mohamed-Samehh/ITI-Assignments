@@ -10,20 +10,9 @@
 <h3>Add Subject</h3>
 <form method="post">
     {% csrf_token %}
-    <p>
-        <label>Subject Name:</label>
-        <input type="text" name="name">
-    </p>
-    <p>
-        <label>Code:</label>
-        <input type="text" name="code">
-    </p>
+    {{ form.as_p }}
     <button type="submit" class="btn">Create Subject</button>
 </form>
-
-{% if error %}
-<p style="color: #b91c1c;">{{ error }}</p>
-{% endif %}
 
 <table>
     <tr>
