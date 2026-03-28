@@ -1,0 +1,43 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Subjects</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search by name or code" value="{{ query }}">
+    <button type="submit" class="btn">Search</button>
+</form>
+
+<h3>Add Subject</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Create Subject</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Actions</th>
+    </tr>
+    {% for sub in subjects %}
+    <tr>
+        <td>{{ sub.id }}</td>
+        <td>{{ sub.name }}</td>
+        <td>{{ sub.code }}</td>
+        <td class="actions">
+            <a class="btn" href="{% url 'update_subject' sub.id %}">Edit</a>
+            <form class="inline" method="post" action="{% url 'delete_subject' sub.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No subjects found.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Contact Us <i class="fa fa-envelope" aria-hidden="true"></i></h2>
+<p style="margin-bottom: 20px; color: #555;">Have a question or feedback? We'd love to hear from you.</p>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Send Message</button>
+</form>
+{% endblock %}

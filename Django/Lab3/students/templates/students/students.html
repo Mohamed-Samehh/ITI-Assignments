@@ -1,0 +1,47 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Students</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search by name or email" value="{{ query }}">
+    <button type="submit" class="btn">Search</button>
+</form>
+
+<h3>Add Student</h3>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Create Student</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Photo</th>
+        <th>Actions</th>
+    </tr>
+    {% for s in students %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.age }}</td>
+        <td>{{ s.email }}</td>
+        <td>{% if s.image %}<img src="{{ s.image.url }}" alt="{{ s.name }}" width="50">{% endif %}</td>
+        <td class="actions">
+            <a class="btn" href="{% url 'update_student' s.id %}">Edit</a>
+            <form class="inline" method="post" action="{% url 'delete_student' s.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No students found.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
