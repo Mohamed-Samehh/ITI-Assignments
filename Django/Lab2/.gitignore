@@ -1,0 +1,46 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+.env
+*.sqlite3
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+.idea/
+.vscode/
+*.egg-info/
+.eggs/
+*.bak
+*.tmp
+
+# VS Code
+.vscode/
+
+# Python
+*.py[cod]
+*$py.class
+
+# Migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test
+htmlcov/
+.coverage
+.tox/
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
