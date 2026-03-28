@@ -2,23 +2,9 @@
 {% block content %}
 <h2>Contact Us <i class="fa fa-envelope" aria-hidden="true"></i></h2>
 <p style="margin-bottom: 20px; color: #555;">Have a question or feedback? We'd love to hear from you.</p>
-{% if error %}
-<p style="color: #e74c3c; margin-bottom: 12px;">{{ error }}</p>
-{% endif %}
 <form method="POST">
     {% csrf_token %}
-    <p>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" value="{{ form_data.email|default:'' }}">
-    </p>
-    <p>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5">{{ form_data.message|default:'' }}</textarea>
-    </p>
-    <p>
-        <label for="date_added">Date</label>
-        <input id="date_added" name="date_added" type="date" value="{{ form_data.date_added|default:'' }}">
-    </p>
+    {{ form.as_p }}
     <button type="submit">Send Message</button>
 </form>
 {% endblock %}
