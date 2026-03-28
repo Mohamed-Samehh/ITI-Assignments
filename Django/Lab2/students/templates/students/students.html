@@ -1,33 +1,66 @@
 {% extends 'students/base.html' %}
 {% block content %}
-<h2>Add a Student</h2>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add Student</button>
+<h2>Students</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search by name or email" value="{{ query }}">
+    <button type="submit" class="btn">Search</button>
 </form>
 
-<h2>All Students</h2>
-{% if students %}
+<h3>Add Student</h3>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+        <label>Name:</label>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <label>Age:</label>
+        <input type="number" name="age" min="1">
+    </p>
+    <p>
+        <label>Email:</label>
+        <input type="email" name="email">
+    </p>
+    <p>
+        <label>Image:</label>
+        <input type="file" name="image" accept="image/*">
+    </p>
+    <button type="submit" class="btn">Create Student</button>
+</form>
+
+{% if error %}
+<p style="color: #b91c1c;">{{ error }}</p>
+{% endif %}
+
 <table>
     <tr>
-        <th>Photo</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Age</th>
         <th>Email</th>
-        <th>Action</th>
+        <th>Photo</th>
+        <th>Actions</th>
     </tr>
-    {% for student in students %}
+    {% for s in students %}
     <tr>
-        <td><img src="{{ student.image.url }}" alt="{{ student.name }}"></td>
-        <td>{{ student.name }}</td>
-        <td>{{ student.age }}</td>
-        <td>{{ student.email }}</td>
-        <td><a class="delete-btn" href="{% url 'delete_student' student.pk %}">Delete</a></td>
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.age }}</td>
+        <td>{{ s.email }}</td>
+        <td>{% if s.image %}<img src="{{ s.image.url }}" alt="{{ s.name }}" width="50">{% endif %}</td>
+        <td class="actions">
+            <a class="btn" href="{% url 'update_student' s.id %}">Edit</a>
+            <form class="inline" method="post" action="{% url 'delete_student' s.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No students found.</td>
     </tr>
     {% endfor %}
 </table>
-{% else %}
-<p>No students yet. Add one above!</p>
-{% endif %}
 {% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Grades</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search by Student ID or Subject Name" value="{{ query }}">
+    <button type="submit" class="btn">Search</button>
+</form>
+
+<h3>Add Grade</h3>
+<form method="post">
+    {% csrf_token %}
+    <p>
+        <label>Student:</label>
+        <select name="student">
+            <option value="">Select Student</option>
+            {% for s in students_list %}
+            <option value="{{ s.id }}">{{ s.id }} - {{ s.name }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label>Subject:</label>
+        <select name="subject">
+            <option value="">Select Subject</option>
+            {% for sub in subjects_list %}
+            <option value="{{ sub.id }}">{{ sub.name }} ({{ sub.code }})</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label>Score:</label>
+        <input type="number" step="0.01" name="score">
+    </p>
+    <button type="submit" class="btn">Create Grade</button>
+</form>
+
+{% if error %}
+<p style="color: #b91c1c;">{{ error }}</p>
+{% endif %}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Student</th>
+        <th>Subject</th>
+        <th>Score</th>
+        <th>Actions</th>
+    </tr>
+    {% for g in grades %}
+    <tr>
+        <td>{{ g.id }}</td>
+        <td>{{ g.student.id }} - {{ g.student.name }}</td>
+        <td>{{ g.subject.name }}</td>
+        <td>{{ g.score }}</td>
+        <td class="actions">
+            <a class="btn" href="{% url 'update_grade' g.id %}">Edit</a>
+            <form class="inline" method="post" action="{% url 'delete_grade' g.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No grades found.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

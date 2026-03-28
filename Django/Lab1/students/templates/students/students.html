@@ -1,13 +1,35 @@
 {% extends 'students/base.html' %}
 {% block content %}
 <h2>Add a Student</h2>
+{% if error %}
+<p style="color: #e74c3c; margin-bottom: 12px;">{{ error }}</p>
+{% endif %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="{{ form_data.name|default:'' }}">
+    </p>
+    <p>
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" min="1" value="{{ form_data.age|default:'' }}">
+    </p>
+    <p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" value="{{ form_data.email|default:'' }}">
+    </p>
+    <p>
+        <label for="image">Image</label>
+        <input id="image" name="image" type="file" accept="image/*">
+    </p>
     <button type="submit">Add Student</button>
 </form>
 
 <h2>All Students</h2>
+<form method="GET" style="padding: 12px; margin-bottom: 16px;">
+    <input type="text" name="q" placeholder="Search by name or email" value="{{ query|default:'' }}">
+    <button type="submit">Search</button>
+</form>
 {% if students %}
 <table>
     <tr>
@@ -23,7 +45,13 @@
         <td>{{ student.name }}</td>
         <td>{{ student.age }}</td>
         <td>{{ student.email }}</td>
-        <td><a class="delete-btn" href="{% url 'delete_student' student.pk %}">Delete</a></td>
+        <td>
+            <form method="POST" action="{% url 'delete_student' student.pk %}"
+                style="padding: 0; margin: 0; background: transparent; box-shadow: none;">
+                {% csrf_token %}
+                <button class="delete-btn" type="submit">Delete</button>
+            </form>
+        </td>
     </tr>
     {% endfor %}
 </table>

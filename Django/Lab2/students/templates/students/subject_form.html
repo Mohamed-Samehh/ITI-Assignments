@@ -1,0 +1,20 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <p>
+        <label>Subject Name:</label>
+        <input type="text" name="name" value="{{ subject.name }}">
+    </p>
+    <p>
+        <label>Code:</label>
+        <input type="text" name="code" value="{{ subject.code }}">
+    </p>
+    <button class="btn" type="submit">Save</button>
+</form>
+
+{% if error %}
+<p style="color: #b91c1c;">{{ error }}</p>
+{% endif %}
+{% endblock %}
