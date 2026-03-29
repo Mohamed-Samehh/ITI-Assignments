@@ -1,178 +1,109 @@
-from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Student, Subject, Grade, Feedback
-from .forms import FeedbackForm, GradeForm, SignupForm, StudentForm, SubjectForm
+from django.shortcuts import get_object_or_404
+from rest_framework import status, viewsets
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .models import Grade, Student, Subject
+from .serializers import (
+    GradeSerializer,
+    RegisterSerializer,
+    StudentSerializer,
+    SubjectSerializer,
+)
 
 
-def signup(request):
-	if request.method == 'POST':
-		form = SignupForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('login')
-	else:
-		form = SignupForm()
+class RegisterAPIView(APIView):
+    permission_classes = [AllowAny]
 
-	return render(request, 'registration/signup.html', {'form': form})
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            token, _ = Token.objects.get_or_create(user=user)
+            return Response(
+                {
+                    "token": token.key,
+                    "user": {
+                        "id": user.id,
+                        "username": user.username,
+                        "email": user.email,
+                    },
+                },
+                status=status.HTTP_201_CREATED,
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@login_required
-def home(request):
-	return render(request, 'students/home.html')
 
-@login_required
-def user_profile(request):
-	return render(request, 'students/user_profile.html')
+@api_view(["GET", "POST"])
+def student_list_create_fbv(request):
+    if request.method == "GET":
+        students = Student.objects.all()
+        serializer = StudentSerializer(students, many=True)
+        return Response(serializer.data)
 
-@login_required
-def students_page(request):
-	query = request.GET.get('q', '')
-	students = Student.objects.all()
-	if query:
-		students = students.filter(
-			Q(name__icontains=query) |
-			Q(email__icontains=query)
-		)
+    serializer = StudentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-	if request.method == 'POST':
-		form = StudentForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('students')
-	else:
-		form = StudentForm()
 
-	context = {'students': students, 'query': query, 'form': form}
-	return render(request, 'students/students.html', context)
+@api_view(["GET", "PUT", "DELETE"])
+def student_detail_fbv(request, pk):
+    student = get_object_or_404(Student, pk=pk)
 
-@login_required
-def update_student(request, pk):
-	student = get_object_or_404(Student, pk=pk)
+    if request.method == "GET":
+        serializer = StudentSerializer(student)
+        return Response(serializer.data)
 
-	if request.method == 'POST':
-		form = StudentForm(request.POST, request.FILES, instance=student)
-		if form.is_valid():
-			form.save()
-			return redirect('students')
-	else:
-		form = StudentForm(instance=student)
+    if request.method == "PUT":
+        serializer = StudentSerializer(student, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-	return render(request, 'students/student_form.html', {'form': form, 'title': 'Update Student'})
+    student.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
-@login_required
-def delete_student(request, pk):
-	student = get_object_or_404(Student, pk=pk)
-	if request.method == 'POST':
-		student.delete()
-		return redirect('students')
-	return render(request, 'students/confirm_delete.html', {'object': student, 'type': 'Student'})
 
-@login_required
-def subjects_page(request):
-	query = request.GET.get('q', '')
-	subjects = Subject.objects.all()
-	if query:
-		subjects = subjects.filter(
-			Q(name__icontains=query) |
-			Q(code__icontains=query)
-		)
+class SubjectListCreateAPIView(APIView):
+    def get(self, request):
+        subjects = Subject.objects.all()
+        serializer = SubjectSerializer(subjects, many=True)
+        return Response(serializer.data)
 
-	if request.method == 'POST':
-		form = SubjectForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('subjects')
-	else:
-		form = SubjectForm()
+    def post(self, request):
+        serializer = SubjectSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-	context = {'subjects': subjects, 'query': query, 'form': form}
-	return render(request, 'students/subjects.html', context)
 
-@login_required
-def update_subject(request, pk):
-	subject = get_object_or_404(Subject, pk=pk)
+class SubjectDetailAPIView(APIView):
+    def get(self, request, pk):
+        subject = get_object_or_404(Subject, pk=pk)
+        serializer = SubjectSerializer(subject)
+        return Response(serializer.data)
 
-	if request.method == 'POST':
-		form = SubjectForm(request.POST, instance=subject)
-		if form.is_valid():
-			form.save()
-			return redirect('subjects')
-	else:
-		form = SubjectForm(instance=subject)
+    def put(self, request, pk):
+        subject = get_object_or_404(Subject, pk=pk)
+        serializer = SubjectSerializer(subject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-	return render(request, 'students/subject_form.html', {'form': form, 'title': 'Update Subject'})
+    def delete(self, request, pk):
+        subject = get_object_or_404(Subject, pk=pk)
+        subject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-@login_required
-def delete_subject(request, pk):
-	subject = get_object_or_404(Subject, pk=pk)
-	if request.method == 'POST':
-		subject.delete()
-		return redirect('subjects')
-	return render(request, 'students/confirm_delete.html', {'object': subject, 'type': 'Subject'})
 
-@login_required
-def grades_page(request):
-	query = request.GET.get('q', '')
-	grades = Grade.objects.select_related('student', 'subject').all()
-
-	if query:
-		grades = grades.filter(
-			Q(student__id__icontains=query) |
-			Q(subject__name__icontains=query)
-		)
-
-	if request.method == 'POST':
-		form = GradeForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('grades')
-	else:
-		form = GradeForm()
-
-	context = {
-		'grades': grades,
-		'query': query,
-		'form': form,
-	}
-	return render(request, 'students/grades.html', context)
-
-@login_required
-def update_grade(request, pk):
-	grade = get_object_or_404(Grade, pk=pk)
-
-	if request.method == 'POST':
-		form = GradeForm(request.POST, instance=grade)
-		if form.is_valid():
-			form.save()
-			return redirect('grades')
-	else:
-		form = GradeForm(instance=grade)
-
-	return render(
-		request,
-		'students/grade_form.html',
-		{
-			'form': form,
-			'title': 'Update Grade',
-		},
-	)
-
-@login_required
-def delete_grade(request, pk):
-	grade = get_object_or_404(Grade, pk=pk)
-	if request.method == 'POST':
-		grade.delete()
-		return redirect('grades')
-	return render(request, 'students/confirm_delete.html', {'object': grade, 'type': 'Grade'})
-
-@login_required
-def contact(request):
-	if request.method == 'POST':
-		form = FeedbackForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('contact')
-	else:
-		form = FeedbackForm()
-
-	return render(request, 'students/contact.html', {'form': form})
+class GradeViewSet(viewsets.ModelViewSet):
+    queryset = Grade.objects.all().select_related("student", "subject")
+    serializer_class = GradeSerializer

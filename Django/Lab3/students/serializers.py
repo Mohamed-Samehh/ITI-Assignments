@@ -1,6 +1,22 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from .models import Grade, Student, Subject
+
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, min_length=8)
+
+    class Meta:
+        model = User
+        fields = ["id", "username", "email", "password"]
+
+    # Make sure the password is hashed
+    def create(self, validated_data):
+        return User.objects.create_user(
+            username=validated_data["username"],
+            email=validated_data.get("email", ""),
+            password=validated_data["password"],
+        )
 
 
 class StudentSerializer(serializers.ModelSerializer):
