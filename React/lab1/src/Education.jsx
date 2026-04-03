@@ -1,11 +1,10 @@
-// Reusable sub-component for each school
-function EducationCard({ logo, school, degree, years }) {
+function EducationCard(props) {
   return (
     <div className="col-md-4 text-center mb-4">
-      <img src={logo} alt={school} height="60" className="mb-3" />
-      <h5 className="fw-bold">{school}</h5>
-      <p className="text-muted mb-1">{degree}</p>
-      <small className="text-secondary">{years}</small>
+      <img src={props.logo} alt={props.school} height="60" className="mb-3" />
+      <h5 className="fw-bold">{props.school}</h5>
+      <p className="text-muted mb-1">{props.degree}</p>
+      <small className="text-secondary">{props.years}</small>
     </div>
   );
 }

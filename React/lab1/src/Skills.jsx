@@ -1,10 +1,9 @@
-// Reusable sub-component for each skill category
-function SkillCategory({ title, skills }) {
+function SkillCategory(props) {
   return (
     <div className="col-md-4 mb-4">
-      <h5 className="fw-bold">{title}</h5>
+      <h5 className="fw-bold">{props.title}</h5>
       <div className="d-flex flex-wrap gap-2">
-        {skills.map((skill) => (
+        {props.skills.map((skill) => (
           <span key={skill} className="badge bg-secondary fs-6">{skill}</span>
         ))}
       </div>
