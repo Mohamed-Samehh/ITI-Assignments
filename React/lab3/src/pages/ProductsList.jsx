@@ -66,7 +66,6 @@ function ProductsList() {
                 <h6 className="card-title">{product.title}</h6>
                 <p className="text-muted small">{product.description?.slice(0, 50)}...</p>
                 <p className="fw-bold">${product.price}</p>
-                {/* Star Rating */}
                 <button className="btn btn-dark btn-sm w-100">Add to Cart</button>
               </div>
             </div>
