@@ -1,4 +1,4 @@
-public class EBook extends Book{
+public class EBook extends Book {
 
     public EBook(String title) {
         super(title);
@@ -6,7 +6,6 @@ public class EBook extends Book{
 
     @Override
     public void borrowBook(User user) {
-        System.out.println( user.getName()+" borrowed the e-book: "+super.getTitle() );
-
+        super.borrowBook(user);
     }
 }
