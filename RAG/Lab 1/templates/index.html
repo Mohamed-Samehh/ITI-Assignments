@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👨‍🍳 Chef Antoine — AI Kitchen</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="chef-icon">👨‍🍳</span>
+                <h2>Chef Antoine</h2>
+            </div>
+
+            <div class="settings-group">
+                <label>Creativity</label>
+                <div class="slider-row">
+                    <span class="label-sm">Strict</span>
+                    <input type="range" id="creativity" min="0" max="1" step="0.1" value="0.7">
+                    <span class="label-sm">Creative</span>
+                </div>
+                <div class="slider-value" id="creativity-val">0.7</div>
+            </div>
+
+            <div class="settings-group">
+                <label>Response Style</label>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" data-detail="concise">Concise</button>
+                    <button class="toggle-btn" data-detail="detailed">Detailed</button>
+                </div>
+            </div>
+
+            <div class="phase-tracker">
+                <label>Progress</label>
+                <div class="phases">
+                    <div class="phase-dot" data-phase="greet" title="Greeting">👋</div>
+                    <div class="phase-line"></div>
+                    <div class="phase-dot" data-phase="collect_ingredients" title="Ingredients">🥕</div>
+                    <div class="phase-line"></div>
+                    <div class="phase-dot" data-phase="suggest_meals" title="Suggestions">📋</div>
+                    <div class="phase-line"></div>
+                    <div class="phase-dot" data-phase="choose_meal" title="Choose">✅</div>
+                    <div class="phase-line"></div>
+                    <div class="phase-dot" data-phase="step_by_step" title="Cooking!">🔥</div>
+                    <div class="phase-line"></div>
+                    <div class="phase-dot" data-phase="done" title="Done!">🎉</div>
+                </div>
+            </div>
+
+            <div class="info-panel" id="info-panel">
+                <div id="ingredients-list" class="info-section" style="display:none;">
+                    <label>🧺 Ingredients</label>
+                    <ul id="ing-items"></ul>
+                </div>
+                <div id="meal-info" class="info-section" style="display:none;">
+                    <label>🍽️ Cooking</label>
+                    <p id="meal-name"></p>
+                    <div class="step-progress" id="step-progress"></div>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="reset-btn">🔄 New Session</button>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-placeholder" id="welcome">
+                    <span class="big-emoji">👨‍🍳</span>
+                    <p>Starting up Chef Antoine's kitchen...</p>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Tell Chef Antoine what you've got..." rows="1"
+                        disabled></textarea>
+                    <button id="send-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ─── State ──────────────────────────────────────────
+        let sessionId = null;
+        let currentPhase = "greet";
+        let isLoading = false;
+
+        // ─── DOM Elements ───────────────────────────────────
+        const chatMessages = document.getElementById("chat-messages");
+        const userInput = document.getElementById("user-input");
+        const sendBtn = document.getElementById("send-btn");
+        const resetBtn = document.getElementById("reset-btn");
+        const creativitySlider = document.getElementById("creativity");
+        const creativityVal = document.getElementById("creativity-val");
+        const welcome = document.getElementById("welcome");
+
+        // ─── Init ───────────────────────────────────────────
+        window.addEventListener("DOMContentLoaded", startSession);
+
+        creativitySlider.addEventListener("input", () => {
+            creativityVal.textContent = creativitySlider.value;
+        });
+
+        document.querySelectorAll(".toggle-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".toggle-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+            });
+        });
+
+        userInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        userInput.addEventListener("input", () => {
+            userInput.style.height = "auto";
+            userInput.style.height = Math.min(userInput.scrollHeight, 120) + "px";
+        });
+
+        sendBtn.addEventListener("click", sendMessage);
+        resetBtn.addEventListener("click", resetSession);
+
+        // ─── Functions ──────────────────────────────────────
+
+        async function startSession() {
+            const detail = document.querySelector(".toggle-btn.active")?.dataset.detail || "concise";
+
+            try {
+                const res = await fetch("/api/start", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        creativity: parseFloat(creativitySlider.value),
+                        detail_level: detail,
+                    }),
+                });
+                const data = await res.json();
+                sessionId = data.session_id;
+                currentPhase = data.phase;
+
+                welcome.style.display = "none";
+                addMessage("chef", data.message);
+                updatePhaseTracker(data.phase);
+
+                userInput.disabled = false;
+                sendBtn.disabled = false;
+                userInput.focus();
+            } catch (err) {
+                addMessage("system", "❌ Failed to connect to the kitchen. Please refresh.");
+            }
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text || isLoading) return;
+
+            isLoading = true;
+            sendBtn.disabled = true;
+            userInput.value = "";
+            userInput.style.height = "auto";
+
+            addMessage("user", text);
+            showTyping();
+
+            const detail = document.querySelector(".toggle-btn.active")?.dataset.detail || "concise";
+
+            try {
+                const res = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        session_id: sessionId,
+                        message: text,
+                        creativity: parseFloat(creativitySlider.value),
+                        detail_level: detail,
+                    }),
+                });
+
+                removeTyping();
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    addMessage("system", `⚠️ ${err.error}`);
+                    return;
+                }
+
+                const data = await res.json();
+                currentPhase = data.phase;
+
+                addMessage("chef", data.message);
+                updatePhaseTracker(data.phase);
+                updateInfoPanel(data);
+
+            } catch (err) {
+                removeTyping();
+                addMessage("system", "❌ Connection error. Please try again.");
+            } finally {
+                isLoading = false;
+                sendBtn.disabled = false;
+                userInput.focus();
+            }
+        }
+
+        async function resetSession() {
+            if (sessionId) {
+                await fetch("/api/reset", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ session_id: sessionId }),
+                });
+            }
+            chatMessages.innerHTML = '<div class="welcome-placeholder" id="welcome"><span class="big-emoji">👨‍🍳</span><p>Starting up Chef Antoine\'s kitchen...</p></div>';
+
+            document.getElementById("ingredients-list").style.display = "none";
+            document.getElementById("meal-info").style.display = "none";
+            document.querySelectorAll(".phase-dot").forEach(d => d.classList.remove("active", "completed"));
+
+            userInput.disabled = true;
+            sendBtn.disabled = true;
+            sessionId = null;
+
+            startSession();
+        }
+
+        function addMessage(role, content) {
+            const div = document.createElement("div");
+            div.className = `message ${role}`;
+
+            const formatted = content
+                .replace(/\n/g, "<br>")
+                .replace(/\*\*(.*?)\*\*/g, "<strong>\$1</strong>")
+                .replace(/\*(.*?)\*/g, "<em>\$1</em>");
+
+            if (role === "chef") {
+                div.innerHTML = `<div class="avatar">👨‍🍳</div><div class="bubble">${formatted}</div>`;
+            } else if (role === "user") {
+                div.innerHTML = `<div class="bubble">${formatted}</div><div class="avatar">🧑</div>`;
+            } else {
+                div.innerHTML = `<div class="bubble system-bubble">${formatted}</div>`;
+            }
+
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping() {
+            const div = document.createElement("div");
+            div.className = "message chef typing-indicator";
+            div.id = "typing";
+            div.innerHTML = `<div class="avatar">👨‍🍳</div><div class="bubble"><span class="dots"><span>.</span><span>.</span><span>.</span></span></div>`;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+            const el = document.getElementById("typing");
+            if (el) el.remove();
+        }
+
+        function updatePhaseTracker(phase) {
+            const phases = ["greet", "collect_ingredients", "analyze", "suggest_meals", "choose_meal", "step_by_step", "done"];
+            const idx = phases.indexOf(phase);
+
+            document.querySelectorAll(".phase-dot").forEach((dot, i) => {
+                const dotPhase = dot.dataset.phase;
+                const dotIdx = phases.indexOf(dotPhase);
+                dot.classList.remove("active", "completed");
+
+                if (dotIdx < idx) dot.classList.add("completed");
+                else if (dotIdx === idx) dot.classList.add("active");
+            });
+        }
+
+        function updateInfoPanel(data) {
+            // Ingredients
+            if (data.ingredients && data.ingredients.length > 0) {
+                document.getElementById("ingredients-list").style.display = "block";
+                const ul = document.getElementById("ing-items");
+                ul.innerHTML = data.ingredients.map(i => `<li>${i}</li>`).join("");
+            }
+
+            // Meal progress
+            if (data.chosen_meal) {
+                document.getElementById("meal-info").style.display = "block";
+                document.getElementById("meal-name").textContent = data.chosen_meal;
+
+                if (data.total_steps > 0) {
+                    const pct = Math.round((data.current_step / data.total_steps) * 100);
+                    document.getElementById("step-progress").innerHTML = `
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width:${pct}%"></div>
+                        </div>
+                        <span class="step-text">Step ${data.current_step}/${data.total_steps}</span>
+                    `;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

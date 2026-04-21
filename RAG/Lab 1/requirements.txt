@@ -1,0 +1,5 @@
+flask==3.0.0
+langgraph==0.2.61
+langchain-core==0.3.29
+langchain-openai==0.2.14
+python-dotenv==1.0.1
