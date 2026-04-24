@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Assistant</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+        .wrap {
+            max-width: 760px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        textarea,
+        input,
+        button {
+            font: inherit;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            resize: vertical;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button.primary {
+            background: #111;
+            color: #fff;
+            border-color: #111;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .msg {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            line-height: 1.45;
+        }
+
+        .tool {
+            font-size: 13px;
+            color: #333;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Medical Assistant</h1>
+        <p class="meta">Simple UI in project root index.html.</p>
+
+        <div class="card">
+            <textarea id="message" placeholder="Describe symptoms or ask for nearby hospitals..."></textarea>
+            <div class="row">
+                <button class="primary" id="sendBtn">Send</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="meta">Response</div>
+            <div id="response" class="msg">No response yet.</div>
+            <div id="tools"></div>
+        </div>
+    </div>
+
+    <script>
+        const messageEl = document.getElementById('message');
+        const responseEl = document.getElementById('response');
+        const toolsEl = document.getElementById('tools');
+
+        document.getElementById('sendBtn').addEventListener('click', sendMessage);
+        document.getElementById('resetBtn').addEventListener('click', resetConversation);
+
+        async function sendMessage() {
+            const message = messageEl.value.trim();
+            if (!message) return;
+
+            responseEl.textContent = 'Thinking...';
+            toolsEl.innerHTML = '';
+
+            const res = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+            const data = await res.json();
+
+            if (data.error) {
+                responseEl.textContent = data.error;
+                return;
+            }
+
+            responseEl.textContent = data.response || '';
+
+            (data.tool_uses || []).forEach((toolCall) => {
+                const item = document.createElement('div');
+                item.className = 'tool';
+                item.textContent = 'Tool used: ' + toolCall.name;
+                toolsEl.appendChild(item);
+            });
+        }
+
+        async function resetConversation() {
+            await fetch('/api/reset', { method: 'POST' });
+            responseEl.textContent = 'Conversation reset.';
+            toolsEl.innerHTML = '';
+            messageEl.value = '';
+        }
+    </script>
+</body>
+
+</html>
