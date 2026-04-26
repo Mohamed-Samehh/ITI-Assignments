@@ -1,0 +1,20 @@
+{
+    "name": "student-management-api",
+    "version": "1.0.0",
+    "description": "Simple RESTful Student Management API",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "node --watch src/server.js"
+    },
+    "keywords": [
+        "rest",
+        "api",
+        "students"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}
