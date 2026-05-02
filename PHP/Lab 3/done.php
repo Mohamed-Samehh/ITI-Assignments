@@ -88,7 +88,7 @@
     <h3>Your Submitted Info:</h3>
     <p>Name: <?php echo "$firstname $lastname"; ?></p>
     <p>Email: <?php echo $email; ?></p>
-    <p>Address: <?php echo $address; ?></p>
+    <p>Address: <?php echo $address ?: "Not provided"; ?></p>
     <p>Skills: <?php echo $skillsString; ?></p>
     <p>Department: <?php echo $department; ?></p>
     <p>Room: <?php echo $room; ?></p>
@@ -115,7 +115,7 @@
             <td><?php echo $row[1] ?? ""; ?></td>
             <td><?php echo $row[2] ?? ""; ?></td>
             <td><?php echo $row[3] ?? ""; ?></td>
-            <td><?php echo $row[4] ?? ""; ?></td>
+            <td><?php echo !empty($row[4]) ? $row[4] : "Not provided"; ?></td>
             <td><?php echo $row[5] ?? ""; ?></td>
             <td><?php echo $row[6] ?? ""; ?></td>
             <td><?php echo $row[7] ?? ""; ?></td>

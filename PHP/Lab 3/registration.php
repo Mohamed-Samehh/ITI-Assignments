@@ -52,7 +52,7 @@
             <option value="Cloud">Cloud</option>
         </select><br><br>
         
-        Profile Picture: <input type="file" name="profile_pic" accept="image/*"><br><br>
+        Profile Picture (Optional): <input type="file" name="profile_pic" accept="image/*"><br><br>
         
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
