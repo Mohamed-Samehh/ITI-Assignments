@@ -13,6 +13,7 @@
     $address    = $_POST["address"] ?? "";
     $gender     = $_POST["gender"] ?? "";
     $department = $_POST["department"] ?? "";
+    $room       = $_POST["room"] ?? "";
     $skills     = $_POST["skills"] ?? [];
 
     $errors = [];
@@ -25,9 +26,14 @@
     }
     if (trim($email) == "") {
         $errors[] = "Email is required.";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Email is not valid.";
     }
     if ($gender != "Male" && $gender != "Female") {
         $errors[] = "Please select gender.";
+    }
+    if (trim($room) == "") {
+        $errors[] = "Please select a room.";
     }
 
     if (!empty($errors)) {
@@ -41,23 +47,35 @@
         exit;
     }
 
+    $profile_pic_name = "";
+    if (isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["size"] > 0) {
+        $file_type = mime_content_type($_FILES["profile_pic"]["tmp_name"]);
+        if (strpos($file_type, "image") === false) {
+            echo "<p style='color:red;'>Error: Please upload an image file.</p>";
+            echo "<p><a href='registration.php'>Go back to form</a></p>";
+            exit;
+        }
+        $profile_pic_name = time() . "_" . basename($_FILES["profile_pic"]["name"]);
+        move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $profile_pic_name);
+    }
+
     $title = ($gender == "Male") ? "Mr." : "Miss";
 
-    $filename = "customer.txt";
+    $filename = "users.txt";
     $file = fopen($filename, "a");
     
     if ($file) {
         $skillsString = implode(", ", $skills);
-        $data = [$firstname, $lastname, $email, $gender, $address, $skillsString, $department];
+        $data = [$firstname, $lastname, $email, $gender, $address, $skillsString, $department, $room, $profile_pic_name];
         fputcsv($file, $data);
         fclose($file);
     } else {
-        echo "<p style='color:red;'>Error: Could not save data. Check file permissions.</p>";
+        echo "<p style='color:red;'>Error: Could not save data.</p>";
     }
 
     $records = [];
-    if (file_exists("customer.txt")) {
-        $file = fopen("customer.txt", "r");
+    if (file_exists("users.txt")) {
+        $file = fopen("users.txt", "r");
         while (($row = fgetcsv($file)) !== false) {
             $records[] = $row;
         }
@@ -73,10 +91,12 @@
     <p>Address: <?php echo $address; ?></p>
     <p>Skills: <?php echo $skillsString; ?></p>
     <p>Department: <?php echo $department; ?></p>
+    <p>Room: <?php echo $room; ?></p>
+    <p>Profile Picture: <?php if (!empty($profile_pic_name)) echo "<a href='$profile_pic_name' target='_blank'>View Image</a>"; else echo "Not uploaded"; ?></p>
 
     <hr>
 
-    <h3>All Customers (from customer.txt)</h3>
+    <h3>All Customers (from users.txt)</h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>First Name</th>
@@ -86,6 +106,8 @@
             <th>Address</th>
             <th>Skills</th>
             <th>Department</th>
+            <th>Room</th>
+            <th>Profile Picture</th>
         </tr>
         <?php foreach ($records as $row): ?>
         <tr>
@@ -96,6 +118,8 @@
             <td><?php echo $row[4] ?? ""; ?></td>
             <td><?php echo $row[5] ?? ""; ?></td>
             <td><?php echo $row[6] ?? ""; ?></td>
+            <td><?php echo $row[7] ?? ""; ?></td>
+            <td><?php if (!empty($row[8])) echo "<a href='" . $row[8] . "' target='_blank'>View</a>"; ?></td>
         </tr>
         <?php endforeach; ?>
     </table>

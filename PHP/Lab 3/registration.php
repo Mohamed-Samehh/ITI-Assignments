@@ -6,7 +6,7 @@
 <body>
     <h2>Registration</h2>
 
-    <form action="done.php" method="post">
+    <form action="done.php" method="post" enctype="multipart/form-data">
         
         First Name: <input type="text" name="firstname"><br><br>
         
@@ -14,7 +14,7 @@
 
         Email: <input type="text" name="email"><br><br>
         
-        Address: <br>
+        Address (Optional): <br>
         <textarea name="address" rows="4" cols="30"></textarea><br><br>
         
         Country:
@@ -43,6 +43,16 @@
         Password: <input type="password" name="password"><br><br>
         
         Department: <input type="text" name="department" placeholder="OpenSource"><br><br>
+        
+        Room Number:
+        <select name="room">
+            <option value="">Select Room</option>
+            <option value="Open source">Open source</option>
+            <option value="Telecom">Telecom</option>
+            <option value="Cloud">Cloud</option>
+        </select><br><br>
+        
+        Profile Picture: <input type="file" name="profile_pic" accept="image/*"><br><br>
         
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
