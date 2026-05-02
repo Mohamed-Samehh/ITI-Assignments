@@ -14,7 +14,7 @@
 
         Email: <input type="text" name="email"><br><br>
         
-        Address: <br>
+        Address (Optional): <br>
         <textarea name="address" rows="4" cols="30"></textarea><br><br>
         
         Country:
