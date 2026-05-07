@@ -1,0 +1,11 @@
+{
+    "name": "unit-testing",
+    "version": "1.0.0",
+    "description": "Unit testing assignment - password validator",
+    "scripts": {
+        "test": "jest --config '{\"testEnvironment\":\"node\"}'"
+    },
+    "devDependencies": {
+        "jest": "^30.3.0"
+    }
+}
