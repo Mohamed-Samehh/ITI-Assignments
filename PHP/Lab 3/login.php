@@ -9,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (file_exists("users.txt")) {
         $file = fopen("users.txt", "r");
         while (($row = fgetcsv($file)) !== false) {
-            if ($row[2] == $email && $row[7] == $password) {
+            $stored_password = isset($row[9]) ? $row[9] : "";
+            if ($row[2] == $email && $stored_password == $password) {
                 $login_ok = true;
                 $_SESSION["user"] = $row[0] . " " . $row[1];
                 break;

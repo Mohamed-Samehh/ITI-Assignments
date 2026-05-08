@@ -15,6 +15,7 @@
     $department = $_POST["department"] ?? "";
     $room       = $_POST["room"] ?? "";
     $skills     = $_POST["skills"] ?? [];
+    $password   = $_POST["password"] ?? "";
 
     $errors = [];
     
@@ -31,6 +32,9 @@
     }
     if ($gender != "Male" && $gender != "Female") {
         $errors[] = "Please select gender.";
+    }
+    if (trim($password) == "") {
+        $errors[] = "Password is required.";
     }
     if (trim($room) == "") {
         $errors[] = "Please select a room.";
@@ -66,7 +70,7 @@
     
     if ($file) {
         $skillsString = implode(", ", $skills);
-        $data = [$firstname, $lastname, $email, $gender, $address, $skillsString, $department, $room, $profile_pic_name];
+        $data = [$firstname, $lastname, $email, $gender, $address, $skillsString, $department, $room, $profile_pic_name, $password];
         fputcsv($file, $data);
         fclose($file);
     } else {
