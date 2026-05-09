@@ -1,22 +1,19 @@
 <?php
-require_once 'includes/db.php';
-require_once 'includes/functions.php';
+require_once __DIR__ . '/autoload.php';
 
-// Handle delete request
+use App\Models\User;
+
+// Handle delete request.
 if (isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
-    $user = getUserById($conn, $deleteId);
+    $user = User::findById($deleteId);
 
     if ($user) {
-        // Remove profile picture file if it exists
+        // Remove the profile picture file if it exists.
         if (!empty($user['profile_pic']) && file_exists(__DIR__ . '/' . $user['profile_pic'])) {
             unlink(__DIR__ . '/' . $user['profile_pic']);
         }
-
-        $stmt = mysqli_prepare($conn, 'DELETE FROM users WHERE id = ?');
-        mysqli_stmt_bind_param($stmt, 'i', $deleteId);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        User::delete($deleteId);
     }
 
     header('Location: users.php?message=' . urlencode('User deleted successfully.'));
@@ -24,7 +21,7 @@ if (isset($_GET['delete'])) {
 }
 
 $message = $_GET['message'] ?? '';
-$users = getAllUsers($conn);
+$users   = User::all();
 ?>
 <!DOCTYPE html>
 <html>

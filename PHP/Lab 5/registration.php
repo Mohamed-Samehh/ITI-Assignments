@@ -1,12 +1,14 @@
 <?php
-// Registration form: creates a new user, or edits an existing one when ?id=X is passed
-require_once 'includes/db.php';
-require_once 'includes/functions.php';
-require_once 'helpers/validation.php';
+// Registration form: creates a new user, or edits an existing one when ?id=X is passed.
+require_once __DIR__ . '/autoload.php';
 
-$errors = [];
-$editingId = 0;
-$existingUser = null;
+use App\Models\User;
+use App\Helpers\Validator;
+use App\Helpers\Uploader;
+
+$errors         = [];
+$editingId      = 0;
+$existingUser   = null;
 $selectedSkills = [];
 
 $user = [
@@ -24,7 +26,7 @@ $user = [
     'profile_pic' => '',
 ];
 
-// Form submitted: validate, then save
+// Form submitted: validate, then save.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $editingId      = (int) ($_POST['id'] ?? 0);
     $firstname      = trim($_POST['firstname'] ?? '');
@@ -40,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $room           = trim($_POST['room'] ?? '');
 
     if ($editingId > 0) {
-        $existingUser = getUserById($conn, $editingId);
+        $existingUser = User::findById($editingId);
     }
 
     $formData = [
@@ -54,12 +56,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'room'      => $room,
     ];
     $isNewUser = ($editingId === 0);
-    $errors = validateUserForm($formData, $isNewUser);
 
-    // Validate and handle profile picture
+    $validator = new Validator($formData, $isNewUser);
+    $errors    = $validator->validate();
+
+    // Handle profile picture upload (keeps existing one if no new file).
     $profilePicPath = $existingUser['profile_pic'] ?? '';
     if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
-        $uploaded = saveUploadedImage($_FILES['profile_pic']);
+        $uploader = new Uploader();
+        $uploaded = $uploader->save($_FILES['profile_pic']);
         if ($uploaded === false) {
             $errors[] = 'Profile picture must be an image.';
         } else {
@@ -67,25 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Check for duplicate username
-    if (empty($errors)) {
-        if ($editingId > 0) {
-            $dupStmt = mysqli_prepare($conn, 'SELECT id FROM users WHERE username = ? AND id != ? LIMIT 1');
-            mysqli_stmt_bind_param($dupStmt, 'si', $username, $editingId);
-        } else {
-            $dupStmt = mysqli_prepare($conn, 'SELECT id FROM users WHERE username = ? LIMIT 1');
-            mysqli_stmt_bind_param($dupStmt, 's', $username);
-        }
-        mysqli_stmt_execute($dupStmt);
-        mysqli_stmt_store_result($dupStmt);
-        if (mysqli_stmt_num_rows($dupStmt) > 0) {
-            $errors[] = 'Username already exists. Please choose a different username.';
-        }
-        mysqli_stmt_close($dupStmt);
+    // Check for duplicate username.
+    if (empty($errors) && User::usernameExists($username, $editingId)) {
+        $errors[] = 'Username already exists. Please choose a different username.';
     }
 
     if (empty($errors)) {
-        // Hash new password, or keep existing hash if left blank
+        // Blank password on edit means keep the existing hash.
         if ($password !== '') {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         } else {
@@ -94,22 +87,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $skillsString = implode(', ', $selectedSkills);
 
-        if ($editingId > 0 && $existingUser) {
-            $stmt = mysqli_prepare($conn, 'UPDATE users SET firstname=?, lastname=?, email=?, address=?, country=?, gender=?, skills=?, username=?, password=?, department=?, room=?, profile_pic=? WHERE id=?');
-            mysqli_stmt_bind_param($stmt, 'ssssssssssssi', $firstname, $lastname, $email, $address, $country, $gender, $skillsString, $username, $hashedPassword, $department, $room, $profilePicPath, $editingId);
-        } else {
-            $stmt = mysqli_prepare($conn, 'INSERT INTO users (firstname, lastname, email, address, country, gender, skills, username, password, department, room, profile_pic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-            mysqli_stmt_bind_param($stmt, 'ssssssssssss', $firstname, $lastname, $email, $address, $country, $gender, $skillsString, $username, $hashedPassword, $department, $room, $profilePicPath);
-        }
+        $data = [
+            'firstname'   => $firstname,
+            'lastname'    => $lastname,
+            'email'       => $email,
+            'address'     => $address,
+            'country'     => $country,
+            'gender'      => $gender,
+            'skills'      => $skillsString,
+            'username'    => $username,
+            'password'    => $hashedPassword,
+            'department'  => $department,
+            'room'        => $room,
+            'profile_pic' => $profilePicPath,
+        ];
 
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        if ($editingId > 0 && $existingUser) {
+            User::update($editingId, $data);
+        } else {
+            User::create($data);
+        }
 
         header('Location: users.php?message=' . urlencode('User saved successfully.'));
         exit;
     }
 
-    // Re-populate form with submitted values on error
+    // Re-populate the form with submitted values when there are errors.
     $user['id']         = $editingId;
     $user['firstname']  = $firstname;
     $user['lastname']   = $lastname;
@@ -121,13 +124,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user['department'] = $department;
     $user['room']       = $room;
 
-// Edit mode: load the user from the database to pre-fill the form
+// Edit mode: pre-fill the form from the database.
 } elseif (isset($_GET['id'])) {
     $editingId = (int) $_GET['id'];
-    $loaded = getUserById($conn, $editingId);
+    $loaded = User::findById($editingId);
     if ($loaded) {
         $user = $loaded;
-        // Convert the stored skills string back into an array for the checkboxes
+        // Stored skills string -> array for the checkboxes.
         $selectedSkills = [];
         if (!empty($user['skills'])) {
             foreach (explode(',', $user['skills']) as $skill) {
@@ -138,11 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $isEditing = ($editingId > 0);
-if ($isEditing) {
-    $title = 'Edit User';
-} else {
-    $title = 'Registration';
-}
+$title     = $isEditing ? 'Edit User' : 'Registration';
 ?>
 <!DOCTYPE html>
 <html>
