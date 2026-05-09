@@ -2,6 +2,7 @@
 session_start();
 require_once 'includes/functions.php';
 
+// Block access if not logged in
 if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;

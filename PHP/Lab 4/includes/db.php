@@ -1,12 +1,18 @@
 <?php
+// Load database settings from .env (with fallbacks)
 $envPath = __DIR__ . '/../.env';
-$env = file_exists($envPath) ? parse_ini_file($envPath, false, INI_SCANNER_RAW) : [];
+if (file_exists($envPath)) {
+    $env = parse_ini_file($envPath, false, INI_SCANNER_RAW);
+} else {
+    $env = [];
+}
 
 $dbHost = $env['DB_HOST'] ?? 'localhost';
 $dbUser = $env['DB_USER'] ?? 'root';
 $dbPass = $env['DB_PASS'] ?? '';
 $dbName = $env['DB_NAME'] ?? 'lab4';
 
+// Connect to MySQL and select the database (creating it if needed)
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass);
 if (!$conn) {
     die('Database connection failed: ' . mysqli_connect_error());
@@ -22,6 +28,7 @@ if (!mysqli_select_db($conn, $dbName)) {
     die('Could not select database: ' . mysqli_error($conn));
 }
 
+// Create users table
 $createTableSql = "CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(100) NOT NULL,
@@ -43,16 +50,17 @@ if (!mysqli_query($conn, $createTableSql)) {
     die('Could not create table: ' . mysqli_error($conn));
 }
 
+// Clean up duplicate usernames, then enforce uniqueness
 try {
     mysqli_query($conn, "DELETE u1 FROM users u1
         INNER JOIN users u2
         ON u1.username = u2.username AND u1.id < u2.id");
 } catch (mysqli_sql_exception $e) {
-    // Ignore — table might be empty or already clean
+    // Ignore - table might be empty or already clean
 }
 
 try {
     mysqli_query($conn, "ALTER TABLE users ADD UNIQUE (username)");
 } catch (mysqli_sql_exception $e) {
-    // Ignore — UNIQUE constraint already exists
+    // Ignore - UNIQUE constraint already exists
 }

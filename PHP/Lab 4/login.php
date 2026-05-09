@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
+    // Look up the user by username
     $stmt = mysqli_prepare($conn, 'SELECT firstname, lastname, password, profile_pic FROM users WHERE username = ? LIMIT 1');
     mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = mysqli_fetch_assoc($result);
     mysqli_stmt_close($stmt);
 
+    // Verify the password against the stored hash
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user'] = $user['firstname'] . ' ' . $user['lastname'];
         $_SESSION['profile_pic'] = $user['profile_pic'];

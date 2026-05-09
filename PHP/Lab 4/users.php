@@ -2,18 +2,23 @@
 require_once 'includes/db.php';
 require_once 'includes/functions.php';
 
+// Handle delete request
 if (isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
     $user = getUserById($conn, $deleteId);
+
     if ($user) {
+        // Remove profile picture file if it exists
         if (!empty($user['profile_pic']) && file_exists(__DIR__ . '/' . $user['profile_pic'])) {
             unlink(__DIR__ . '/' . $user['profile_pic']);
         }
+
         $stmt = mysqli_prepare($conn, 'DELETE FROM users WHERE id = ?');
         mysqli_stmt_bind_param($stmt, 'i', $deleteId);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+
     header('Location: users.php?message=' . urlencode('User deleted successfully.'));
     exit;
 }
@@ -50,6 +55,7 @@ $users = getAllUsers($conn);
             <th>Profile Picture</th>
             <th>Actions</th>
         </tr>
+
         <?php foreach ($users as $user): ?>
             <tr>
                 <td><?php echo e($user['id']); ?></td>
