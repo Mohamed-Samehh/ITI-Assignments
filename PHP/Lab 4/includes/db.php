@@ -31,7 +31,7 @@ $createTableSql = "CREATE TABLE IF NOT EXISTS users (
     country VARCHAR(100) NOT NULL,
     gender VARCHAR(20) NOT NULL,
     skills TEXT,
-    username VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     department VARCHAR(100),
     room VARCHAR(100) NOT NULL,
@@ -41,4 +41,18 @@ $createTableSql = "CREATE TABLE IF NOT EXISTS users (
 
 if (!mysqli_query($conn, $createTableSql)) {
     die('Could not create table: ' . mysqli_error($conn));
+}
+
+try {
+    mysqli_query($conn, "DELETE u1 FROM users u1
+        INNER JOIN users u2
+        ON u1.username = u2.username AND u1.id < u2.id");
+} catch (mysqli_sql_exception $e) {
+    // Ignore — table might be empty or already clean
+}
+
+try {
+    mysqli_query($conn, "ALTER TABLE users ADD UNIQUE (username)");
+} catch (mysqli_sql_exception $e) {
+    // Ignore — UNIQUE constraint already exists
 }

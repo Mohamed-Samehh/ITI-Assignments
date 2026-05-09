@@ -48,6 +48,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Check for duplicate username
+    if (empty($errors)) {
+        if ($editingId > 0) {
+            $dupStmt = mysqli_prepare($conn, 'SELECT id FROM users WHERE username = ? AND id != ? LIMIT 1');
+            mysqli_stmt_bind_param($dupStmt, 'si', $username, $editingId);
+        } else {
+            $dupStmt = mysqli_prepare($conn, 'SELECT id FROM users WHERE username = ? LIMIT 1');
+            mysqli_stmt_bind_param($dupStmt, 's', $username);
+        }
+        mysqli_stmt_execute($dupStmt);
+        mysqli_stmt_store_result($dupStmt);
+        if (mysqli_stmt_num_rows($dupStmt) > 0) {
+            $errors[] = 'Username already exists. Please choose a different username.';
+        }
+        mysqli_stmt_close($dupStmt);
+    }
+
     if (empty($errors)) {
         // Hash new password, or keep existing hash if left blank
         if ($password !== '') {
