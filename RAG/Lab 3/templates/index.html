@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ agent_name }} — Agentic RAG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo">🧠</span>
+                <div>
+                    <h2>{{ agent_name }}</h2>
+                    <p class="tag">Agentic RAG</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Specialization</h3>
+                <p>{{ specialization }}</p>
+            </div>
+
+            <div class="panel">
+                <h3>Agent flow</h3>
+                <ol class="flow">
+                    <li><span class="dot dot-classify"></span>Classify topic</li>
+                    <li><span class="dot dot-retrieve"></span>Retrieve from KB</li>
+                    <li><span class="dot dot-grade"></span>Grade relevance</li>
+                    <li><span class="dot dot-answer"></span>Generate / I don't know</li>
+                </ol>
+            </div>
+
+            <div class="panel last-trace" id="trace-panel">
+                <h3>Last trace</h3>
+                <div class="trace-empty" id="trace-empty">Send a message to see the agent's reasoning.</div>
+                <div class="trace-body" id="trace-body" hidden>
+                    <div class="trace-row">
+                        <span class="label">Route</span>
+                        <span class="value" id="trace-route">—</span>
+                    </div>
+                    <div class="trace-row">
+                        <span class="label">Topic</span>
+                        <span class="value" id="trace-classification">—</span>
+                    </div>
+                    <div class="trace-row">
+                        <span class="label">Relevance</span>
+                        <span class="value" id="trace-relevance">—</span>
+                    </div>
+                    <div class="trace-row trace-docs">
+                        <span class="label">Retrieved chunks</span>
+                        <ul id="trace-docs"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="reset-btn">Clear conversation</button>
+        </aside>
+
+        <main class="chat">
+            <div class="chat-messages" id="messages">
+                <div class="message bot">
+                    <div class="avatar">🧠</div>
+                    <div class="bubble">{{ intro }}</div>
+                </div>
+            </div>
+
+            <form class="chat-input" id="chat-form" autocomplete="off">
+                <textarea id="user-input" rows="1" placeholder="Ask about ML, neural networks, RAG, embeddings…"></textarea>
+                <button type="submit" id="send-btn" aria-label="Send">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13"></path>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
