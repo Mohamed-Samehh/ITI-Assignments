@@ -1,0 +1,14 @@
+{
+    "name": "lab-2-unit-testing",
+    "version": "1.0.0",
+    "private": true,
+    "type": "commonjs",
+    "scripts": {
+        "test": "jest --runInBand"
+    },
+    "devDependencies": {
+        "jest": "^30.0.0",
+        "mongodb-memory-server": "^10.0.0",
+        "mongoose": "^8.0.0"
+    }
+}
