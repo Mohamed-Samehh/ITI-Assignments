@@ -13,7 +13,7 @@
         <h3>Post Creator Info</h3>
         <p><strong>Name :-</strong> {{ $post->user->name }}</p>
         <p><strong>Email :-</strong> {{ $post->user->email }}</p>
-        <p><strong>Created At :-</strong> {{ $post->created_at }}</p>
+        <p><strong>Created At :-</strong> {{ $post->created_at->toDateString() }}</p>
     </div>
 
     <div style="margin-top: 2rem;">

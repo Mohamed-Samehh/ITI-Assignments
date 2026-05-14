@@ -21,12 +21,12 @@
                 <tr>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->user->name }}</td>
-                    <td>{{ $post->created_at }}</td>
+                    <td>{{ $post->created_at->toDateString() }}</td>
                     <td>
                         <div class="actions">
                             <a href="/posts/{{ $post->id }}" class="btn btn-primary">View</a>
                             <a href="/posts/{{ $post->id }}/edit" class="btn btn-secondary">Edit</a>
-                            <form class="inline-form" method="POST" action="/posts/{{ $post->id }}">
+                            <form class="inline-form" method="POST" action="/posts/{{ $post->id }}" onsubmit="return confirm('Are you sure you want to delete this post? Click Yes to confirm or No to cancel.');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -37,4 +37,8 @@
             @endforeach
         </tbody>
     </table>
+
+    <div style="margin-top: 2rem;">
+        {{ $posts->links('pagination::bootstrap-4') }}
+    </div>
 @endsection

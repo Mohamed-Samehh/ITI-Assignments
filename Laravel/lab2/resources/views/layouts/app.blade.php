@@ -16,26 +16,27 @@
             background-color: #f5f5f5;
         }
 
-        nav {
+        .main-nav {
             background-color: #2c3e50;
             padding: 1rem;
             margin-bottom: 2rem;
         }
 
-        nav a {
+        .main-nav a {
             color: white;
             text-decoration: none;
             margin-right: 2rem;
             font-size: 1rem;
         }
 
-        nav a:hover {
+        .main-nav a:hover {
             text-decoration: underline;
         }
-                /* keep buttons vertically aligned with text */
-                .btn {
-                    vertical-align: middle;
-                }
+        .btn {
+            vertical-align: middle;
+            font-size: 0.875rem;
+            line-height: 1;
+        }
 
         .container {
             max-width: 1000px;
@@ -54,13 +55,13 @@
         }
 
         button, a.btn {
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.6rem;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-right: 0.5rem;
+            margin-right: 0.4rem;
         }
 
         .btn-primary {
@@ -189,17 +190,22 @@
 
         .pagination {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             margin-top: 2rem;
+            margin-bottom: 2rem;
+            list-style: none;
+            padding: 0;
+            flex-wrap: wrap;
         }
 
         .pagination a, .pagination span {
-            padding: 0.5rem 0.75rem;
+            padding: 0.3rem 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             text-decoration: none;
             color: #3498db;
             background-color: white;
+            font-size: 0.875rem;
         }
 
         .pagination a:hover {
@@ -207,9 +213,10 @@
         }
 
         .pagination .active {
-            background-color: #3498db;
-            color: white;
-            border-color: #3498db;
+            background-color: #ecf3f6; /* subtle shade */
+            color: #2c3e50;
+            border-color: #e0e6ea;
+            font-weight: 600;
         }
 
         .post-info {
@@ -248,7 +255,7 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="main-nav">
         <a href="/">ITI Blog</a>
         <a href="/posts">All Posts</a>
     </nav>
