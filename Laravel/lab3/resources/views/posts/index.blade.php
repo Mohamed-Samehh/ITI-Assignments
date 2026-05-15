@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Slug</th>
                 <th>Posted By</th>
                 <th>Created At</th>
                 <th>Actions</th>
@@ -20,6 +21,7 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->title }}</td>
+                    <td>{{ $post->slug }}</td>
                     <td>{{ $post->user->name }}</td>
                     <td>{{ $post->created_at->toDateString() }}</td>
                     <td>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,13 +31,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
-        Post::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'user_id' => $request->user_id,
-        ]);
+        $data = $request->validated();
+        Post::create($data);
 
         return redirect('/posts');
     }
@@ -60,13 +59,10 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post)
     {
-        $post->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'user_id' => $request->user_id,
-        ]);
+        $data = $request->validated();
+        $post->update($data);
 
         return redirect('/posts');
     }

@@ -6,6 +6,7 @@
     <div class="post-info">
         <h2>Post Info</h2>
         <p><strong>Title :-</strong> {{ $post->title }}</p>
+        <p><strong>Slug :-</strong> {{ $post->slug }}</p>
         <p><strong>Description :-</strong> {{ $post->description }}</p>
     </div>
 
