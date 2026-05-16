@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -74,8 +75,10 @@ class PostController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
+            if ($post->image) {
+                Storage::disk('public')->delete($post->image);
+            }
             $data['image'] = $request->file('image')->store('posts', 'public');
-            // delete last image
         }
 
         $post->update($data);

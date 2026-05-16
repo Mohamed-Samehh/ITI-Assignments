@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\NoNumbers;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -17,7 +18,7 @@ class PostUpdateRequest extends FormRequest
         $postId = $this->route('post') ? $this->route('post')->id : null;
 
         return [
-            'title' => ['required', 'string', 'min:3', Rule::unique('posts', 'title')->ignore($postId)],
+            'title' => ['required', 'string', 'min:3', Rule::unique('posts', 'title')->ignore($postId), new NoNumbers],
             'description' => ['required', 'string', 'min:10'],
             'user_id' => ['required', 'exists:users,id'],
             'image' => ['nullable', 'image', 'max:2048'],

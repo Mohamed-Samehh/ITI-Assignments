@@ -16,7 +16,6 @@ class PostStoreRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'min:3', 'unique:posts,title'],
             'description' => ['required', 'string', 'min:10'],
-            'user_id' => ['required', 'exists:users,id'],
         ];
     }
 }
