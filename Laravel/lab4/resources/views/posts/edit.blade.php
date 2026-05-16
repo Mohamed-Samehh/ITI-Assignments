@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('content')
     <h1>Edit Post</h1>
 
-    <form method="POST" action="/posts/{{ $post->id }}" class="card-form">
+    <form method="POST" action="/posts/{{ $post->id }}" class="card-form" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -34,6 +34,16 @@
                     <option value="{{ $user->id }}" @if(old('user_id', $post->user_id) == $user->id) selected @endif>{{ $user->name }}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image (optional - leave blank to keep current)</label>
+            @if($post->image)
+                <div style="margin-bottom: 0.5rem;">
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="Current image" style="max-height: 150px;">
+                </div>
+            @endif
+            <input type="file" id="image" name="image" accept="image/*">
         </div>
 
         <button type="submit" class="btn btn-secondary">Update</button>

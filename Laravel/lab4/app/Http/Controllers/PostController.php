@@ -34,6 +34,12 @@ class PostController extends Controller
     public function store(PostStoreRequest $request)
     {
         $data = $request->validated();
+
+        // If an image was uploaded, store it in storage/app/public/posts/
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('posts', 'public');
+        }
+
         Post::create($data);
 
         return redirect('/posts');
@@ -52,6 +58,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         $users = User::all();
         return view('posts.edit', ['post' => $post, 'users' => $users]);
     }
@@ -61,7 +69,15 @@ class PostController extends Controller
      */
     public function update(PostUpdateRequest $request, Post $post)
     {
+        $this->authorize('update', $post);
+
         $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('posts', 'public');
+            // delete last image
+        }
+
         $post->update($data);
 
         return redirect('/posts');
@@ -72,7 +88,27 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
+
         $post->delete();
         return redirect('/posts');
+    }
+
+    // Show all soft-deleted posts
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->paginate(10);
+        return view('posts.trashed', compact('posts'));
+    }
+
+    // Restore a soft-deleted post
+    public function restore($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+
+        $this->authorize('restore', $post);
+
+        $post->restore();
+        return redirect()->route('posts.trashed');
     }
 }

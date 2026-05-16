@@ -17,6 +17,12 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    // Polymorphic: a user can have many comments
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     /**
      * Get the attributes that should be cast.
      *

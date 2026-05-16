@@ -20,6 +20,7 @@ class PostUpdateRequest extends FormRequest
             'title' => ['required', 'string', 'min:3', Rule::unique('posts', 'title')->ignore($postId)],
             'description' => ['required', 'string', 'min:10'],
             'user_id' => ['required', 'exists:users,id'],
+            'image' => ['nullable', 'image', 'max:2048'],
         ];
     }
 }

@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('content')
     <h1>Create New Post</h1>
 
-    <form method="POST" action="/posts" class="card-form">
+    <form method="POST" action="/posts" class="card-form" enctype="multipart/form-data">
         @csrf
 
         @if($errors->any())
@@ -34,6 +34,11 @@
                     <option value="{{ $user->id }}" @if(old('user_id') == $user->id) selected @endif>{{ $user->name }}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image (optional)</label>
+            <input type="file" id="image" name="image" accept="image/*">
         </div>
 
         <button type="submit" class="btn btn-secondary">Create</button>
