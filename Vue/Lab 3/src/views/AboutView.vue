@@ -15,7 +15,7 @@ onUnmounted(() => {
     <h2 class="section-title">About</h2>
 
     <p><strong>Name:</strong> Mohamed Sameh</p>
-    <p><strong>Course:</strong> VueJS Course - Day 2</p>
+    <p><strong>Course:</strong> VueJS Course - Day 3</p>
     <p><strong>Institute:</strong> ITI</p>
 
     <p class="muted">
