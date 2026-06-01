@@ -1,0 +1,64 @@
+<odoo>
+
+    <!-- Opens the Patients list when menu item is clicked -->
+    <record id="action_hms_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hms.patient</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Table view: columns shown in the patients list -->
+    <record id="view_hms_patient_list" model="ir.ui.view">
+        <field name="name">hms.patient.list</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="birth_date"/>
+                <field name="blood_type"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view: detail page for a single patient -->
+    <record id="view_hms_patient_form" model="ir.ui.view">
+        <field name="name">hms.patient.form</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/> <!-- round avatar photo -->
+                    <group>
+                        <!-- Left: personal info -->
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="blood_type"/>
+                        </group>
+                        <!-- Right: medical info -->
+                        <group>
+                            <field name="cr_ratio"/>
+                            <field name="pcr"/>
+                            <field name="address"/>
+                        </group>
+                    </group>
+                    <!-- Tabs at the bottom -->
+                    <notebook>
+                        <page string="History">
+                            <field name="history"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Top-level "Hospital" menu and "Patients" sub-menu -->
+    <menuitem id="menu_hms_root" name="Hospital"/>
+    <menuitem id="menu_hms_patient" name="Patients"
+              parent="menu_hms_root" action="action_hms_patient"/>
+
+</odoo>
