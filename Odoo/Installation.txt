@@ -1,0 +1,1408 @@
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo apt update -y && sudo apt upgrade -y
+Hit:1 https://brave-browser-apt-release.s3.brave.com stable InRelease
+Hit:2 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 InRelease      
+Hit:3 https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev antigravity-debian InRelease
+Hit:4 http://eg.archive.ubuntu.com/ubuntu noble InRelease
+Get:5 http://eg.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:6 https://packages.microsoft.com/repos/code stable InRelease [3,590 B]
+Get:7 http://eg.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:8 https://packages.microsoft.com/repos/code stable/main amd64 Packages [26.3 kB]
+Get:9 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,050 kB]
+Get:10 http://eg.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [360 kB]
+Get:11 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [177 kB]
+Get:12 http://eg.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [386 kB]
+Get:13 http://eg.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:14 http://eg.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,764 B]
+Get:15 http://eg.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+Get:16 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]     
+Hit:17 https://download.docker.com/linux/ubuntu noble InRelease                
+Get:18 https://dl.google.com/linux/chrome/deb stable InRelease [1,825 B]       
+Get:19 https://dl.google.com/linux/chrome-stable/deb stable InRelease [1,825 B]
+Hit:20 https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/noble pgadmin4 InRelease
+Get:21 https://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1,217 B]
+Get:22 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [42.5 kB]
+Get:23 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [74.2 kB]
+Hit:24 https://debrepo.freedownloadmanager.org jammy InRelease                 
+Get:25 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 Packages [1,217 B]
+Hit:26 http://debian.usebruno.com bruno InRelease                              
+Fetched 3,521 kB in 12s (303 kB/s)                                             
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+126 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  libslirp0 linux-headers-6.17.0-22-generic linux-hwe-6.17-headers-6.17.0-22
+  linux-hwe-6.17-tools-6.17.0-22 linux-image-6.17.0-22-generic
+  linux-modules-6.17.0-22-generic linux-modules-extra-6.17.0-22-generic
+  linux-modules-nvidia-580-open-6.17.0-22-generic
+  linux-tools-6.17.0-22-generic slirp4netns
+Use 'sudo apt autoremove' to remove them.
+Get more security updates through Ubuntu Pro with 'esm-apps' enabled:
+  php-symfony-config vlc-plugin-qt libvlc5 libzvbi-common vlc-data
+  php-symfony-dependency-injection libvlccore9 qt5-gtk-platformtheme vlc
+  vlc-bin vlc-l10n libcjson1 libavdevice60 php-symfony-cache ffmpeg
+  php-symfony-var-exporter libpostproc57 python3-wheel vlc-plugin-samba
+  libqt5gui5t64 libmbedcrypto7t64 php-twig libavcodec60
+  libgstreamer-plugins-bad1.0-0 libzvbi0t64 vlc-plugin-notify libavutil58
+  libqt5widgets5t64 libswscale7 python3-pip php-symfony-expression-language
+  libqt5dbus5t64 vlc-plugin-access-extra libqt5network5t64 vlc-plugin-skins2
+  vlc-plugin-video-splitter libswresample4 vlc-plugin-video-output
+  libavformat60 libvlc-bin libqt5core5t64 vlc-plugin-base
+  vlc-plugin-visualization libavfilter9 php-symfony-filesystem
+Learn more about Ubuntu Pro at https://ubuntu.com/pro
+The following NEW packages will be installed:
+  linux-headers-6.17.0-35-generic linux-hwe-6.17-headers-6.17.0-35
+  linux-hwe-6.17-tools-6.17.0-35 linux-image-6.17.0-35-generic
+  linux-modules-6.17.0-35-generic linux-modules-extra-6.17.0-35-generic
+  linux-tools-6.17.0-35-generic
+The following packages have been kept back:
+  libnvidia-cfg1-580 libnvidia-common-580 libnvidia-compute-580
+  libnvidia-decode-580 libnvidia-encode-580 libnvidia-extra-580
+  libnvidia-fbc1-580 libnvidia-gl-580
+  linux-modules-nvidia-580-open-6.17.0-29-generic
+  linux-modules-nvidia-580-open-generic-hwe-24.04 nvidia-compute-utils-580
+  nvidia-driver-580-open nvidia-kernel-common-580
+  nvidia-kernel-source-580-open nvidia-utils-580 xserver-xorg-video-nvidia-580
+The following packages will be upgraded:
+  bind9-dnsutils bind9-host bind9-libs brave-browser bruno code containerd.io
+  docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras
+  docker-compose-plugin evince evince-common fonts-opensymbol
+  google-chrome-stable gstreamer1.0-gtk3 gstreamer1.0-plugins-good
+  libarchive13t64 libcaca0 libevdocument3-4t64 libevview3-3t64 libgcrypt20
+  libgnutls30t64 libgstreamer-plugins-good1.0-0 libldb2 liblibreoffice-java
+  libreoffice libreoffice-base libreoffice-base-core libreoffice-base-drivers
+  libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw
+  libreoffice-gnome libreoffice-gtk3 libreoffice-impress
+  libreoffice-java-common libreoffice-math libreoffice-nlpsolver
+  libreoffice-report-builder libreoffice-report-builder-bin
+  libreoffice-script-provider-bsh libreoffice-script-provider-js
+  libreoffice-script-provider-python libreoffice-sdbc-firebird
+  libreoffice-sdbc-hsqldb libreoffice-sdbc-mysql libreoffice-sdbc-postgresql
+  libreoffice-style-colibre libreoffice-style-elementary
+  libreoffice-style-yaru libreoffice-uiconfig-base libreoffice-uiconfig-calc
+  libreoffice-uiconfig-common libreoffice-uiconfig-draw
+  libreoffice-uiconfig-impress libreoffice-uiconfig-math
+  libreoffice-uiconfig-report-builder libreoffice-uiconfig-writer
+  libreoffice-wiki-publisher libreoffice-writer libsmbclient0 libssh2-1t64
+  libuno-cppu3t64 libuno-cppuhelpergcc3-3t64 libuno-purpenvhelpergcc3-3t64
+  libuno-sal3t64 libuno-salhelpergcc3-3t64 libunoloader-java libwbclient0
+  linux-generic-hwe-24.04 linux-headers-generic-hwe-24.04
+  linux-image-generic-hwe-24.04 linux-libc-dev linux-tools-common
+  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre
+  openjdk-21-jre-headless openvpn php8.3-bcmath php8.3-bz2 php8.3-cli
+  php8.3-common php8.3-curl php8.3-fpm php8.3-gd php8.3-mbstring php8.3-mysql
+  php8.3-opcache php8.3-readline php8.3-sqlite3 php8.3-xml php8.3-zip
+  postgresql-client-16 python3-uno rsync samba-libs snapd uno-libs-private ure
+  ure-java vim vim-common vim-runtime vim-tiny xdg-desktop-portal xxd
+110 upgraded, 7 newly installed, 0 to remove and 16 not upgraded.
+94 standard LTS security updates
+Need to get 938 MB/1,233 MB of archives.
+After this operation, 613 MB of additional disk space will be used.
+Get:1 https://brave-browser-apt-release.s3.brave.com stable/main amd64 brave-browser amd64 1.90.128 [134 MB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-modules-6.17.0-35-generic amd64 6.17.0-35.35~24.04.1 [42.3 MB]
+Get:3 http://debian.usebruno.com bruno/stable amd64 bruno amd64 3.4.2 [100 MB] 
+Get:4 https://dl.google.com/linux/chrome/deb stable/main amd64 google-chrome-stable amd64 148.0.7778.215-1 [130 MB]
+Get:5 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-cli amd64 5:29.5.2-1~ubuntu.24.04~noble [17.0 MB]
+Get:6 https://packages.microsoft.com/repos/code stable/main amd64 code amd64 1.122.1-1780040850 [232 MB]
+Get:7 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-image-6.17.0-35-generic amd64 6.17.0-35.35~24.04.1 [16.0 MB]
+Get:8 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-modules-extra-6.17.0-35-generic amd64 6.17.0-35.35~24.04.1 [123 MB]
+Get:9 https://download.docker.com/linux/ubuntu noble/stable amd64 containerd.io amd64 2.2.4-1~ubuntu.24.04~noble [23.6 MB]
+Get:10 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-generic-hwe-24.04 amd64 6.17.0-35.35~24.04.1 [1,732 B]
+Get:11 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-image-generic-hwe-24.04 amd64 6.17.0-35.35~24.04.1 [2,570 B]
+Get:12 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-hwe-6.17-headers-6.17.0-35 all 6.17.0-35.35~24.04.1 [14.5 MB]
+Get:13 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-headers-6.17.0-35-generic amd64 6.17.0-35.35~24.04.1 [4,000 kB]
+Get:14 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-headers-generic-hwe-24.04 amd64 6.17.0-35.35~24.04.1 [2,408 B]
+Get:15 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-tools-common all 6.8.0-124.124 [282 kB]
+Get:16 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-hwe-6.17-tools-6.17.0-35 amd64 6.17.0-35.35~24.04.1 [6,249 kB]
+Get:17 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-libc-dev amd64 6.8.0-124.124 [1,442 kB]
+Get:18 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 linux-tools-6.17.0-35-generic amd64 6.17.0-35.35~24.04.1 [1,644 B]
+Get:19 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 snapd amd64 2.75.2+ubuntu24.04 [35.1 MB]
+Get:20 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce amd64 5:29.5.2-1~ubuntu.24.04~noble [23.0 MB]
+Get:21 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-buildx-plugin amd64 0.34.1-1~ubuntu.24.04~noble [17.2 MB]
+Get:22 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-rootless-extras amd64 5:29.5.2-1~ubuntu.24.04~noble [10.2 MB]
+Get:23 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-compose-plugin amd64 5.1.4-1~ubuntu.24.04~noble [8,126 kB]
+Fetched 938 MB in 17min 37s (888 kB/s)                                         
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+(Reading database ... 316557 files and directories currently installed.)
+Preparing to unpack .../00-rsync_3.2.7-1ubuntu1.4_amd64.deb ...
+Unpacking rsync (3.2.7-1ubuntu1.4) over (3.2.7-1ubuntu1.2) ...
+Preparing to unpack .../01-brave-browser_1.90.128_amd64.deb ...
+Unpacking brave-browser (1.90.128) over (1.90.122) ...
+Preparing to unpack .../02-docker-ce-cli_5%3a29.5.2-1~ubuntu.24.04~noble_amd64.d
+eb ...
+Unpacking docker-ce-cli (5:29.5.2-1~ubuntu.24.04~noble) over (5:29.5.1-1~ubuntu.
+24.04~noble) ...
+Preparing to unpack .../03-containerd.io_2.2.4-1~ubuntu.24.04~noble_amd64.deb ..
+.
+Unpacking containerd.io (2.2.4-1~ubuntu.24.04~noble) over (2.2.3-1~ubuntu.24.04~
+noble) ...
+Preparing to unpack .../04-docker-ce_5%3a29.5.2-1~ubuntu.24.04~noble_amd64.deb .
+..
+Unpacking docker-ce (5:29.5.2-1~ubuntu.24.04~noble) over (5:29.5.1-1~ubuntu.24.0
+4~noble) ...
+Preparing to unpack .../05-google-chrome-stable_148.0.7778.215-1_amd64.deb ...
+Unpacking google-chrome-stable (148.0.7778.215-1) over (148.0.7778.167-1) ...
+Preparing to unpack .../06-ure-java_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking ure-java (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24.04.4) 
+...
+Preparing to unpack .../07-ure_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking ure (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../08-libunoloader-java_4%3a24.2.7-0ubuntu0.24.04.5_all.deb
+ ...
+Unpacking libunoloader-java (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.
+24.04.4) ...
+Preparing to unpack .../09-libuno-sal3t64_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb 
+...
+Unpacking libuno-sal3t64 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24.
+04.4) ...
+Preparing to unpack .../10-libuno-salhelpergcc3-3t64_4%3a24.2.7-0ubuntu0.24.04.5
+_amd64.deb ...
+Unpacking libuno-salhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../11-libuno-cppu3t64_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb
+ ...
+Unpacking libuno-cppu3t64 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24
+.04.4) ...
+Preparing to unpack .../12-uno-libs-private_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking uno-libs-private (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../13-libuno-cppuhelpergcc3-3t64_4%3a24.2.7-0ubuntu0.24.04.
+5_amd64.deb ...
+Unpacking libuno-cppuhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-
+0ubuntu0.24.04.4) ...
+Preparing to unpack .../14-libuno-purpenvhelpergcc3-3t64_4%3a24.2.7-0ubuntu0.24.
+04.5_amd64.deb ...
+Unpacking libuno-purpenvhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2
+.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../15-libreoffice-uiconfig-calc_4%3a24.2.7-0ubuntu0.24.04.5
+_all.deb ...
+Unpacking libreoffice-uiconfig-calc (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../16-libreoffice-calc_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking libreoffice-calc (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../17-libreoffice-impress_4%3a24.2.7-0ubuntu0.24.04.5_amd64
+.deb ...
+Unpacking libreoffice-impress (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu
+0.24.04.4) ...
+Preparing to unpack .../18-libreoffice-uiconfig-impress_4%3a24.2.7-0ubuntu0.24.0
+4.5_all.deb ...
+Unpacking libreoffice-uiconfig-impress (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.
+7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../19-libreoffice-uiconfig-draw_4%3a24.2.7-0ubuntu0.24.04.5
+_all.deb ...
+Unpacking libreoffice-uiconfig-draw (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../20-libreoffice-draw_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking libreoffice-draw (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../21-libreoffice-uiconfig-writer_4%3a24.2.7-0ubuntu0.24.04
+.5_all.deb ...
+Unpacking libreoffice-uiconfig-writer (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7
+-0ubuntu0.24.04.4) ...
+Preparing to unpack .../22-libreoffice-writer_4%3a24.2.7-0ubuntu0.24.04.5_amd64.
+deb ...
+Unpacking libreoffice-writer (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0
+.24.04.4) ...
+Preparing to unpack .../23-libreoffice-report-builder_4%3a24.2.7-0ubuntu0.24.04.
+5_all.deb ...
+Unpacking libreoffice-report-builder (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-
+0ubuntu0.24.04.4) ...
+Preparing to unpack .../24-libreoffice-uiconfig-report-builder_4%3a24.2.7-0ubunt
+u0.24.04.5_all.deb ...
+Unpacking libreoffice-uiconfig-report-builder (4:24.2.7-0ubuntu0.24.04.5) over (
+4:24.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../25-libreoffice-math_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking libreoffice-math (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../26-libreoffice-uiconfig-math_4%3a24.2.7-0ubuntu0.24.04.5
+_all.deb ...
+Unpacking libreoffice-uiconfig-math (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../27-libreoffice-uiconfig-common_4%3a24.2.7-0ubuntu0.24.04
+.5_all.deb ...
+Unpacking libreoffice-uiconfig-common (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7
+-0ubuntu0.24.04.4) ...
+Preparing to unpack .../28-libreoffice-common_4%3a24.2.7-0ubuntu0.24.04.5_all.de
+b ...
+Unpacking libreoffice-common (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0
+.24.04.4) ...
+Preparing to unpack .../29-libreoffice-gnome_4%3a24.2.7-0ubuntu0.24.04.5_amd64.d
+eb ...
+Unpacking libreoffice-gnome (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.
+24.04.4) ...
+Preparing to unpack .../30-libreoffice-gtk3_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking libreoffice-gtk3 (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../31-libreoffice_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking libreoffice (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24.04.
+4) ...
+Preparing to unpack .../32-python3-uno_4%3a24.2.7-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking python3-uno (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.24.04.
+4) ...
+Preparing to unpack .../33-libreoffice-base-core_4%3a24.2.7-0ubuntu0.24.04.5_amd
+64.deb ...
+Unpacking libreoffice-base-core (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubun
+tu0.24.04.4) ...
+Preparing to unpack .../34-libreoffice-base_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+No diversion 'diversion of /usr/lib/libreoffice/share/basic/dialog.xlc to /usr/l
+ib/libreoffice/share/basic/dialog.xlc.noaccess by libreoffice-base', none remove
+d.
+No diversion 'diversion of /usr/lib/libreoffice/share/basic/script.xlc to /usr/l
+ib/libreoffice/share/basic/script.xlc.noaccess by libreoffice-base', none remove
+d.
+Unpacking libreoffice-base (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../35-libreoffice-core_4%3a24.2.7-0ubuntu0.24.04.5_amd64.de
+b ...
+Unpacking libreoffice-core (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu0.2
+4.04.4) ...
+Preparing to unpack .../36-libreoffice-base-drivers_4%3a24.2.7-0ubuntu0.24.04.5_
+amd64.deb ...
+Unpacking libreoffice-base-drivers (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0u
+buntu0.24.04.4) ...
+Preparing to unpack .../37-libreoffice-uiconfig-base_4%3a24.2.7-0ubuntu0.24.04.5
+_all.deb ...
+Unpacking libreoffice-uiconfig-base (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../38-fonts-opensymbol_4%3a102.12+LibO24.2.7-0ubuntu0.24.04
+.5_all.deb ...
+Unpacking fonts-opensymbol (4:102.12+LibO24.2.7-0ubuntu0.24.04.5) over (4:102.12
++LibO24.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../39-libreoffice-report-builder-bin_4%3a24.2.7-0ubuntu0.24
+.04.5_amd64.deb ...
+Unpacking libreoffice-report-builder-bin (4:24.2.7-0ubuntu0.24.04.5) over (4:24.
+2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../40-libreoffice-java-common_4%3a24.2.7-0ubuntu0.24.04.5_a
+ll.deb ...
+Unpacking libreoffice-java-common (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ub
+untu0.24.04.4) ...
+Preparing to unpack .../41-liblibreoffice-java_4%3a24.2.7-0ubuntu0.24.04.5_all.d
+eb ...
+Unpacking liblibreoffice-java (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubuntu
+0.24.04.4) ...
+Preparing to unpack .../42-libreoffice-style-colibre_4%3a24.2.7-0ubuntu0.24.04.5
+_all.deb ...
+Unpacking libreoffice-style-colibre (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../43-libgcrypt20_1.10.3-2ubuntu0.1_amd64.deb ...
+Unpacking libgcrypt20:amd64 (1.10.3-2ubuntu0.1) over (1.10.3-2build1) ...
+Setting up libgcrypt20:amd64 (1.10.3-2ubuntu0.1) ...
+(Reading database ... 316557 files and directories currently installed.)
+Preparing to unpack .../libgnutls30t64_3.8.3-1.1ubuntu3.6_amd64.deb ...
+Unpacking libgnutls30t64:amd64 (3.8.3-1.1ubuntu3.6) over (3.8.3-1.1ubuntu3.5) ..
+.
+Setting up libgnutls30t64:amd64 (3.8.3-1.1ubuntu3.6) ...
+(Reading database ... 316557 files and directories currently installed.)
+Preparing to unpack .../00-vim_2%3a9.1.0016-1ubuntu7.14_amd64.deb ...
+Unpacking vim (2:9.1.0016-1ubuntu7.14) over (2:9.1.0016-1ubuntu7.13) ...
+Preparing to unpack .../01-vim-common_2%3a9.1.0016-1ubuntu7.14_all.deb ...
+Unpacking vim-common (2:9.1.0016-1ubuntu7.14) over (2:9.1.0016-1ubuntu7.13) ...
+Preparing to unpack .../02-vim-tiny_2%3a9.1.0016-1ubuntu7.14_amd64.deb ...
+Unpacking vim-tiny (2:9.1.0016-1ubuntu7.14) over (2:9.1.0016-1ubuntu7.13) ...
+Preparing to unpack .../03-vim-runtime_2%3a9.1.0016-1ubuntu7.14_all.deb ...
+Unpacking vim-runtime (2:9.1.0016-1ubuntu7.14) over (2:9.1.0016-1ubuntu7.13) ...
+Preparing to unpack .../04-xxd_2%3a9.1.0016-1ubuntu7.14_amd64.deb ...
+Unpacking xxd (2:9.1.0016-1ubuntu7.14) over (2:9.1.0016-1ubuntu7.13) ...
+Preparing to unpack .../05-bind9-dnsutils_1%3a9.18.39-0ubuntu0.24.04.5_amd64.deb
+ ...
+Unpacking bind9-dnsutils (1:9.18.39-0ubuntu0.24.04.5) over (1:9.18.39-0ubuntu0.2
+4.04.3) ...
+Preparing to unpack .../06-bind9-host_1%3a9.18.39-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking bind9-host (1:9.18.39-0ubuntu0.24.04.5) over (1:9.18.39-0ubuntu0.24.04
+.3) ...
+Preparing to unpack .../07-bind9-libs_1%3a9.18.39-0ubuntu0.24.04.5_amd64.deb ...
+Unpacking bind9-libs:amd64 (1:9.18.39-0ubuntu0.24.04.5) over (1:9.18.39-0ubuntu0
+.24.04.3) ...
+Preparing to unpack .../08-bruno_3.4.2_amd64.deb ...
+Unpacking bruno (3.4.2) over (3.2.2) ...
+Preparing to unpack .../09-code_1.122.1-1780040850_amd64.deb ...
+Unpacking code (1.122.1-1780040850) over (1.120.0-1778619059) ...
+Preparing to unpack .../10-docker-buildx-plugin_0.34.1-1~ubuntu.24.04~noble_amd6
+4.deb ...
+Unpacking docker-buildx-plugin (0.34.1-1~ubuntu.24.04~noble) over (0.34.0-1~ubun
+tu.24.04~noble) ...
+Preparing to unpack .../11-docker-ce-rootless-extras_5%3a29.5.2-1~ubuntu.24.04~n
+oble_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:29.5.2-1~ubuntu.24.04~noble) over (5:29.5
+.1-1~ubuntu.24.04~noble) ...
+Preparing to unpack .../12-docker-compose-plugin_5.1.4-1~ubuntu.24.04~noble_amd6
+4.deb ...
+Unpacking docker-compose-plugin (5.1.4-1~ubuntu.24.04~noble) over (5.1.3-1~ubunt
+u.24.04~noble) ...
+Preparing to unpack .../13-evince-common_46.3.1-0ubuntu1.1_all.deb ...
+Unpacking evince-common (46.3.1-0ubuntu1.1) over (46.3.1-0ubuntu1) ...
+Preparing to unpack .../14-libarchive13t64_3.7.2-2ubuntu0.7_amd64.deb ...
+Unpacking libarchive13t64:amd64 (3.7.2-2ubuntu0.7) over (3.7.2-2ubuntu0.6) ...
+Preparing to unpack .../15-evince_46.3.1-0ubuntu1.1_amd64.deb ...
+Unpacking evince (46.3.1-0ubuntu1.1) over (46.3.1-0ubuntu1) ...
+Preparing to unpack .../16-libevdocument3-4t64_46.3.1-0ubuntu1.1_amd64.deb ...
+Unpacking libevdocument3-4t64:amd64 (46.3.1-0ubuntu1.1) over (46.3.1-0ubuntu1) .
+..
+Preparing to unpack .../17-libevview3-3t64_46.3.1-0ubuntu1.1_amd64.deb ...
+Unpacking libevview3-3t64:amd64 (46.3.1-0ubuntu1.1) over (46.3.1-0ubuntu1) ...
+Preparing to unpack .../18-gstreamer1.0-gtk3_1.24.2-1ubuntu1.4_amd64.deb ...
+Unpacking gstreamer1.0-gtk3:amd64 (1.24.2-1ubuntu1.4) over (1.24.2-1ubuntu1.3) .
+..
+Preparing to unpack .../19-libcaca0_0.99.beta20-4ubuntu0.2_amd64.deb ...
+Unpacking libcaca0:amd64 (0.99.beta20-4ubuntu0.2) over (0.99.beta20-4ubuntu0.1) 
+...
+Preparing to unpack .../20-gstreamer1.0-plugins-good_1.24.2-1ubuntu1.4_amd64.deb
+ ...
+Unpacking gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.4) over (1.24.2-1ubun
+tu1.3) ...
+Preparing to unpack .../21-libgstreamer-plugins-good1.0-0_1.24.2-1ubuntu1.4_amd6
+4.deb ...
+Unpacking libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.4) over (1.24.2-
+1ubuntu1.3) ...
+Preparing to unpack .../22-libsmbclient0_2%3a4.19.5+dfsg-4ubuntu9.6_amd64.deb ..
+.
+Unpacking libsmbclient0:amd64 (2:4.19.5+dfsg-4ubuntu9.6) over (2:4.19.5+dfsg-4ub
+untu9.4) ...
+Preparing to unpack .../23-libldb2_2%3a2.8.0+samba4.19.5+dfsg-4ubuntu9.6_amd64.d
+eb ...
+Unpacking libldb2:amd64 (2:2.8.0+samba4.19.5+dfsg-4ubuntu9.6) over (2:2.8.0+samb
+a4.19.5+dfsg-4ubuntu9.4) ...
+Preparing to unpack .../24-samba-libs_2%3a4.19.5+dfsg-4ubuntu9.6_amd64.deb ...
+Unpacking samba-libs:amd64 (2:4.19.5+dfsg-4ubuntu9.6) over (2:4.19.5+dfsg-4ubunt
+u9.4) ...
+Preparing to unpack .../25-libwbclient0_2%3a4.19.5+dfsg-4ubuntu9.6_amd64.deb ...
+Unpacking libwbclient0:amd64 (2:4.19.5+dfsg-4ubuntu9.6) over (2:4.19.5+dfsg-4ubu
+ntu9.4) ...
+Preparing to unpack .../26-openjdk-21-jdk_21.0.11+10-1~24.04.2_amd64.deb ...
+Unpacking openjdk-21-jdk:amd64 (21.0.11+10-1~24.04.2) over (21.0.10+7-1~24.04) .
+..
+Preparing to unpack .../27-openjdk-21-jdk-headless_21.0.11+10-1~24.04.2_amd64.de
+b ...
+Unpacking openjdk-21-jdk-headless:amd64 (21.0.11+10-1~24.04.2) over (21.0.10+7-1
+~24.04) ...
+Preparing to unpack .../28-openjdk-21-jre_21.0.11+10-1~24.04.2_amd64.deb ...
+Unpacking openjdk-21-jre:amd64 (21.0.11+10-1~24.04.2) over (21.0.10+7-1~24.04) .
+..
+Preparing to unpack .../29-openjdk-21-jre-headless_21.0.11+10-1~24.04.2_amd64.de
+b ...
+Unpacking openjdk-21-jre-headless:amd64 (21.0.11+10-1~24.04.2) over (21.0.10+7-1
+~24.04) ...
+Preparing to unpack .../30-libreoffice-script-provider-bsh_4%3a24.2.7-0ubuntu0.2
+4.04.5_all.deb ...
+Unpacking libreoffice-script-provider-bsh (4:24.2.7-0ubuntu0.24.04.5) over (4:24
+.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../31-libreoffice-script-provider-js_4%3a24.2.7-0ubuntu0.24
+.04.5_all.deb ...
+Unpacking libreoffice-script-provider-js (4:24.2.7-0ubuntu0.24.04.5) over (4:24.
+2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../32-libreoffice-script-provider-python_4%3a24.2.7-0ubuntu
+0.24.04.5_all.deb ...
+Unpacking libreoffice-script-provider-python (4:24.2.7-0ubuntu0.24.04.5) over (4
+:24.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../33-libreoffice-sdbc-firebird_4%3a24.2.7-0ubuntu0.24.04.5
+_amd64.deb ...
+Unpacking libreoffice-sdbc-firebird (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0
+ubuntu0.24.04.4) ...
+Preparing to unpack .../34-libreoffice-sdbc-hsqldb_4%3a24.2.7-0ubuntu0.24.04.5_a
+md64.deb ...
+Unpacking libreoffice-sdbc-hsqldb (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ub
+untu0.24.04.4) ...
+Preparing to unpack .../35-libreoffice-sdbc-mysql_4%3a24.2.7-0ubuntu0.24.04.5_am
+d64.deb ...
+Unpacking libreoffice-sdbc-mysql (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubu
+ntu0.24.04.4) ...
+Preparing to unpack .../36-libreoffice-sdbc-postgresql_4%3a24.2.7-0ubuntu0.24.04
+.5_amd64.deb ...
+Unpacking libreoffice-sdbc-postgresql (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7
+-0ubuntu0.24.04.4) ...
+Preparing to unpack .../37-libreoffice-style-elementary_4%3a24.2.7-0ubuntu0.24.0
+4.5_all.deb ...
+Unpacking libreoffice-style-elementary (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.
+7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../38-libreoffice-style-yaru_4%3a24.2.7-0ubuntu0.24.04.5_al
+l.deb ...
+Unpacking libreoffice-style-yaru (4:24.2.7-0ubuntu0.24.04.5) over (4:24.2.7-0ubu
+ntu0.24.04.4) ...
+Preparing to unpack .../39-libreoffice-wiki-publisher_4%3a1.2.0+LibO24.2.7-0ubun
+tu0.24.04.5_all.deb ...
+Unpacking libreoffice-wiki-publisher (4:1.2.0+LibO24.2.7-0ubuntu0.24.04.5) over 
+(4:1.2.0+LibO24.2.7-0ubuntu0.24.04.4) ...
+Preparing to unpack .../40-libssh2-1t64_1.11.0-4.1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libssh2-1t64:amd64 (1.11.0-4.1ubuntu0.24.04.1) over (1.11.0-4.1build2)
+ ...
+Selecting previously unselected package linux-modules-6.17.0-35-generic.
+Preparing to unpack .../41-linux-modules-6.17.0-35-generic_6.17.0-35.35~24.04.1_
+amd64.deb ...
+Unpacking linux-modules-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Selecting previously unselected package linux-image-6.17.0-35-generic.
+Preparing to unpack .../42-linux-image-6.17.0-35-generic_6.17.0-35.35~24.04.1_am
+d64.deb ...
+Unpacking linux-image-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Selecting previously unselected package linux-modules-extra-6.17.0-35-generic.
+Preparing to unpack .../43-linux-modules-extra-6.17.0-35-generic_6.17.0-35.35~24
+.04.1_amd64.deb ...
+Unpacking linux-modules-extra-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Preparing to unpack .../44-linux-generic-hwe-24.04_6.17.0-35.35~24.04.1_amd64.de
+b ...
+Unpacking linux-generic-hwe-24.04 (6.17.0-35.35~24.04.1) over (6.17.0-29.29~24.0
+4.1) ...
+Preparing to unpack .../45-linux-image-generic-hwe-24.04_6.17.0-35.35~24.04.1_am
+d64.deb ...
+Unpacking linux-image-generic-hwe-24.04 (6.17.0-35.35~24.04.1) over (6.17.0-29.2
+9~24.04.1) ...
+Selecting previously unselected package linux-hwe-6.17-headers-6.17.0-35.
+Preparing to unpack .../46-linux-hwe-6.17-headers-6.17.0-35_6.17.0-35.35~24.04.1
+_all.deb ...
+Unpacking linux-hwe-6.17-headers-6.17.0-35 (6.17.0-35.35~24.04.1) ...
+Selecting previously unselected package linux-headers-6.17.0-35-generic.
+Preparing to unpack .../47-linux-headers-6.17.0-35-generic_6.17.0-35.35~24.04.1_
+amd64.deb ...
+Unpacking linux-headers-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Preparing to unpack .../48-linux-headers-generic-hwe-24.04_6.17.0-35.35~24.04.1_
+amd64.deb ...
+Unpacking linux-headers-generic-hwe-24.04 (6.17.0-35.35~24.04.1) over (6.17.0-29
+.29~24.04.1) ...
+Preparing to unpack .../49-linux-tools-common_6.8.0-124.124_all.deb ...
+Unpacking linux-tools-common (6.8.0-124.124) over (6.8.0-117.117) ...
+Selecting previously unselected package linux-hwe-6.17-tools-6.17.0-35.
+Preparing to unpack .../50-linux-hwe-6.17-tools-6.17.0-35_6.17.0-35.35~24.04.1_a
+md64.deb ...
+Unpacking linux-hwe-6.17-tools-6.17.0-35 (6.17.0-35.35~24.04.1) ...
+Preparing to unpack .../51-linux-libc-dev_6.8.0-124.124_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (6.8.0-124.124) over (6.8.0-117.117) ...
+Selecting previously unselected package linux-tools-6.17.0-35-generic.
+Preparing to unpack .../52-linux-tools-6.17.0-35-generic_6.17.0-35.35~24.04.1_am
+d64.deb ...
+Unpacking linux-tools-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Preparing to unpack .../53-openvpn_2.6.19-0ubuntu0.24.04.2_amd64.deb ...
+Unpacking openvpn (2.6.19-0ubuntu0.24.04.2) over (2.6.19-0ubuntu0.24.04.1) ...
+Preparing to unpack .../54-php8.3-zip_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-zip (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../55-php8.3-xml_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-xml (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../56-php8.3-sqlite3_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-sqlite3 (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) 
+...
+Preparing to unpack .../57-php8.3-readline_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-readline (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8)
+ ...
+Preparing to unpack .../58-php8.3-opcache_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-opcache (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) 
+...
+Preparing to unpack .../59-php8.3-mysql_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-mysql (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ..
+.
+Preparing to unpack .../60-php8.3-mbstring_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-mbstring (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8)
+ ...
+Preparing to unpack .../61-php8.3-gd_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-gd (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../62-php8.3-cli_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-cli (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../63-php8.3-fpm_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-fpm (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../64-php8.3-curl_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-curl (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../65-php8.3-bz2_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-bz2 (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) ...
+Preparing to unpack .../66-php8.3-bcmath_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-bcmath (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) .
+..
+Preparing to unpack .../67-php8.3-common_8.3.6-0ubuntu0.24.04.9_amd64.deb ...
+Unpacking php8.3-common (8.3.6-0ubuntu0.24.04.9) over (8.3.6-0ubuntu0.24.04.8) .
+..
+Preparing to unpack .../68-postgresql-client-16_16.14-0ubuntu0.24.04.1_amd64.deb
+ ...
+Unpacking postgresql-client-16 (16.14-0ubuntu0.24.04.1) over (16.13-0ubuntu0.24.
+04.1) ...
+Preparing to unpack .../69-snapd_2.75.2+ubuntu24.04_amd64.deb ...
+Unpacking snapd (2.75.2+ubuntu24.04) over (2.74.1+ubuntu24.04.4) ...
+Preparing to unpack .../70-xdg-desktop-portal_1.18.4-1ubuntu2.24.04.2_amd64.deb 
+...
+Unpacking xdg-desktop-portal (1.18.4-1ubuntu2.24.04.2) over (1.18.4-1ubuntu2.24.
+04.1) ...
+Preparing to unpack .../71-libreoffice-nlpsolver_4%3a0.9+LibO24.2.7-0ubuntu0.24.
+04.5_all.deb ...
+Unpacking libreoffice-nlpsolver (4:0.9+LibO24.2.7-0ubuntu0.24.04.5) over (4:0.9+
+LibO24.2.7-0ubuntu0.24.04.4) ...
+Setting up code (1.122.1-1780040850) ...
+Setting up snapd (2.75.2+ubuntu24.04) ...
+Installing new version of config file /etc/apparmor.d/usr.lib.snapd.snap-confine
+.real ...
+snapd.failure.service is a disabled or a static unit not running, not starting i
+t.
+snapd.gpio-chardev-setup.target is a disabled or a static unit not running, not 
+starting it.
+snapd.snap-repair.service is a disabled or a static unit not running, not starti
+ng it.
+Setting up google-chrome-stable (148.0.7778.215-1) ...
+Setting up xdg-desktop-portal (1.18.4-1ubuntu2.24.04.2) ...
+Setting up libuno-sal3t64 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up openvpn (2.6.19-0ubuntu0.24.04.2) ...
+Setting up linux-modules-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Setting up libcaca0:amd64 (0.99.beta20-4ubuntu0.2) ...
+Setting up openjdk-21-jre-headless:amd64 (21.0.11+10-1~24.04.2) ...
+Installing new version of config file /etc/java-21-openjdk/security/java.securit
+y ...
+Setting up bind9-libs:amd64 (1:9.18.39-0ubuntu0.24.04.5) ...
+Setting up evince-common (46.3.1-0ubuntu1.1) ...
+Setting up libreoffice-uiconfig-writer (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up postgresql-client-16 (16.14-0ubuntu0.24.04.1) ...
+Setting up linux-libc-dev:amd64 (6.8.0-124.124) ...
+Setting up gstreamer1.0-gtk3:amd64 (1.24.2-1ubuntu1.4) ...
+Setting up php8.3-common (8.3.6-0ubuntu0.24.04.9) ...
+Setting up php8.3-zip (8.3.6-0ubuntu0.24.04.9) ...
+Setting up libreoffice-uiconfig-calc (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libwbclient0:amd64 (2:4.19.5+dfsg-4ubuntu9.6) ...
+Setting up xxd (2:9.1.0016-1ubuntu7.14) ...
+Setting up php8.3-mysql (8.3.6-0ubuntu0.24.04.9) ...
+Setting up php8.3-sqlite3 (8.3.6-0ubuntu0.24.04.9) ...
+Setting up linux-hwe-6.17-headers-6.17.0-35 (6.17.0-35.35~24.04.1) ...
+Setting up docker-buildx-plugin (0.34.1-1~ubuntu.24.04~noble) ...
+Setting up libreoffice-uiconfig-impress (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-style-colibre (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up php8.3-mbstring (8.3.6-0ubuntu0.24.04.9) ...
+Setting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.4) ...
+Setting up vim-common (2:9.1.0016-1ubuntu7.14) ...
+Setting up php8.3-readline (8.3.6-0ubuntu0.24.04.9) ...
+Setting up linux-image-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+I: /boot/vmlinuz.old is now a symlink to vmlinuz-6.17.0-29-generic
+I: /boot/initrd.img.old is now a symlink to initrd.img-6.17.0-29-generic
+I: /boot/vmlinuz is now a symlink to vmlinuz-6.17.0-35-generic
+I: /boot/initrd.img is now a symlink to initrd.img-6.17.0-35-generic
+Setting up containerd.io (2.2.4-1~ubuntu.24.04~noble) ...
+Setting up bruno (3.4.2) ...
+update-alternatives is /usr/bin/update-alternatives
+Setting up libreoffice-uiconfig-common (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up docker-compose-plugin (5.1.4-1~ubuntu.24.04~noble) ...
+Setting up docker-ce-cli (5:29.5.2-1~ubuntu.24.04~noble) ...
+Setting up linux-modules-extra-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Setting up php8.3-bcmath (8.3.6-0ubuntu0.24.04.9) ...
+Setting up brave-browser (1.90.128) ...
+Setting up libreoffice-uiconfig-base (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-style-yaru (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up php8.3-bz2 (8.3.6-0ubuntu0.24.04.9) ...
+Setting up php8.3-xml (8.3.6-0ubuntu0.24.04.9) ...
+Setting up docker-ce-rootless-extras (5:29.5.2-1~ubuntu.24.04~noble) ...
+Setting up libssh2-1t64:amd64 (1.11.0-4.1ubuntu0.24.04.1) ...
+Setting up libuno-salhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up php8.3-opcache (8.3.6-0ubuntu0.24.04.9) ...
+Setting up libunoloader-java (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up vim-runtime (2:9.1.0016-1ubuntu7.14) ...
+Setting up libldb2:amd64 (2:2.8.0+samba4.19.5+dfsg-4ubuntu9.6) ...
+Setting up bind9-host (1:9.18.39-0ubuntu0.24.04.5) ...
+Setting up libreoffice-uiconfig-report-builder (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-uiconfig-draw (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up linux-tools-common (6.8.0-124.124) ...
+Setting up libarchive13t64:amd64 (3.7.2-2ubuntu0.7) ...
+Setting up fonts-opensymbol (4:102.12+LibO24.2.7-0ubuntu0.24.04.5) ...
+Setting up rsync (3.2.7-1ubuntu1.4) ...
+rsync.service is a disabled or a static unit not running, not starting it.
+Setting up php8.3-gd (8.3.6-0ubuntu0.24.04.9) ...
+Setting up libreoffice-uiconfig-math (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-style-elementary (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up vim (2:9.1.0016-1ubuntu7.14) ...
+Setting up php8.3-curl (8.3.6-0ubuntu0.24.04.9) ...
+Setting up linux-hwe-6.17-tools-6.17.0-35 (6.17.0-35.35~24.04.1) ...
+Setting up linux-image-generic-hwe-24.04 (6.17.0-35.35~24.04.1) ...
+Setting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.4) ...
+Setting up libevdocument3-4t64:amd64 (46.3.1-0ubuntu1.1) ...
+Setting up samba-libs:amd64 (2:4.19.5+dfsg-4ubuntu9.6) ...
+Setting up linux-headers-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Setting up vim-tiny (2:9.1.0016-1ubuntu7.14) ...
+Setting up php8.3-cli (8.3.6-0ubuntu0.24.04.9) ...
+Setting up linux-tools-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+Setting up docker-ce (5:29.5.2-1~ubuntu.24.04~noble) ...
+Setting up libuno-cppu3t64 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up linux-headers-generic-hwe-24.04 (6.17.0-35.35~24.04.1) ...
+Setting up bind9-dnsutils (1:9.18.39-0ubuntu0.24.04.5) ...
+Setting up libuno-purpenvhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libsmbclient0:amd64 (2:4.19.5+dfsg-4ubuntu9.6) ...
+Setting up uno-libs-private (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libevview3-3t64:amd64 (46.3.1-0ubuntu1.1) ...
+Setting up php8.3-fpm (8.3.6-0ubuntu0.24.04.9) ...
+Setting up linux-generic-hwe-24.04 (6.17.0-35.35~24.04.1) ...
+Setting up libuno-cppuhelpergcc3-3t64 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up evince (46.3.1-0ubuntu1.1) ...
+Setting up ure (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-common (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up ure-java (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-core (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-math (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-gtk3 (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-sdbc-postgresql (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up liblibreoffice-java (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-draw (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-java-common (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-base-drivers (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-wiki-publisher (4:1.2.0+LibO24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-sdbc-firebird (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-sdbc-mysql (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-gnome (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-impress (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-base-core (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up python3-uno (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-script-provider-bsh (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-script-provider-js (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-calc (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-base (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-sdbc-hsqldb (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-writer (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-script-provider-python (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-nlpsolver (4:0.9+LibO24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-report-builder-bin (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice (4:24.2.7-0ubuntu0.24.04.5) ...
+Setting up libreoffice-report-builder (4:24.2.7-0ubuntu0.24.04.5) ...
+Processing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8) ...
+Processing triggers for dbus (1.14.10-4ubuntu4.1) ...
+Processing triggers for shared-mime-info (2.4-4) ...
+Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+Processing triggers for desktop-file-utils (0.27-2build1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu3) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for ca-certificates-java (20240118) ...
+done.
+Setting up openjdk-21-jre:amd64 (21.0.11+10-1~24.04.2) ...
+Setting up openjdk-21-jdk-headless:amd64 (21.0.11+10-1~24.04.2) ...
+Setting up openjdk-21-jdk:amd64 (21.0.11+10-1~24.04.2) ...
+Processing triggers for linux-image-6.17.0-35-generic (6.17.0-35.35~24.04.1) ...
+/etc/kernel/postinst.d/initramfs-tools:
+update-initramfs: Generating /boot/initrd.img-6.17.0-35-generic
+/etc/kernel/postinst.d/zz-update-grub:
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.17.0-35-generic
+Found initrd image: /boot/initrd.img-6.17.0-35-generic
+Found linux image: /boot/vmlinuz-6.17.0-29-generic
+Found initrd image: /boot/initrd.img-6.17.0-29-generic
+Found linux image: /boot/vmlinuz-6.17.0-23-generic
+Found initrd image: /boot/initrd.img-6.17.0-23-generic
+Found linux image: /boot/vmlinuz-6.17.0-22-generic
+Found initrd image: /boot/initrd.img-6.17.0-22-generic
+Found memtest86+ 64bit EFI image: /boot/memtest86+x64.efi
+Warning: os-prober will be executed to detect other bootable partitions.
+Its output will be used to detect bootable binaries on them and create new boot entries.
+Found Windows Boot Manager on /dev/nvme1n1p1@/efi/Microsoft/Boot/bootmgfw.efi
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+Processing triggers for php8.3-cli (8.3.6-0ubuntu0.24.04.9) ...
+Processing triggers for php8.3-fpm (8.3.6-0ubuntu0.24.04.9) ...
+mohamed-sameh@Mohamed-Sameh-PC:~$ python3 -V
+Python 3.12.3
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo apt-get install wkhtmltopdf -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libslirp0 linux-headers-6.17.0-22-generic linux-headers-6.17.0-23-generic linux-hwe-6.17-headers-6.17.0-22 linux-hwe-6.17-headers-6.17.0-23
+  linux-hwe-6.17-tools-6.17.0-22 linux-hwe-6.17-tools-6.17.0-23 linux-image-6.17.0-22-generic linux-image-6.17.0-23-generic linux-modules-6.17.0-22-generic
+  linux-modules-6.17.0-23-generic linux-modules-extra-6.17.0-22-generic linux-modules-extra-6.17.0-23-generic
+  linux-modules-nvidia-580-open-6.17.0-22-generic linux-modules-nvidia-580-open-6.17.0-23-generic linux-tools-6.17.0-22-generic
+  linux-tools-6.17.0-23-generic slirp4netns
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libqt5positioning5 libqt5printsupport5t64 libqt5sensors5 libqt5webchannel5 libqt5webkit5 libwoff1
+The following NEW packages will be installed:
+  libqt5positioning5 libqt5printsupport5t64 libqt5sensors5 libqt5webchannel5 libqt5webkit5 libwoff1 wkhtmltopdf
+0 upgraded, 7 newly installed, 0 to remove and 16 not upgraded.
+Need to get 13.7 MB of archives.
+After this operation, 50.7 MB of additional disk space will be used.
+Get:1 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 libqt5positioning5 amd64 5.15.13+dfsg-1 [222 kB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 libqt5printsupport5t64 amd64 5.15.13+dfsg-1ubuntu1 [208 kB]
+Get:3 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 libqt5sensors5 amd64 5.15.13-1 [122 kB]
+Get:4 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 libqt5webchannel5 amd64 5.15.13-1 [61.9 kB]
+Get:5 http://eg.archive.ubuntu.com/ubuntu noble/main amd64 libwoff1 amd64 1.0.2-2build1 [45.3 kB]
+Get:6 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 libqt5webkit5 amd64 5.212.0~alpha4-36 [12.8 MB]
+Get:7 http://eg.archive.ubuntu.com/ubuntu noble/universe amd64 wkhtmltopdf amd64 0.12.6-2build2 [173 kB]
+Fetched 13.7 MB in 5s (2,507 kB/s)    
+Selecting previously unselected package libqt5positioning5:amd64.
+(Reading database ... 356733 files and directories currently installed.)
+Preparing to unpack .../0-libqt5positioning5_5.15.13+dfsg-1_amd64.deb ...
+Unpacking libqt5positioning5:amd64 (5.15.13+dfsg-1) ...
+Selecting previously unselected package libqt5printsupport5t64:amd64.
+Preparing to unpack .../1-libqt5printsupport5t64_5.15.13+dfsg-1ubuntu1_amd64.deb ...
+Unpacking libqt5printsupport5t64:amd64 (5.15.13+dfsg-1ubuntu1) ...
+Selecting previously unselected package libqt5sensors5:amd64.
+Preparing to unpack .../2-libqt5sensors5_5.15.13-1_amd64.deb ...
+Unpacking libqt5sensors5:amd64 (5.15.13-1) ...
+Selecting previously unselected package libqt5webchannel5:amd64.
+Preparing to unpack .../3-libqt5webchannel5_5.15.13-1_amd64.deb ...
+Unpacking libqt5webchannel5:amd64 (5.15.13-1) ...
+Selecting previously unselected package libwoff1:amd64.
+Preparing to unpack .../4-libwoff1_1.0.2-2build1_amd64.deb ...
+Unpacking libwoff1:amd64 (1.0.2-2build1) ...
+Selecting previously unselected package libqt5webkit5:amd64.
+Preparing to unpack .../5-libqt5webkit5_5.212.0~alpha4-36_amd64.deb ...
+Unpacking libqt5webkit5:amd64 (5.212.0~alpha4-36) ...
+Selecting previously unselected package wkhtmltopdf.
+Preparing to unpack .../6-wkhtmltopdf_0.12.6-2build2_amd64.deb ...
+Unpacking wkhtmltopdf (0.12.6-2build2) ...
+Setting up libwoff1:amd64 (1.0.2-2build1) ...
+Setting up libqt5positioning5:amd64 (5.15.13+dfsg-1) ...
+Setting up libqt5webchannel5:amd64 (5.15.13-1) ...
+Setting up libqt5sensors5:amd64 (5.15.13-1) ...
+Setting up libqt5printsupport5t64:amd64 (5.15.13+dfsg-1ubuntu1) ...
+Setting up libqt5webkit5:amd64 (5.212.0~alpha4-36) ...
+Setting up wkhtmltopdf (0.12.6-2build2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
+ln: failed to create symbolic link '/usr/bin/wkhtmltopdf': File exists
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo apt-get install postgresql -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libslirp0 linux-headers-6.17.0-22-generic linux-headers-6.17.0-23-generic linux-hwe-6.17-headers-6.17.0-22 linux-hwe-6.17-headers-6.17.0-23
+  linux-hwe-6.17-tools-6.17.0-22 linux-hwe-6.17-tools-6.17.0-23 linux-image-6.17.0-22-generic linux-image-6.17.0-23-generic linux-modules-6.17.0-22-generic
+  linux-modules-6.17.0-23-generic linux-modules-extra-6.17.0-22-generic linux-modules-extra-6.17.0-23-generic
+  linux-modules-nvidia-580-open-6.17.0-22-generic linux-modules-nvidia-580-open-6.17.0-23-generic linux-tools-6.17.0-22-generic
+  linux-tools-6.17.0-23-generic slirp4netns
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libtypes-serialiser-perl postgresql-16 postgresql-common
+Suggested packages:
+  postgresql-doc
+The following NEW packages will be installed:
+  libcommon-sense-perl libjson-perl libjson-xs-perl libllvm17t64 libtypes-serialiser-perl postgresql postgresql-16 postgresql-common
+0 upgraded, 8 newly installed, 0 to remove and 16 not upgraded.
+Need to get 42.1 MB of archives.
+After this operation, 170 MB of additional disk space will be used.
+Get:1 http://eg.archive.ubuntu.com/ubuntu noble/main amd64 libjson-perl all 4.10000-1 [81.9 kB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-common all 257build1.1 [161 kB]
+Get:3 http://eg.archive.ubuntu.com/ubuntu noble/main amd64 libcommon-sense-perl amd64 3.75-3build3 [20.4 kB]
+Get:4 http://eg.archive.ubuntu.com/ubuntu noble/main amd64 libtypes-serialiser-perl all 1.01-1 [11.6 kB]
+Get:5 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 libjson-xs-perl amd64 4.040-0ubuntu0.24.04.1 [83.7 kB]
+Get:6 http://eg.archive.ubuntu.com/ubuntu noble/main amd64 libllvm17t64 amd64 1:17.0.6-9ubuntu1 [26.2 MB]
+Get:7 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-16 amd64 16.14-0ubuntu0.24.04.1 [15.6 MB]                                      
+Get:8 http://eg.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql all 16+257build1.1 [11.6 kB]                                                   
+Fetched 42.1 MB in 16s (2,688 kB/s)                                                                                                                          
+Preconfiguring packages ...
+Selecting previously unselected package libjson-perl.
+(Reading database ... 356796 files and directories currently installed.)
+Preparing to unpack .../0-libjson-perl_4.10000-1_all.deb ...
+Unpacking libjson-perl (4.10000-1) ...
+Selecting previously unselected package postgresql-common.
+Preparing to unpack .../1-postgresql-common_257build1.1_all.deb ...
+Adding 'diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common'
+Unpacking postgresql-common (257build1.1) ...
+Selecting previously unselected package libcommon-sense-perl:amd64.
+Preparing to unpack .../2-libcommon-sense-perl_3.75-3build3_amd64.deb ...
+Unpacking libcommon-sense-perl:amd64 (3.75-3build3) ...
+Selecting previously unselected package libtypes-serialiser-perl.
+Preparing to unpack .../3-libtypes-serialiser-perl_1.01-1_all.deb ...
+Unpacking libtypes-serialiser-perl (1.01-1) ...
+Selecting previously unselected package libjson-xs-perl.
+Preparing to unpack .../4-libjson-xs-perl_4.040-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+Selecting previously unselected package libllvm17t64:amd64.
+Preparing to unpack .../5-libllvm17t64_1%3a17.0.6-9ubuntu1_amd64.deb ...
+Unpacking libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+Selecting previously unselected package postgresql-16.
+Preparing to unpack .../6-postgresql-16_16.14-0ubuntu0.24.04.1_amd64.deb ...
+Unpacking postgresql-16 (16.14-0ubuntu0.24.04.1) ...
+Selecting previously unselected package postgresql.
+Preparing to unpack .../7-postgresql_16+257build1.1_all.deb ...
+Unpacking postgresql (16+257build1.1) ...
+Setting up libcommon-sense-perl:amd64 (3.75-3build3) ...
+Setting up libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+Setting up libtypes-serialiser-perl (1.01-1) ...
+Setting up libjson-perl (4.10000-1) ...
+Setting up libjson-xs-perl (4.040-0ubuntu0.24.04.1) ...
+Setting up postgresql-common (257build1.1) ...
+
+Creating config file /etc/postgresql-common/createcluster.conf with new version
+Building PostgreSQL dictionaries from installed myspell/hunspell packages...
+  en_us
+Removing obsolete dictionary files:
+Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
+Setting up postgresql-16 (16.14-0ubuntu0.24.04.1) ...
+Creating new PostgreSQL cluster 16/main ...
+/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/16/main --auth-local peer --auth-host scram-sha-256 --no-instructions
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/16/main ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Africa/Cairo
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+update-alternatives: updating alternative /usr/share/postgresql/16/man/man1/psql.1.gz because link group psql.1.gz has changed slave links
+Setting up postgresql (16+257build1.1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo systemctl start postgresql && sudo systemctl enable postgresql
+Synchronizing state of postgresql.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable postgresql
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo systemctl status postgresql
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
+     Active: active (exited) since Sun 2026-05-31 14:32:15 EEST; 1min 6s ago
+   Main PID: 52845 (code=exited, status=0/SUCCESS)
+        CPU: 2ms
+
+May 31 14:32:15 Mohamed-Sameh-PC systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...
+May 31 14:32:15 Mohamed-Sameh-PC systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo useradd -m -U -r -d /opt/odoo18 -s /bin/bash odoo18
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo su - postgres -c "createuser -s odoo18"
+mohamed-sameh@Mohamed-Sameh-PC:~$ su - odoo18
+Password: 
+su: Authentication failure
+mohamed-sameh@Mohamed-Sameh-PC:~$ su - odoo18
+Password: 
+su: Authentication failure
+mohamed-sameh@Mohamed-Sameh-PC:~$ su - odoo18
+Password: 
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo passwd odoo18
+New password: 
+Retype new password: 
+passwd: password updated successfully
+mohamed-sameh@Mohamed-Sameh-PC:~$ su - odoo18
+Password: 
+odoo18@Mohamed-Sameh-PC:~$ pwd
+/opt/odoo18
+odoo18@Mohamed-Sameh-PC:~$ git clone https://www.github.com/odoo/odoo --depth 1 --branch 18.0 /opt/odoo18/odoo18
+Cloning into '/opt/odoo18/odoo18'...
+warning: redirecting to https://github.com/odoo/odoo.git/
+remote: Enumerating objects: 50155, done.
+remote: Counting objects: 100% (50155/50155), done.
+remote: Compressing objects: 100% (35702/35702), done.
+remote: Total 50155 (delta 13696), reused 45058 (delta 12670), pack-reused 0 (from 0)
+Receiving objects: 100% (50155/50155), 186.63 MiB | 3.24 MiB/s, done.
+Resolving deltas: 100% (13696/13696), done.
+Updating files: 100% (43443/43443), done.
+odoo18@Mohamed-Sameh-PC:~$ python3.12 -m venv odoo18-venv
+source odoo18-venv/bin/activate
+pip install --upgrade pip
+pip3 install wheel
+pip3 install -r odoo18/requirements.txt
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.12-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: /opt/odoo18/odoo18-venv/bin/python3.12
+
+-bash: odoo18-venv/bin/activate: No such file or directory
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+odoo18@Mohamed-Sameh-PC:~$ deactivate
+deactivate: command not found
+odoo18@Mohamed-Sameh-PC:~$ sudo apt install build-essential wget git python3-pip python3-dev python3-venv python3-wheel python3 libfreetype6-dev libxml2-dev libzip-dev libsasl2-dev python3-setuptools libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libopenjp2-7-dev -y
+[sudo] password for odoo18: 
+sudo: a password is required
+odoo18@Mohamed-Sameh-PC:~$ root@host:~# sudo systemctl status postgresql
+● postgresql.service - PostgreSQL RDBMS
+Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
+Active: active (exited) since Sat 2024-10-19 02:48:16 CDT; 2min 23s ago
+Main PID: 28842 (code=exited, status=0/SUCCESS)
+CPU: 5ms
+Oct 19 02:48:16 host.test.vps systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...
+Oct 19 02:48:16 host.test.vps systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.
+root@host:~#: command not found
+●: command not found
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+CPU:: command not found
+Command 'Oct' not found, did you mean:
+  command 'act' from snap act (0.3.2)
+  command 'cct' from deb proj-bin (9.3.1-1)
+  command 'act' from deb artemis (18.2.0+dfsg-3)
+See 'snap info <snapname>' for additional versions.
+Command 'Oct' not found, did you mean:
+  command 'act' from snap act (0.3.2)
+  command 'act' from deb artemis (18.2.0+dfsg-3)
+  command 'cct' from deb proj-bin (9.3.1-1)
+See 'snap info <snapname>' for additional versions.
+odoo18@Mohamed-Sameh-PC:~$ python3.12 -m venv odoo18-venv
+source odoo18-venv/bin/activate
+pip install --upgrade pip
+pip3 install wheel
+pip3 install -r odoo18/requirements.txt
+Requirement already satisfied: pip in ./odoo18-venv/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Downloading pip-26.1.1-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.1.1-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 97.3 kB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-26.1.1
+Collecting wheel
+  Downloading wheel-0.47.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting packaging>=24.0 (from wheel)
+  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+Downloading wheel-0.47.0-py3-none-any.whl (32 kB)
+Downloading packaging-26.2-py3-none-any.whl (100 kB)
+Installing collected packages: packaging, wheel
+Successfully installed packaging-26.2 wheel-0.47.0
+Ignoring asn1crypto: markers 'python_version < "3.11"' don't match your environment
+Ignoring Babel: markers 'python_version < "3.11"' don't match your environment
+Ignoring Babel: markers 'python_version >= "3.13"' don't match your environment
+Ignoring cbor2: markers 'python_version < "3.11"' don't match your environment
+Ignoring cbor2: markers 'python_version >= "3.11" and python_version < "3.12"' don't match your environment
+Ignoring chardet: markers 'python_version < "3.11"' don't match your environment
+Ignoring cryptography: markers 'python_version < "3.12"' don't match your environment
+Ignoring decorator: markers 'python_version < "3.11"' don't match your environment
+Ignoring docutils: markers 'python_version < "3.11"' don't match your environment
+Ignoring freezegun: markers 'python_version < "3.11"' don't match your environment
+Ignoring freezegun: markers 'python_version >= "3.13"' don't match your environment
+Ignoring gevent: markers 'sys_platform != "win32" and python_version == "3.10"' don't match your environment
+Ignoring gevent: markers 'sys_platform != "win32" and python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring gevent: markers 'sys_platform != "win32" and python_version >= "3.13"' don't match your environment
+Ignoring greenlet: markers 'sys_platform != "win32" and python_version == "3.10"' don't match your environment
+Ignoring greenlet: markers 'sys_platform != "win32" and python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring greenlet: markers 'sys_platform != "win32" and python_version >= "3.13" and python_version < "3.14"' don't match your environment
+Ignoring greenlet: markers 'sys_platform != "win32" and python_version >= "3.14"' don't match your environment
+Ignoring idna: markers 'python_version < "3.12"' don't match your environment
+Ignoring Jinja2: markers 'python_version <= "3.10"' don't match your environment
+Ignoring libsass: markers 'python_version < "3.11"' don't match your environment
+Ignoring lxml: markers 'python_version <= "3.10"' don't match your environment
+Ignoring lxml: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring lxml: markers 'python_version >= "3.13" and python_version < "3.14"' don't match your environment
+Ignoring lxml: markers 'python_version >= "3.14"' don't match your environment
+Ignoring MarkupSafe: markers 'python_version <= "3.10"' don't match your environment
+Ignoring MarkupSafe: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring num2words: markers 'python_version < "3.12"' don't match your environment
+Ignoring openpyxl: markers 'python_version < "3.12"' don't match your environment
+Ignoring Pillow: markers 'python_version <= "3.10"' don't match your environment
+Ignoring Pillow: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring Pillow: markers 'python_version >= "3.13" and python_version < "3.14"' don't match your environment
+Ignoring Pillow: markers 'python_version >= "3.14"' don't match your environment
+Ignoring psutil: markers 'python_version <= "3.10"' don't match your environment
+Ignoring psutil: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring psycopg2: markers 'python_version == "3.10"' don't match your environment
+Ignoring psycopg2: markers 'python_version == "3.11"' don't match your environment
+Ignoring psycopg2: markers 'python_version >= "3.13"' don't match your environment
+Ignoring pyopenssl: markers 'python_version < "3.12"' don't match your environment
+Ignoring PyPDF2: markers 'python_version <= "3.10"' don't match your environment
+Ignoring PyPDF: markers 'python_version >= "3.13"' don't match your environment
+Ignoring pypiwin32: markers 'sys_platform == "win32"' don't match your environment
+Ignoring python-dateutil: markers 'python_version < "3.11"' don't match your environment
+Ignoring python-ldap: markers 'sys_platform != "win32" and python_version < "3.12"' don't match your environment
+Ignoring python-stdnum: markers 'python_version < "3.11"' don't match your environment
+Ignoring qrcode: markers 'python_version < "3.11"' don't match your environment
+Ignoring reportlab: markers 'python_version <= "3.10"' don't match your environment
+Ignoring reportlab: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring requests: markers 'python_version < "3.11"' don't match your environment
+Ignoring rjsmin: markers 'python_version < "3.11"' don't match your environment
+Ignoring rl-renderPM: markers 'sys_platform == "win32" and python_version >= "3.12"' don't match your environment
+Ignoring urllib3: markers 'python_version < "3.12"' don't match your environment
+Ignoring vobject: markers 'python_version >= "3.14"' don't match your environment
+Ignoring Werkzeug: markers 'python_version <= "3.10"' don't match your environment
+Ignoring Werkzeug: markers 'python_version > "3.10" and python_version < "3.12"' don't match your environment
+Ignoring xlrd: markers 'python_version < "3.12"' don't match your environment
+Ignoring XlsxWriter: markers 'python_version < "3.12"' don't match your environment
+Ignoring zeep: markers 'python_version < "3.11"' don't match your environment
+Ignoring zeep: markers 'python_version >= "3.13"' don't match your environment
+Collecting asn1crypto==1.5.1 (from -r odoo18/requirements.txt (line 4))
+  Downloading asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+Collecting Babel==2.10.3 (from -r odoo18/requirements.txt (line 6))
+  Downloading Babel-2.10.3-py3-none-any.whl.metadata (1.3 kB)
+Collecting cbor2==5.6.2 (from -r odoo18/requirements.txt (line 10))
+  Downloading cbor2-5.6.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.0 kB)
+Collecting chardet==5.2.0 (from -r odoo18/requirements.txt (line 12))
+  Downloading chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting cryptography==42.0.8 (from -r odoo18/requirements.txt (line 14))
+  Downloading cryptography-42.0.8-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting decorator==5.1.1 (from -r odoo18/requirements.txt (line 16))
+  Downloading decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting docutils==0.20.1 (from -r odoo18/requirements.txt (line 18))
+  Downloading docutils-0.20.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting freezegun==1.2.1 (from -r odoo18/requirements.txt (line 20))
+  Downloading freezegun-1.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting geoip2==2.9.0 (from -r odoo18/requirements.txt (line 22))
+  Downloading geoip2-2.9.0-py2.py3-none-any.whl.metadata (13 kB)
+Collecting gevent==24.2.1 (from -r odoo18/requirements.txt (line 25))
+  Downloading gevent-24.2.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (13 kB)
+Collecting greenlet==3.0.3 (from -r odoo18/requirements.txt (line 29))
+  Downloading greenlet-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting idna==3.6 (from -r odoo18/requirements.txt (line 33))
+  Downloading idna-3.6-py3-none-any.whl.metadata (9.9 kB)
+Collecting Jinja2==3.1.2 (from -r odoo18/requirements.txt (line 35))
+  Downloading Jinja2-3.1.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting libsass==0.22.0 (from -r odoo18/requirements.txt (line 37))
+  Downloading libsass-0.22.0-cp36-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (4.6 kB)
+Collecting lxml==5.2.1 (from -r odoo18/requirements.txt (line 40))
+  Downloading lxml-5.2.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.4 kB)
+Collecting lxml-html-clean (from -r odoo18/requirements.txt (line 43))
+  Downloading lxml_html_clean-0.4.5-py3-none-any.whl.metadata (2.4 kB)
+Collecting MarkupSafe==2.1.5 (from -r odoo18/requirements.txt (line 46))
+  Downloading MarkupSafe-2.1.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+Collecting num2words==0.5.13 (from -r odoo18/requirements.txt (line 48))
+  Downloading num2words-0.5.13-py3-none-any.whl.metadata (12 kB)
+Collecting ofxparse==0.21 (from -r odoo18/requirements.txt (line 49))
+  Downloading ofxparse-0.21.tar.gz (53 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting openpyxl==3.1.2 (from -r odoo18/requirements.txt (line 51))
+  Downloading openpyxl-3.1.2-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting passlib==1.7.4 (from -r odoo18/requirements.txt (line 52))
+  Downloading passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting Pillow==10.2.0 (from -r odoo18/requirements.txt (line 55))
+  Downloading pillow-10.2.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (9.7 kB)
+Collecting polib==1.1.1 (from -r odoo18/requirements.txt (line 58))
+  Downloading polib-1.1.1-py2.py3-none-any.whl.metadata (14 kB)
+Collecting psutil==5.9.8 (from -r odoo18/requirements.txt (line 61))
+  Downloading psutil-5.9.8-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (21 kB)
+Collecting psycopg2==2.9.9 (from -r odoo18/requirements.txt (line 64))
+  Downloading psycopg2-2.9.9.tar.gz (384 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting pyopenssl==24.1.0 (from -r odoo18/requirements.txt (line 67))
+  Downloading pyOpenSSL-24.1.0-py3-none-any.whl.metadata (12 kB)
+Collecting PyPDF2==2.12.1 (from -r odoo18/requirements.txt (line 69))
+  Downloading pypdf2-2.12.1-py3-none-any.whl.metadata (6.6 kB)
+Collecting pyserial==3.5 (from -r odoo18/requirements.txt (line 72))
+  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
+Collecting python-dateutil==2.8.2 (from -r odoo18/requirements.txt (line 74))
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting python-ldap==3.4.4 (from -r odoo18/requirements.txt (line 76))
+  Downloading python-ldap-3.4.4.tar.gz (377 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting python-stdnum==1.19 (from -r odoo18/requirements.txt (line 78))
+  Downloading python_stdnum-1.19-py2.py3-none-any.whl.metadata (17 kB)
+Collecting pytz (from -r odoo18/requirements.txt (line 79))
+  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pyusb==1.2.1 (from -r odoo18/requirements.txt (line 80))
+  Downloading pyusb-1.2.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting qrcode==7.4.2 (from -r odoo18/requirements.txt (line 82))
+  Downloading qrcode-7.4.2-py3-none-any.whl.metadata (17 kB)
+Collecting reportlab==4.1.0 (from -r odoo18/requirements.txt (line 85))
+  Downloading reportlab-4.1.0-py3-none-any.whl.metadata (1.4 kB)
+Collecting requests==2.31.0 (from -r odoo18/requirements.txt (line 87))
+  Downloading requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting rjsmin==1.2.0 (from -r odoo18/requirements.txt (line 89))
+  Downloading rjsmin-1.2.0.tar.gz (419 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting urllib3==2.0.7 (from -r odoo18/requirements.txt (line 92))
+  Downloading urllib3-2.0.7-py3-none-any.whl.metadata (6.6 kB)
+Collecting vobject==0.9.6.1 (from -r odoo18/requirements.txt (line 93))
+  Downloading vobject-0.9.6.1.tar.gz (58 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting Werkzeug==3.0.1 (from -r odoo18/requirements.txt (line 97))
+  Downloading werkzeug-3.0.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting xlrd==2.0.1 (from -r odoo18/requirements.txt (line 99))
+  Downloading xlrd-2.0.1-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting XlsxWriter==3.1.9 (from -r odoo18/requirements.txt (line 101))
+  Downloading XlsxWriter-3.1.9-py3-none-any.whl.metadata (2.6 kB)
+Collecting xlwt==1.3.0 (from -r odoo18/requirements.txt (line 102))
+  Downloading xlwt-1.3.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting zeep==4.2.1 (from -r odoo18/requirements.txt (line 104))
+  Downloading zeep-4.2.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting cffi>=1.12 (from cryptography==42.0.8->-r odoo18/requirements.txt (line 14))
+  Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+Collecting maxminddb>=1.4.0 (from geoip2==2.9.0->-r odoo18/requirements.txt (line 22))
+  Downloading maxminddb-3.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting zope.event (from gevent==24.2.1->-r odoo18/requirements.txt (line 25))
+  Downloading zope_event-6.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting zope.interface (from gevent==24.2.1->-r odoo18/requirements.txt (line 25))
+  Downloading zope_interface-8.5-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (47 kB)
+Collecting docopt>=0.6.2 (from num2words==0.5.13->-r odoo18/requirements.txt (line 48))
+  Downloading docopt-0.6.2.tar.gz (25 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting beautifulsoup4 (from ofxparse==0.21->-r odoo18/requirements.txt (line 49))
+  Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting six (from ofxparse==0.21->-r odoo18/requirements.txt (line 49))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting et-xmlfile (from openpyxl==3.1.2->-r odoo18/requirements.txt (line 51))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting pyasn1>=0.3.7 (from python-ldap==3.4.4->-r odoo18/requirements.txt (line 76))
+  Downloading pyasn1-0.6.3-py3-none-any.whl.metadata (8.4 kB)
+Collecting pyasn1_modules>=0.1.5 (from python-ldap==3.4.4->-r odoo18/requirements.txt (line 76))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting typing-extensions (from qrcode==7.4.2->-r odoo18/requirements.txt (line 82))
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pypng (from qrcode==7.4.2->-r odoo18/requirements.txt (line 82))
+  Downloading pypng-0.20220715.0-py3-none-any.whl.metadata (13 kB)
+Collecting charset-normalizer<4,>=2 (from requests==2.31.0->-r odoo18/requirements.txt (line 87))
+  Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting certifi>=2017.4.17 (from requests==2.31.0->-r odoo18/requirements.txt (line 87))
+  Downloading certifi-2026.5.20-py3-none-any.whl.metadata (2.5 kB)
+Collecting attrs>=17.2.0 (from zeep==4.2.1->-r odoo18/requirements.txt (line 104))
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting isodate>=0.5.4 (from zeep==4.2.1->-r odoo18/requirements.txt (line 104))
+  Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
+Collecting platformdirs>=1.4.0 (from zeep==4.2.1->-r odoo18/requirements.txt (line 104))
+  Downloading platformdirs-4.10.0-py3-none-any.whl.metadata (5.5 kB)
+Collecting requests-toolbelt>=0.7.1 (from zeep==4.2.1->-r odoo18/requirements.txt (line 104))
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting requests-file>=1.5.1 (from zeep==4.2.1->-r odoo18/requirements.txt (line 104))
+  Downloading requests_file-3.0.1-py2.py3-none-any.whl.metadata (1.7 kB)
+INFO: pip is looking at multiple versions of lxml-html-clean to determine which version is compatible with other requirements. This could take a while.
+Collecting lxml-html-clean (from -r odoo18/requirements.txt (line 43))
+  Downloading lxml_html_clean-0.4.4-py3-none-any.whl.metadata (2.4 kB)
+Collecting pycparser (from cffi>=1.12->cryptography==42.0.8->-r odoo18/requirements.txt (line 14))
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4->ofxparse==0.21->-r odoo18/requirements.txt (line 49))
+  Downloading soupsieve-2.8.4-py3-none-any.whl.metadata (4.6 kB)
+Downloading asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+Downloading Babel-2.10.3-py3-none-any.whl (9.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.5/9.5 MB 3.5 MB/s  0:00:02
+Downloading cbor2-5.6.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (270 kB)
+Downloading chardet-5.2.0-py3-none-any.whl (199 kB)
+Downloading cryptography-42.0.8-cp39-abi3-manylinux_2_28_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 3.5 MB/s  0:00:01
+Downloading decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Downloading docutils-0.20.1-py3-none-any.whl (572 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 572.7/572.7 kB 3.5 MB/s  0:00:00
+Downloading freezegun-1.2.1-py3-none-any.whl (16 kB)
+Downloading geoip2-2.9.0-py2.py3-none-any.whl (18 kB)
+Downloading gevent-24.2.1-cp312-cp312-manylinux_2_28_x86_64.whl (6.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 3.5 MB/s  0:00:01
+Downloading greenlet-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (625 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 625.7/625.7 kB 3.4 MB/s  0:00:00
+Downloading idna-3.6-py3-none-any.whl (61 kB)
+Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+Downloading libsass-0.22.0-cp36-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl (9.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 MB 3.4 MB/s  0:00:02
+Downloading lxml-5.2.1-cp312-cp312-manylinux_2_28_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 2.8 MB/s  0:00:01
+Downloading MarkupSafe-2.1.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (28 kB)
+Downloading num2words-0.5.13-py3-none-any.whl (143 kB)
+Downloading openpyxl-3.1.2-py2.py3-none-any.whl (249 kB)
+Downloading passlib-1.7.4-py2.py3-none-any.whl (525 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.6/525.6 kB 1.8 MB/s  0:00:00
+Downloading pillow-10.2.0-cp312-cp312-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 2.1 MB/s  0:00:02
+Downloading polib-1.1.1-py2.py3-none-any.whl (20 kB)
+Downloading psutil-5.9.8-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+Downloading pyOpenSSL-24.1.0-py3-none-any.whl (56 kB)
+Downloading pypdf2-2.12.1-py3-none-any.whl (222 kB)
+Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Downloading python_stdnum-1.19-py2.py3-none-any.whl (1.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 2.4 MB/s  0:00:00
+Downloading pyusb-1.2.1-py3-none-any.whl (58 kB)
+Downloading qrcode-7.4.2-py3-none-any.whl (46 kB)
+Downloading reportlab-4.1.0-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 2.3 MB/s  0:00:00
+Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
+Downloading werkzeug-3.0.1-py3-none-any.whl (226 kB)
+Downloading xlrd-2.0.1-py2.py3-none-any.whl (96 kB)
+Downloading XlsxWriter-3.1.9-py3-none-any.whl (154 kB)
+Downloading xlwt-1.3.0-py2.py3-none-any.whl (99 kB)
+Downloading zeep-4.2.1-py3-none-any.whl (101 kB)
+Downloading charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+Downloading lxml_html_clean-0.4.4-py3-none-any.whl (14 kB)
+Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading certifi-2026.5.20-py3-none-any.whl (134 kB)
+Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+Downloading maxminddb-3.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (101 kB)
+Downloading platformdirs-4.10.0-py3-none-any.whl (22 kB)
+Downloading pyasn1-0.6.3-py3-none-any.whl (83 kB)
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+Downloading requests_file-3.0.1-py2.py3-none-any.whl (4.5 kB)
+Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+Downloading soupsieve-2.8.4-py3-none-any.whl (37 kB)
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading pypng-0.20220715.0-py3-none-any.whl (58 kB)
+Downloading zope_event-6.2-py3-none-any.whl (6.5 kB)
+Downloading zope_interface-8.5-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (270 kB)
+Building wheels for collected packages: ofxparse, psycopg2, python-ldap, rjsmin, vobject, docopt
+  Building wheel for ofxparse (pyproject.toml) ... done
+  Created wheel for ofxparse: filename=ofxparse-0.21-py3-none-any.whl size=35403 sha256=a02cc65f26fc6ae28d2275fb9bc96dbf814614fc84c5e385a0fa1803dc7495ca
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/fa/b9/74/fddaedbeedab03989516f7c3f13fdae69856160288679f102f
+  Building wheel for psycopg2 (pyproject.toml) ... done
+  Created wheel for psycopg2: filename=psycopg2-2.9.9-cp312-cp312-linux_x86_64.whl size=529894 sha256=7c65d366ca198b3df20cd3b76285368c66bc62fca8bd314ebd06c4205bb7272e
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/ff/ac/80/7ccec163e3d05ae2112311b895132409b9abfd7e0c1c6b5183
+  Building wheel for python-ldap (pyproject.toml) ... done
+  Created wheel for python-ldap: filename=python_ldap-3.4.4-cp312-cp312-linux_x86_64.whl size=366208 sha256=c71879bf615730f0918e58767ab4b4378724a49ddda8b67f2c693822fd5cfa4e
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/52/eb/41/5a7623499a292eb53b74babfcd0a455a759c0cb0ba34790587
+  Building wheel for rjsmin (pyproject.toml) ... done
+  Created wheel for rjsmin: filename=rjsmin-1.2.0-cp312-cp312-linux_x86_64.whl size=43193 sha256=d46cb9eae63613f5df61a7f41de31dab1c2b0c289e5657068eca7e074c9af836
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/36/c3/55/f579b947368d812ea6b2e0dbd9134d3c78c1d7b892640c896b
+  Building wheel for vobject (pyproject.toml) ... done
+  Created wheel for vobject: filename=vobject-0.9.6.1-py3-none-any.whl size=47547 sha256=56b2f265a4ef35b95774bb0dd099a3f21b5634770447ece09cbac7a104bd71c2
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/4c/04/1b/8f3080b6086b78a723aee61095a625347ddabc573ab1c293bc
+  Building wheel for docopt (pyproject.toml) ... done
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13782 sha256=8bc9aa059131083e1c4ff2e396c60ec2d88448aa90f5d35a5b83d09d959131c9
+  Stored in directory: /opt/odoo18/.cache/pip/wheels/1a/bf/a1/4cee4f7678c68c5875ca89eaccf460593539805c3906722228
+Successfully built ofxparse psycopg2 python-ldap rjsmin vobject docopt
+Installing collected packages: xlwt, rjsmin, pytz, python-stdnum, pyserial, pypng, polib, passlib, docopt, asn1crypto, zope.interface, zope.event, XlsxWriter, xlrd, urllib3, typing-extensions, soupsieve, six, pyusb, PyPDF2, pycparser, pyasn1, psycopg2, psutil, platformdirs, Pillow, num2words, maxminddb, MarkupSafe, lxml, libsass, isodate, idna, greenlet, et-xmlfile, docutils, decorator, charset-normalizer, chardet, certifi, cbor2, Babel, attrs, Werkzeug, requests, reportlab, qrcode, python-dateutil, pyasn1_modules, openpyxl, lxml-html-clean, Jinja2, gevent, cffi, beautifulsoup4, vobject, requests-toolbelt, requests-file, python-ldap, ofxparse, geoip2, freezegun, cryptography, zeep, pyopenssl
+Successfully installed Babel-2.10.3 Jinja2-3.1.2 MarkupSafe-2.1.5 Pillow-10.2.0 PyPDF2-2.12.1 Werkzeug-3.0.1 XlsxWriter-3.1.9 asn1crypto-1.5.1 attrs-26.1.0 beautifulsoup4-4.14.3 cbor2-5.6.2 certifi-2026.5.20 cffi-2.0.0 chardet-5.2.0 charset-normalizer-3.4.7 cryptography-42.0.8 decorator-5.1.1 docopt-0.6.2 docutils-0.20.1 et-xmlfile-2.0.0 freezegun-1.2.1 geoip2-2.9.0 gevent-24.2.1 greenlet-3.0.3 idna-3.6 isodate-0.7.2 libsass-0.22.0 lxml-5.2.1 lxml-html-clean-0.4.4 maxminddb-3.1.1 num2words-0.5.13 ofxparse-0.21 openpyxl-3.1.2 passlib-1.7.4 platformdirs-4.10.0 polib-1.1.1 psutil-5.9.8 psycopg2-2.9.9 pyasn1-0.6.3 pyasn1_modules-0.4.2 pycparser-3.0 pyopenssl-24.1.0 pypng-0.20220715.0 pyserial-3.5 python-dateutil-2.8.2 python-ldap-3.4.4 python-stdnum-1.19 pytz-2026.2 pyusb-1.2.1 qrcode-7.4.2 reportlab-4.1.0 requests-2.31.0 requests-file-3.0.1 requests-toolbelt-1.0.0 rjsmin-1.2.0 six-1.17.0 soupsieve-2.8.4 typing-extensions-4.15.0 urllib3-2.0.7 vobject-0.9.6.1 xlrd-2.0.1 xlwt-1.3.0 zeep-4.2.1 zope.event-6.2 zope.interface-8.5
+(odoo18-venv) odoo18@Mohamed-Sameh-PC:~$ deactivate
+odoo18@Mohamed-Sameh-PC:~$ logout
+mohamed-sameh@Mohamed-Sameh-PC:~$ mkdir /opt/odoo18/odoo18-custom-addons
+chown -R odoo18:odoo18 /opt/odoo18/odoo18-custom-addons
+mkdir -p /var/log/odoo18/ && touch /var/log/odoo18/odoo18.log
+chown -R odoo18:odoo18 /var/log/odoo18/
+mkdir: cannot create directory ‘/opt/odoo18/odoo18-custom-addons’: Permission denied
+chown: cannot access '/opt/odoo18/odoo18-custom-addons': Permission denied
+mkdir: cannot create directory ‘/var/log/odoo18/’: Permission denied
+chown: cannot access '/var/log/odoo18/': No such file or directory
+mohamed-sameh@Mohamed-Sameh-PC:~$ su -
+Password: 
+su: Authentication failure
+mohamed-sameh@Mohamed-Sameh-PC:~$ sudo su -
+root@Mohamed-Sameh-PC:~# mkdir /opt/odoo18/odoo18-custom-addons
+chown -R odoo18:odoo18 /opt/odoo18/odoo18-custom-addons
+mkdir -p /var/log/odoo18/ && touch /var/log/odoo18/odoo18.log
+chown -R odoo18:odoo18 /var/log/odoo18/
+root@Mohamed-Sameh-PC:~# touch /etc/odoo18.conf
+root@Mohamed-Sameh-PC:~# vi /etc/odoo18.conf
+root@Mohamed-Sameh-PC:~# vi /etc/odoo18.conf
+root@Mohamed-Sameh-PC:~# touch /etc/systemd/system/odoo18.service
+root@Mohamed-Sameh-PC:~# vi /etc/systemd/system/odoo18.service
+root@Mohamed-Sameh-PC:~# sudo systemctl start odoo18 && sudo systemctl enable odoo18
+Created symlink /etc/systemd/system/multi-user.target.wants/odoo18.service → /etc/systemd/system/odoo18.service.
+root@Mohamed-Sameh-PC:~# sudo systemctl status odoo18
+● odoo18.service - odoo18
+     Loaded: loaded (/etc/systemd/system/odoo18.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-05-31 14:45:50 EEST; 2s ago
+   Main PID: 56798 (python3)
+      Tasks: 4 (limit: 18559)
+     Memory: 107.8M (peak: 108.5M)
+        CPU: 1.925s
+     CGroup: /system.slice/odoo18.service
+             └─56798 /opt/odoo18/odoo18-venv/bin/python3 /opt/odoo18/odoo18/odoo-bin -c /etc/odoo18.conf
+
+May 31 14:45:50 Mohamed-Sameh-PC systemd[1]: Started odoo18.service - odoo18.
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: Odoo version 18.0
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: Using configuration file at /etc/odoo18.conf
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: addons paths: ['/opt/odoo18/odoo18/odoo/addons', '/opt/odoo18/.loc>
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: database: default@default:default
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,104 56798 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf bina>
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,163 56798 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage bi>
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,710 56798 INFO ? odoo.service.server: HTTP service (werkzeug) running on Mohamed-Sameh-PC>
+...skipping...
+● odoo18.service - odoo18
+     Loaded: loaded (/etc/systemd/system/odoo18.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-05-31 14:45:50 EEST; 2s ago
+   Main PID: 56798 (python3)
+      Tasks: 4 (limit: 18559)
+     Memory: 107.8M (peak: 108.5M)
+        CPU: 1.925s
+     CGroup: /system.slice/odoo18.service
+             └─56798 /opt/odoo18/odoo18-venv/bin/python3 /opt/odoo18/odoo18/odoo-bin -c /etc/odoo18.conf
+
+May 31 14:45:50 Mohamed-Sameh-PC systemd[1]: Started odoo18.service - odoo18.
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: Odoo version 18.0
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: Using configuration file at /etc/odoo18.conf
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: addons paths: ['/opt/odoo18/odoo18/odoo/addons', '/opt/odoo18/.loc>
+May 31 14:45:51 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:51,904 56798 INFO ? odoo: database: default@default:default
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,104 56798 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf bina>
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,163 56798 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage bi>
+May 31 14:45:52 Mohamed-Sameh-PC odoo18[56798]: 2026-05-31 11:45:52,710 56798 INFO ? odoo.service.server: HTTP service (werkzeug) running on Mohamed-Sameh-PC>
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+root@Mohamed-Sameh-PC:~# 
+
+
