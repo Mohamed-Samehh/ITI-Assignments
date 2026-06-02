@@ -31,6 +31,20 @@
                         <field name="first_name"/>
                         <field name="last_name"/>
                     </group>
+                    <!-- Patients assigned to this doctor -->
+                    <notebook>
+                        <page string="Patients">
+                            <field name="patient_ids">
+                                <list>
+                                    <field name="first_name"/>
+                                    <field name="last_name"/>
+                                    <field name="blood_type"/>
+                                    <field name="state"/>
+                                    <field name="department_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

@@ -42,7 +42,7 @@
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="birth_date"/>
-                            <field name="age"/>
+                            <field name="age" readonly="1"/>
                             <field name="blood_type"/>
                         </group>
                         <!-- Right: medical + department info -->
@@ -58,8 +58,10 @@
                     </group>
 
                     <!-- Doctors: readonly until a department is chosen -->
-                    <field name="doctor_ids" widget="many2many_tags"
-                           readonly="not department_id"/>
+                    <group string="Doctors">
+                        <field name="doctor_ids" widget="many2many_tags"
+                               nolabel="1" readonly="not department_id"/>
+                    </group>
 
                     <!-- History tab: hidden when age is under 50 -->
                     <notebook invisible="age &lt; 50">

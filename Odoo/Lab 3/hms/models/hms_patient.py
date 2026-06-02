@@ -1,3 +1,4 @@
+from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -21,7 +22,7 @@ class HmsPatient(models.Model):
     pcr = fields.Boolean(string='PCR')
     image = fields.Binary(string='Image')
     address = fields.Text(string='Address')
-    age = fields.Integer(string='Age')
+    age = fields.Integer(string='Age', compute='_compute_age', store=True)
 
     state = fields.Selection([
         ('undetermined', 'Undetermined'),
@@ -40,19 +41,32 @@ class HmsPatient(models.Model):
         related='department_id.capacity',
         string='Department Capacity', readonly=True
     )
-    doctor_ids = fields.Many2many('hms.doctors', string='Doctors')
+    doctor_ids = fields.Many2many(
+        'hms.doctors', 'hms_patient_doctor_rel', 'patient_id', 'doctor_id',
+        string='Doctors')
 
-    @api.onchange('age')
-    def _onchange_age(self):
-        # auto-check PCR and warn if age is under 30
-        if self.age and self.age < 30:
-            self.pcr = True
-            return {
-                'warning': {
-                    'title': 'PCR Automatically Checked',
-                    'message': 'PCR has been checked because the patient age is under 30.',
+    @api.depends('birth_date')
+    def _compute_age(self):
+        today = fields.Date.today()
+        for rec in self:
+            if rec.birth_date:
+                rec.age = relativedelta(today, rec.birth_date).years
+            else:
+                rec.age = 0
+
+    @api.onchange('birth_date')
+    def _onchange_birth_date(self):
+        # auto-check PCR and warn if computed age is under 30
+        if self.birth_date:
+            age = relativedelta(fields.Date.today(), self.birth_date).years
+            if age < 30:
+                self.pcr = True
+                return {
+                    'warning': {
+                        'title': 'PCR Automatically Checked',
+                        'message': 'PCR has been checked because the patient age is under 30.',
+                    }
                 }
-            }
 
     @api.constrains('pcr', 'cr_ratio')
     def _check_cr_ratio(self):

@@ -9,3 +9,8 @@ class HmsDoctors(models.Model):
     first_name = fields.Char(string='First Name', required=True)
     last_name = fields.Char(string='Last Name', required=True)
     image = fields.Binary(string='Image')
+
+    # patients assigned to this doctor (reverse of hms.patient.doctor_ids)
+    patient_ids = fields.Many2many(
+        'hms.patient', 'hms_patient_doctor_rel', 'doctor_id', 'patient_id',
+        string='Patients')
