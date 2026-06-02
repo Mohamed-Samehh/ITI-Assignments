@@ -17,6 +17,8 @@
                 <field name="last_name"/>
                 <field name="birth_date"/>
                 <field name="blood_type"/>
+                <field name="state"/>
+                <field name="department_id"/>
             </list>
         </field>
     </record>
@@ -27,8 +29,13 @@
         <field name="model">hms.patient</field>
         <field name="arch" type="xml">
             <form>
+                <!-- State bar shown at the top -->
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="undetermined,good,fair,serious"/>
+                </header>
                 <sheet>
-                    <field name="image" widget="image" class="oe_avatar"/> <!-- round avatar photo -->
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <!-- Left: personal info -->
                         <group>
@@ -38,15 +45,24 @@
                             <field name="age"/>
                             <field name="blood_type"/>
                         </group>
-                        <!-- Right: medical info -->
+                        <!-- Right: medical + department info -->
                         <group>
-                            <field name="cr_ratio"/>
+                            <field name="cr_ratio" required="pcr"/>
                             <field name="pcr"/>
                             <field name="address"/>
+                            <!-- only open departments appear in the dropdown (domain is on the model) -->
+                            <field name="department_id"/>
+                            <!-- pulled from the selected department, cannot be edited -->
+                            <field name="department_capacity"/>
                         </group>
                     </group>
-                    <!-- Tabs at the bottom -->
-                    <notebook>
+
+                    <!-- Doctors: readonly until a department is chosen -->
+                    <field name="doctor_ids" widget="many2many_tags"
+                           readonly="not department_id"/>
+
+                    <!-- History tab: hidden when age is under 50 -->
+                    <notebook invisible="age &lt; 50">
                         <page string="History">
                             <field name="history"/>
                         </page>

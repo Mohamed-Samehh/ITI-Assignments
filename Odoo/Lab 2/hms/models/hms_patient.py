@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class HmsPatient(models.Model):
@@ -7,7 +8,7 @@ class HmsPatient(models.Model):
     _rec_name = 'first_name'
 
     first_name = fields.Char(string='First Name', required=True)
-    last_name = fields.Char(string='Last Name')
+    last_name = fields.Char(string='Last Name', required=True)
     birth_date = fields.Date(string='Birth Date')
     history = fields.Html(string='History')
     cr_ratio = fields.Float(string='CR Ratio')
@@ -21,3 +22,41 @@ class HmsPatient(models.Model):
     image = fields.Binary(string='Image')
     address = fields.Text(string='Address')
     age = fields.Integer(string='Age')
+
+    state = fields.Selection([
+        ('undetermined', 'Undetermined'),
+        ('good', 'Good'),
+        ('fair', 'Fair'),
+        ('serious', 'Serious'),
+    ], string='State', default='undetermined')
+
+    # only open departments can be selected (domain enforces this)
+    department_id = fields.Many2one(
+        'hms.department', string='Department',
+        domain=[('is_opened', '=', True)]
+    )
+    # pulled automatically from the selected department
+    department_capacity = fields.Integer(
+        related='department_id.capacity',
+        string='Department Capacity', readonly=True
+    )
+    doctor_ids = fields.Many2many('hms.doctors', string='Doctors')
+
+    @api.onchange('age')
+    def _onchange_age(self):
+        # auto-check PCR and warn if age is under 30
+        if self.age and self.age < 30:
+            self.pcr = True
+            return {
+                'warning': {
+                    'title': 'PCR Automatically Checked',
+                    'message': 'PCR has been checked because the patient age is under 30.',
+                }
+            }
+
+    @api.constrains('pcr', 'cr_ratio')
+    def _check_cr_ratio(self):
+        # CR ratio is mandatory when PCR is checked
+        for rec in self:
+            if rec.pcr and not rec.cr_ratio:
+                raise ValidationError('CR Ratio is required when PCR is checked.')
