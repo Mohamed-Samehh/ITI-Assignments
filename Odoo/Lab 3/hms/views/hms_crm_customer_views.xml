@@ -1,0 +1,27 @@
+<odoo>
+
+    <!-- Inherit partner form: add Related Patient inside Misc group of Sales & Purchase tab -->
+    <record id="view_partner_form_hms" model="ir.ui.view">
+        <field name="name">res.partner.form.hms</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']//group[@name='misc']" position="inside">
+                <field name="related_patient_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit partner list: add website column -->
+    <record id="view_partner_tree_hms" model="ir.ui.view">
+        <field name="name">res.partner.list.hms</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="email" position="after">
+                <field name="website" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
