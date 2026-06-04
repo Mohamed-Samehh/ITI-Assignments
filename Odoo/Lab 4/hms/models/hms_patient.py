@@ -7,10 +7,12 @@ from odoo.exceptions import ValidationError
 class HmsPatient(models.Model):
     _name = 'hms.patient'
     _description = 'Patient'
+    # mail.thread provides the message log shown as "Log History" in the report
+    _inherit = ['mail.thread']
     _rec_name = 'first_name'
 
-    first_name = fields.Char(string='First Name', required=True)
-    last_name = fields.Char(string='Last Name', required=True)
+    first_name = fields.Char(string='First Name', required=True, tracking=True)
+    last_name = fields.Char(string='Last Name', required=True, tracking=True)
     birth_date = fields.Date(string='Birth Date')
     history = fields.Html(string='History')
     cr_ratio = fields.Float(string='CR Ratio')
@@ -19,7 +21,7 @@ class HmsPatient(models.Model):
         ('b+', 'B+'), ('b-', 'B-'),
         ('o+', 'O+'), ('o-', 'O-'),
         ('ab+', 'AB+'), ('ab-', 'AB-'),
-    ], string='Blood Type')
+    ], string='Blood Type', tracking=True)
     pcr = fields.Boolean(string='PCR')
     image = fields.Binary(string='Image')
     email = fields.Char(string='Email')
@@ -31,7 +33,7 @@ class HmsPatient(models.Model):
         ('good', 'Good'),
         ('fair', 'Fair'),
         ('serious', 'Serious'),
-    ], string='State', default='undetermined')
+    ], string='State', default='undetermined', tracking=True)
 
     # only open departments can be selected (domain enforces this)
     department_id = fields.Many2one(

@@ -50,8 +50,9 @@
         </field>
     </record>
 
-    <!-- "Doctors" sub-menu under "Hospital" -->
+    <!-- "Doctors" sub-menu under "Hospital" - visible to HMS Managers only -->
     <menuitem id="menu_hms_doctors" name="Doctors"
-              parent="menu_hms_root" action="action_hms_doctors"/>
+              parent="menu_hms_root" action="action_hms_doctors"
+              groups="hms.group_hms_manager"/>
 
 </odoo>

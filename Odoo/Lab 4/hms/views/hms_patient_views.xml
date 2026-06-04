@@ -58,8 +58,8 @@
                         </group>
                     </group>
 
-                    <!-- Doctors: readonly until a department is chosen -->
-                    <group string="Doctors">
+                    <!-- Doctors: visible to HMS Managers only, readonly until a department is chosen -->
+                    <group string="Doctors" groups="hms.group_hms_manager">
                         <field name="doctor_ids" widget="many2many_tags"
                                nolabel="1" readonly="not department_id"/>
                     </group>
@@ -71,6 +71,8 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!-- Log History (chatter): tracked changes & messages -->
+                <chatter/>
             </form>
         </field>
     </record>

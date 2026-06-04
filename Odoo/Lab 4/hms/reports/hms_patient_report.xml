@@ -1,0 +1,108 @@
+<odoo>
+
+    <!-- ============================================================= -->
+    <!-- Report action: appears in the Print dropdown on a patient     -->
+    <!-- ============================================================= -->
+    <record id="action_report_hms_patient" model="ir.actions.report">
+        <field name="name">Patient Status Report</field>
+        <field name="model">hms.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hms.report_hms_patient</field>
+        <field name="report_file">hms.report_hms_patient</field>
+        <field name="binding_model_id" ref="model_hms_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- ============================================================= -->
+    <!-- QWeb template                                                 -->
+    <!-- ============================================================= -->
+    <template id="report_hms_patient">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div style="border: 2px solid #1f5fbf; padding: 25px;">
+
+                            <!-- Title + photo -->
+                            <div class="row">
+                                <div class="col-8">
+                                    <h1 style="color: #e8392c; font-weight: bold; margin-top: 10px;">
+                                        Patient Status Report
+                                    </h1>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <img t-if="doc.image"
+                                         t-att-src="image_data_uri(doc.image)"
+                                         style="max-height: 130px; max-width: 130px;"
+                                         alt="Patient photo"/>
+                                </div>
+                            </div>
+
+                            <!-- Patient details: two columns -->
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                    <p>
+                                        <strong>Name: </strong>
+                                        <span t-out="doc.first_name"/> <span t-out="doc.last_name"/>
+                                    </p>
+                                    <p><strong>Age: </strong><span t-field="doc.age"/></p>
+                                    <p>
+                                        <strong>Department: </strong>
+                                        <span t-field="doc.department_id"/>
+                                    </p>
+                                    <p>
+                                        <strong>Doctors: </strong>
+                                        <span t-out="', '.join(['%s %s' % (d.first_name, d.last_name) for d in doc.doctor_ids])"/>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p>
+                                        <strong>Birth date: </strong>
+                                        <span t-field="doc.birth_date"/>
+                                    </p>
+                                    <p><strong>PCR: </strong><span t-field="doc.cr_ratio"/></p>
+                                    <p>
+                                        <strong>Blood Type: </strong>
+                                        <span t-field="doc.blood_type"/>
+                                    </p>
+                                    <p><strong>Email: </strong><span t-out="doc.email"/></p>
+                                </div>
+                            </div>
+
+                            <!-- Log history -->
+                            <h3 class="text-center mt-4 mb-2"
+                                style="color: #e8392c; font-weight: bold;">
+                                Log History
+                            </h3>
+                            <table class="table table-sm" style="border-collapse: collapse; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color: #2f7bf0; color: #ffffff; border: 1px solid #2f7bf0;">User</th>
+                                        <th style="background-color: #2f7bf0; color: #ffffff; border: 1px solid #2f7bf0;">Date</th>
+                                        <th style="background-color: #2f7bf0; color: #ffffff; border: 1px solid #2f7bf0;">Info</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="doc.message_ids" t-as="msg"
+                                        style="background-color: #dce6fb;">
+                                        <td style="border: 1px solid #c2d2f5;">
+                                            <span t-out="msg.author_id.name"/>
+                                        </td>
+                                        <td style="border: 1px solid #c2d2f5;">
+                                            <span t-field="msg.date"/>
+                                        </td>
+                                        <td style="border: 1px solid #c2d2f5;">
+                                            <span t-out="msg.body"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
