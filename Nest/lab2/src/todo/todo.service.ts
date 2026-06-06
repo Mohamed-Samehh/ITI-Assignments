@@ -1,26 +1,26 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-
-// status is restricted to these three values
-export enum TodoStatus {
-  Todo = 'todo',
-  InProgress = 'in-progress',
-  Done = 'done',
-}
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Todo } from './entities/todo.entity';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
 
 @Injectable()
 export class TodoService {
-  // Our "database": a simple array kept in memory.
-  private todos = [{ id: 1, task: 'Learn NestJS', status: TodoStatus.Todo }];
-  private nextId = 2; // id for the next created todo
+  constructor(
+    // inject the TypeORM repository for the Todo entity
+    @InjectRepository(Todo)
+    private readonly todoRepository: Repository<Todo>,
+  ) {}
 
   // GET /todo  -> return all todos
-  findAll() {
-    return this.todos;
+  findAll(): Promise<Todo[]> {
+    return this.todoRepository.find();
   }
 
   // GET /todo/:id  -> return one todo (or 404)
-  findOne(id: number) {
-    const todo = this.todos.find((t) => t.id === id);
+  async findOne(id: number): Promise<Todo> {
+    const todo = await this.todoRepository.findOne({ where: { id } });
     if (!todo) {
       throw new NotFoundException(`Todo #${id} not found`);
     }
@@ -28,23 +28,28 @@ export class TodoService {
   }
 
   // POST /todo  -> create a new todo
-  create(task: string, status: TodoStatus = TodoStatus.Todo) {
-    const todo = { id: this.nextId++, task, status };
-    this.todos.push(todo);
-    return todo;
+  create(createTodoDto: CreateTodoDto): Promise<Todo> {
+    const todo = this.todoRepository.create(createTodoDto);
+    return this.todoRepository.save(todo);
   }
 
   // PATCH /todo/:id  -> update an existing todo
-  update(id: number, data: { task?: string; status?: TodoStatus }) {
-    const todo = this.findOne(id); // reuse the 404 check
-    Object.assign(todo, data); // copy only the given fields
-    return todo;
+  async update(id: number, updateTodoDto: UpdateTodoDto): Promise<Todo> {
+    // preload merges the changes onto the existing row (and returns
+    // undefined if the id doesn't exist)
+    const todo = await this.todoRepository.preload({ id, ...updateTodoDto });
+    if (!todo) {
+      throw new NotFoundException(`Todo #${id} not found`);
+    }
+    return this.todoRepository.save(todo);
   }
 
   // DELETE /todo/:id  -> remove a todo
-  remove(id: number) {
-    const todo = this.findOne(id); // reuse the 404 check
-    this.todos = this.todos.filter((t) => t.id !== id);
-    return todo;
+  async remove(id: number): Promise<Todo> {
+    const todo = await this.findOne(id); // reuse the 404 check
+    return this.todoRepository.remove(todo);
   }
 }
+
+// preload vs update
+// save vs create

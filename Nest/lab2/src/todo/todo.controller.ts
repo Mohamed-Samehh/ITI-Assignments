@@ -6,8 +6,11 @@ import {
   Delete,
   Param,
   Body,
+  ParseIntPipe,
 } from '@nestjs/common';
-import { TodoService, TodoStatus } from './todo.service';
+import { TodoService } from './todo.service';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
 
 @Controller('todo') // every route below starts with /todo
 export class TodoController {
@@ -21,28 +24,28 @@ export class TodoController {
 
   // GET /todo/:id
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todoService.findOne(Number(id));
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.todoService.findOne(id);
   }
 
   // POST /todo   body: { "task": "...", "status"?: "todo" }
   @Post()
-  create(@Body() body: { task: string; status?: TodoStatus }) {
-    return this.todoService.create(body.task, body.status);
+  create(@Body() createTodoDto: CreateTodoDto) {
+    return this.todoService.create(createTodoDto);
   }
 
   // PATCH /todo/:id   body: { "task"?: "...", "status"?: "in-progress" }
   @Patch(':id')
   update(
-    @Param('id') id: string,
-    @Body() body: { task?: string; status?: TodoStatus },
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateTodoDto: UpdateTodoDto,
   ) {
-    return this.todoService.update(Number(id), body);
+    return this.todoService.update(id, updateTodoDto);
   }
 
   // DELETE /todo/:id
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todoService.remove(Number(id));
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.todoService.remove(id);
   }
 }
