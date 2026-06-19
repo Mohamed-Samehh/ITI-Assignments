@@ -1,0 +1,2 @@
+New Rails: https://github.com/Software-ConstructionV1/new-rails-capital
+Fishing Bugs: https://github.com/Software-ConstructionV1/fishing-bugs-capital
