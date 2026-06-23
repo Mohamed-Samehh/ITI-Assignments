@@ -1,0 +1,3 @@
+New Rails: https://github.com/Software-ConstructionV1/new-rails-capital
+Fishing Bugs: https://github.com/Software-ConstructionV1/fishing-bugs-capital
+Migration war: https://github.com/Software-ConstructionV1/migration_war
